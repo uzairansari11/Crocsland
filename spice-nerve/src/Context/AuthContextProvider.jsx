@@ -1,12 +1,21 @@
-import React from 'react'
-import { createContext } from 'react'
+import React from "react";
+import { useState } from "react";
+import { createContext } from "react";
 
-const AuthContext=createContext()
+const AuthContext = createContext();
 
+export const AuthContextProvider = ({ children }) => {
+  const [authentification, setAuthentification] = useState({
+    isAuth: false,
+    name: false,
+  });
 
-export const AuthContextProvider = () => {
+  const loing = () => { };
 
   return (
-    <AuthContext.Provider>AuthContextProvider</AuthContext.Provider>
-  )
-}
+    <AuthContext.Provider value={{ authentification }}>
+      {" "}
+      {children}
+    </AuthContext.Provider>
+  );
+};
