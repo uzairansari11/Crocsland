@@ -1,38 +1,22 @@
 import React from "react";
-import banner from "../files/banner-1.avif";
-import { Box, Image, Button, Grid } from "@chakra-ui/react";
+import banner1 from "../files/banner-1.avif";
+import banner2 from "../files/banner-2.PNG";
+import banner3 from "../files/banner-3.PNG";
+import banner4 from "../files/banner-4.PNG";
+import banner5 from "../files/banner-5.PNG";
+
+import { Box, Image, Button, Grid, Center } from "@chakra-ui/react";
+import Faq from "../Component/Faq";
 export const Home = () => {
   return (
     <Box>
-     <Box bgGradient="linear(to-l, #7928CA, #FF0080)">
-       <Image src={banner} alt="" p={12} />
+      <Box bgGradient="linear(to-l, #7928CA, #FF0080)">
+        <Image src={banner1} alt="" p={12} />
 
-       {/* <Box
-         w={"full"}
-         b="0"
-         align={"left"}
-         border={"1px solid black"}
-         position={"absolute"}
-         zIndex={5}
-       >
-         {" "}
-         <Button
-           size="md"
-           height="48px"
-           width="200px"
-           border="2px"
-           borderColor=" #FF0080"
-           _hover={{
-             bg: "#7928CA",
-             color: "white",
-           }}
-         >
-           SHOP MEN’S
-         </Button>
-    </Box> */}
+
      </Box>
      <Grid
-       spacing={4}
+       spacing={1}
        templateColumns={{
          base: "repeat(1, 1fr)",
          sm: "repeat(1, 1fr)",
@@ -48,7 +32,7 @@ export const Home = () => {
          width="200px"
          border="2px"
          borderColor="#7928CA"
-         m={4}
+         m={2}
          _hover={{
            bg: "#FF0080",
            color: "white",
@@ -62,7 +46,7 @@ export const Home = () => {
          width="200px"
          border="2px"
          borderColor=" #FF0080"
-         m={4}
+         m={2}
          _hover={{
            bg: "#7928CA",
            color: "white",
@@ -76,7 +60,7 @@ export const Home = () => {
          width="200px"
          border="2px"
          borderColor="#7928CA"
-         m={4}
+         m={2}
          _hover={{
            bg: "#FF0080",
            color: "white",
@@ -90,7 +74,7 @@ export const Home = () => {
          width="200px"
          border="2px"
          borderColor=" #FF0080"
-         m={4}
+         m={2}
          _hover={{
            bg: "#7928CA",
            color: "white",
@@ -98,7 +82,40 @@ export const Home = () => {
        >
          SHOP JIBBITZ™
        </Button>
-     </Grid>
+      </Grid>
+      <Box >
+        <Center>
+        <Image src={banner2} alt="" p={2} />
+        </Center>
+
+      </Box>
+      <Box >
+        <Center>
+
+
+        <Image src={banner3} alt="" p={2} />
+        </Center>
+
+      </Box>
+      <Box >
+        <Center>
+        <Image src={banner4} alt="" p={2} />
+
+        </Center>
+      </Box>
+      <Box >
+        <Center>
+        <Image src={banner5} alt="" p={2} />
+
+        </Center>
+      <Center>
+        <Box  w={'xl'} p={2} m={2} >
+        <Faq />
+
+        </Box>
+      </Center>
+
+      </Box>
    </Box>
-  );
+ );
 };
