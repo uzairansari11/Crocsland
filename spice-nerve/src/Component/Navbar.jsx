@@ -15,7 +15,9 @@ import {
     useBreakpointValue,
     useDisclosure,
     Image,
+    Input,
 } from "@chakra-ui/react";
+import { AiOutlineShoppingCart } from 'react-icons/fa';
 import {
     HamburgerIcon,
     CloseIcon,
@@ -23,86 +25,119 @@ import {
     ChevronRightIcon,
 } from "@chakra-ui/icons";
 import logo from "../files/logo.png";
+import { Link as ReactLink } from "react-router-dom";
 export default function Navbar () {
     const { isOpen, onToggle } = useDisclosure();
-
+    const count = 14;
     return (
-        <Box>
-            <Flex
-                bg={useColorModeValue("white", "gray.800")}
-                color={useColorModeValue("gray.600", "white")}
-                minH={"60px"}
-                py={{ base: 2 }}
-                px={{ base: 4 }}
-                borderBottom={1}
-                borderStyle={"solid"}
-                borderColor={useColorModeValue("gray.200", "gray.900")}
-                align={"center"}
-            >
-                <Flex
-                    flex={{ base: 1, md: "auto" }}
-                    ml={{ base: -2 }}
-                    display={{ base: "flex", md: "none" }}
-                >
-                    <IconButton
-                        onClick={onToggle}
-                        icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-                        variant={"ghost"}
-                        aria-label={"Toggle Navigation"}
-                    />
-                </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-                    <Image
-                        src={logo}
-                        textAlign={useBreakpointValue({ base: "center", md: "left" })}
-                        w={useBreakpointValue({ base: "60%", sm: "60%", md: "15%", lg: "12%" })}
-                        color={useColorModeValue("gray.800", "white")}
-                    />
-                    <Flex display={{ base: "none", md: "flex" }} ml={10}>
-                        <DesktopNav />
-                    </Flex>
-                </Flex>
+     <Box
+         position={"fixed"}
+         w={"full"}
+         top={0}
+         left={0}
+         zIndex={3}
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={"flex-end"}
+     >
+         <Flex
+             bg={useColorModeValue("white", "gray.800")}
+             color={useColorModeValue("gray.600", "white")}
+             minH={"60px"}
+             py={{ base: 2 }}
+             px={{ base: 4 }}
+             borderBottom={1}
+             borderStyle={"solid"}
+             borderColor={useColorModeValue("gray.200", "gray.900")}
+             align={"center"}
+             border={"1px solid red"}
+         >
+             <Flex
+                 flex={{ base: 1, md: "auto" }}
+                 ml={{ base: -2 }}
+                 display={{ base: "flex", md: "none" }}
+
+             >
+                 <IconButton
+                     onClick={onToggle}
+                     icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+                     variant={"ghost"}
+                     aria-label={"Toggle Navigation"}
+                 />
+             </Flex>
+
+             <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+                 <ReactLink to="/">
+                     <Box>
+                         <Image
+                             src={logo}
+
+                             w={useBreakpointValue({ base: "80%", sm: "80%", md: "80%", lg: "80%" })}
+
+                         />
+                     </Box>
+                 </ReactLink>
+                 <Flex display={{ base: "none", md: "flex" }} ml={10}>
+                     <DesktopNav />
+                 </Flex>
+             </Flex>
+
+             <Stack
+                 flex={{ base: 1, md: .5 }}
+                    justifyItems={"space-around"}
                     direction={"row"}
-                    spacing={6}
-                >
-                    <Button
-                        display={{ md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={500}
-                        color={"black"}
-                        bg={"#8c52ff"}
-                        href={"#"}
-                        _hover={{
-                            bg: "#8c52ff",
-                        }}
-                    >
-                        Sign In
-                    </Button>
-                    <Button
-                        display={{ md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={500}
-                        color={"black"}
-                        bg={"#ff6262"}
-                        href={"#"}
-                        _hover={{
-                            bg: "#ff6262",
-                        }}
-                    >
-                        Logout
-                    </Button>
-                </Stack>
-            </Flex>
 
-            <Collapse in={isOpen} animateOpacity>
-                <MobileNav />
-            </Collapse>
-        </Box>
-    );
+                 spacing={3}
+
+
+             >
+                    <Input
+                        display={{ sm: "inline-flex" }}
+                        fontSize={"sm"}
+                        fontWeight={300}
+                        color={"black"}
+placeholder="search"
+
+
+
+                    />
+
+
+                 <ReactLink to="/login">
+                     <Button
+                         display={{ md: "inline-flex" }}
+                         fontSize={"sm"}
+                         fontWeight={300}
+                         color={"black"}
+                         bg={"#8c52ff"}
+                         href={"#"}
+                         _hover={{
+                             bg: "#8c52ff",
+                         }}
+                     >
+                         Sign In
+                     </Button>
+                 </ReactLink>
+
+                 <Button
+                     display={{ md: "inline-flex" }}
+                     fontSize={"sm"}
+                     fontWeight={300}
+                     color={"black"}
+                     bg={"#ff6262"}
+                     href={"#"}
+                     _hover={{
+                         bg: "#ff6262",
+                     }}
+                    >
+                 Cart:       {count}
+                 </Button>
+             </Stack>
+         </Flex>
+
+         <Collapse in={isOpen} animateOpacity>
+             <MobileNav />
+         </Collapse>
+     </Box>
+ );
 }
 
 const DesktopNav = () => {
@@ -131,30 +166,30 @@ const DesktopNav = () => {
                             </Link>
                         </PopoverTrigger>
 
-                        {navItem.children && (
-                            <PopoverContent
-                                border={0}
-                                boxShadow={"xl"}
-                                bg={popoverContentBgColor}
-                                p={4}
-                                rounded={"xl"}
-                                minW={"sm"}
-                            >
-                                <Stack>
-                                    {navItem.children.map((child) => (
-                                        <DesktopSubNav key={child.label} {...child} />
-                                    ))}
-                                </Stack>
-                            </PopoverContent>
-                        )}
-                    </Popover>
-                </Box>
-            ))}
-        </Stack>
-    );
+               {navItem.children && (
+                   <PopoverContent
+                       border={0}
+                       boxShadow={"xl"}
+                       bg={popoverContentBgColor}
+                       p={4}
+                       rounded={"xl"}
+                       minW={"sm"}
+                   >
+                       <Stack>
+                           {navItem.children.map((child) => (
+                               <DesktopSubNav key={child.label} {...child} />
+                           ))}
+                       </Stack>
+                   </PopoverContent>
+               )}
+           </Popover>
+       </Box>
+   ))}
+     </Stack>
+ );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }) => {
     return (
         <Link
             href={href}
@@ -205,7 +240,7 @@ const MobileNav = () => {
     );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href }) => {
     const { isOpen, onToggle } = useDisclosure();
 
     return (
@@ -235,34 +270,28 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                 )}
             </Flex>
 
-            <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-                <Stack
-                    mt={2}
-                    pl={4}
-                    borderLeft={1}
-                    borderStyle={"solid"}
-                    borderColor={useColorModeValue("gray.200", "gray.700")}
-                    align={"start"}
-                >
-                    {children &&
-                        children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
-                                {child.label}
-                            </Link>
-                        ))}
-                </Stack>
-            </Collapse>
-        </Stack>
-    );
+         <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+             <Stack
+                 mt={2}
+                 pl={4}
+                 borderLeft={1}
+                 borderStyle={"solid"}
+                 borderColor={useColorModeValue("gray.200", "gray.700")}
+                 align={"start"}
+             >
+                 {children &&
+                     children.map((child) => (
+                         <Link key={child.label} py={2} href={child.href}>
+                             {child.label}
+                         </Link>
+                     ))}
+             </Stack>
+         </Collapse>
+     </Stack>
+ );
 };
 
-interface NavItem {
-    label: string;
-    children?: Array<NavItem>;
-    href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS = [
     {
         label: "WOMEN",
         children: [
@@ -273,35 +302,35 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "Boots",
 
-                href: "#",
-            },
-            {
-                label: "Sandle",
+          href: "#",
+      },
+      {
+          label: "Sandle",
 
-                href: "#",
-            },
-            {
-                label: "Slides",
+          href: "#",
+      },
+      {
+          label: "Slides",
 
-                href: "#",
-            },
-            {
-                label: "Flip Flops",
+          href: "#",
+      },
+      {
+          label: "Flip Flops",
 
-                href: "#",
-            },
-            {
-                label: "Platform  and Wedges",
+          href: "#",
+      },
+      {
+          label: "Platform  and Wedges",
 
-                href: "#",
-            },
-            {
-                label: "Jibbitz Charms",
+          href: "#",
+      },
+      {
+          label: "Jibbitz Charms",
 
-                href: "#",
-            },
-            {
-                label: "Socks",
+          href: "#",
+      },
+      {
+          label: "Socks",
 
                 href: "#",
             },
@@ -317,35 +346,35 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "Boots",
 
-                href: "#",
-            },
-            {
-                label: "Sandle",
+          href: "#",
+      },
+      {
+          label: "Sandle",
 
-                href: "#",
-            },
-            {
-                label: "Slides",
+          href: "#",
+      },
+      {
+          label: "Slides",
 
-                href: "#",
-            },
-            {
-                label: "Flip Flops",
+          href: "#",
+      },
+      {
+          label: "Flip Flops",
 
-                href: "#",
-            },
-            {
-                label: "Platform  and Wedges",
+          href: "#",
+      },
+      {
+          label: "Platform  and Wedges",
 
-                href: "#",
-            },
-            {
-                label: "Jibbitz Charms",
+          href: "#",
+      },
+      {
+          label: "Jibbitz Charms",
 
-                href: "#",
-            },
-            {
-                label: "Socks",
+          href: "#",
+      },
+      {
+          label: "Socks",
 
                 href: "#",
             },
@@ -361,35 +390,35 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "Boots",
 
-                href: "#",
-            },
-            {
-                label: "Sandle",
+          href: "#",
+      },
+      {
+          label: "Sandle",
 
-                href: "#",
-            },
-            {
-                label: "Slides",
+          href: "#",
+      },
+      {
+          label: "Slides",
 
-                href: "#",
-            },
-            {
-                label: "Flip Flops",
+          href: "#",
+      },
+      {
+          label: "Flip Flops",
 
-                href: "#",
-            },
-            {
-                label: "Platform  and Wedges",
+          href: "#",
+      },
+      {
+          label: "Platform  and Wedges",
 
-                href: "#",
-            },
-            {
-                label: "Jibbitz Charms",
+          href: "#",
+      },
+      {
+          label: "Jibbitz Charms",
 
-                href: "#",
-            },
-            {
-                label: "Socks",
+          href: "#",
+      },
+      {
+          label: "Socks",
 
                 href: "#",
             },
@@ -402,25 +431,25 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "Nursing Shoes",
 
-                href: "#",
-            },
-            {
-                label: "Chef Shoes",
+          href: "#",
+      },
+      {
+          label: "Chef Shoes",
 
-                href: "#",
-            },
-            {
-                label: "Slip - Resistant Shoes",
+          href: "#",
+      },
+      {
+          label: "Slip - Resistant Shoes",
 
-                href: "#",
-            },
-            {
-                label: "Standing Shoes",
+          href: "#",
+      },
+      {
+          label: "Standing Shoes",
 
-                href: "#",
-            },
-            {
-                label: "Hospitality Shoes",
+          href: "#",
+      },
+      {
+          label: "Hospitality Shoes",
 
                 href: "#",
             },
@@ -433,20 +462,20 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "$19.99 or Less",
 
-                href: "#",
-            },
-            {
-                label: "$20.00 - $29.99",
+          href: "#",
+      },
+      {
+          label: "$20.00 - $29.99",
 
-                href: "#",
-            },
-            {
-                label: "$30.00 - $39.99",
+          href: "#",
+      },
+      {
+          label: "$30.00 - $39.99",
 
-                href: "#",
-            },
-            {
-                label: "$40.00 - $49.99",
+          href: "#",
+      },
+      {
+          label: "$40.00 - $49.99",
 
                 href: "#",
             },
@@ -458,50 +487,50 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: "Harry Potter",
 
-                href: "#",
-            },
-            {
-                label: "Pokemon",
+          href: "#",
+      },
+      {
+          label: "Pokemon",
 
-                href: "#",
-            },
-            {
-                label: "Disney",
+          href: "#",
+      },
+      {
+          label: "Disney",
 
-                href: "#",
-            },
-            {
-                label: "Marvel",
+          href: "#",
+      },
+      {
+          label: "Marvel",
 
-                href: "#",
-            },
-            {
-                label: "Pixar",
+          href: "#",
+      },
+      {
+          label: "Pixar",
 
-                href: "#",
-            },
-            {
-                label: "Star Wars",
+          href: "#",
+      },
+      {
+          label: "Star Wars",
 
-                href: "#",
-            },
-            {
-                label: "Paw Patrol",
+          href: "#",
+      },
+      {
+          label: "Paw Patrol",
 
-                href: "#",
-            },
-            {
-                label: "DC Comics",
+          href: "#",
+      },
+      {
+          label: "DC Comics",
 
-                href: "#",
-            },
-            {
-                label: "Nickelodeon",
+          href: "#",
+      },
+      {
+          label: "Nickelodeon",
 
-                href: "#",
-            },
-            {
-                label: "Warner Brothers",
+          href: "#",
+      },
+      {
+          label: "Warner Brothers",
 
                 href: "#",
             },
