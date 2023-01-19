@@ -48,7 +48,7 @@ export default function Navbar () {
              borderStyle={"solid"}
              borderColor={useColorModeValue("gray.200", "gray.900")}
              align={"center"}
-             border={"1px solid red"}
+
          >
              <Flex
                  flex={{ base: 1, md: "auto" }}
@@ -70,7 +70,7 @@ export default function Navbar () {
                          <Image
                              src={logo}
 
-                             w={useBreakpointValue({ base: "80%", sm: "80%", md: "80%", lg: "80%" })}
+                             w={'70%'}
 
                          />
                      </Box>
@@ -81,7 +81,7 @@ export default function Navbar () {
              </Flex>
 
              <Stack
-                 flex={{ base: 1, md: .5 }}
+                 flex={{ base: 1, md: 0.2}}
                     justifyItems={"space-around"}
                     direction={"row"}
 
@@ -92,8 +92,9 @@ export default function Navbar () {
                     <Input
                         display={{ sm: "inline-flex" }}
                         fontSize={"sm"}
-                        fontWeight={300}
-                        color={"black"}
+                        p={"2"}
+w={'-webkit-fit-content'}
+
 placeholder="search"
 
 
@@ -103,12 +104,12 @@ placeholder="search"
 
                  <ReactLink to="/login">
                      <Button
-                         display={{ md: "inline-flex" }}
+                         display={{ xl: "inline-flex" }}
                          fontSize={"sm"}
                          fontWeight={300}
                          color={"black"}
                          bg={"#8c52ff"}
-                         href={"#"}
+
                          _hover={{
                              bg: "#8c52ff",
                          }}
@@ -116,20 +117,22 @@ placeholder="search"
                          Sign In
                      </Button>
                  </ReactLink>
+                    <Button
+                        display={{ xl: "inline-flex" }}
+                        fontSize={"sm"}
+                        fontWeight={300}
+                        color={"black"}
+                        bg={"#ff6262"}
+                        p={"2"}
 
-                 <Button
-                     display={{ md: "inline-flex" }}
-                     fontSize={"sm"}
-                     fontWeight={300}
-                     color={"black"}
-                     bg={"#ff6262"}
-                     href={"#"}
-                     _hover={{
-                         bg: "#ff6262",
-                     }}
+
+                        _hover={{
+                            bg: "#ff6262",
+                        }}
                     >
-                 Cart:       {count}
-                 </Button>
+                        Cart
+                    </Button>
+
              </Stack>
          </Flex>
 
@@ -426,7 +429,7 @@ const NAV_ITEMS = [
     },
 
     {
-        label: "CROCS AT WORK",
+        label: "WORK",
         children: [
             {
                 label: "Nursing Shoes",
