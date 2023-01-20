@@ -1,9 +1,10 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicode"
+      "author": "typicode",
+      "image":"https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10001_3UG_ALT100/crocs"
     }
   ],
   "comments": [
