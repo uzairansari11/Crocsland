@@ -21,33 +21,40 @@ import { MdLocalShipping } from 'react-icons/md';
 
 export default function ProductDetails () {
     return (
-        <Container maxW={'7xl'}>
+        <Container maxW={'full'}  >
             <SimpleGrid
                 columns={{ base: 1, lg: 2 }}
                 spacing={{ base: 8, md: 10 }}
                 py={{ base: 18, md: 24 }}>
                 <GridItem>
+                    <Box  p={ 2}>
                     <Image
                         rounded={'md'}
                         alt={'product image'}
                         src={
-                            'https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080'
+                            'https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs'
                         }
-                    
+                        fit={'cover'}
                         align={'center'}
                         w={'100%'}
                         h={{ base: '100%', sm: '400px', lg: '500px' }}
                     />
-
-                    <Center><Box>
-
-                        <Select placeholder='Select Your Size'>
-                            <option value='option1'>4</option>
-                            <option value='option2'>Option 2</option>
-                            <option value='option3'>Option 3</option>
-                        </Select>
-                    </Box></Center>
-
+                    </Box>
+                    <VStack spacing={{ base: 4, sm: 6 }}>
+                        <Text
+                            color={useColorModeValue('gray.500', 'gray.400')}
+                            fontSize={'2xl'}
+                            fontWeight={'300'}>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                            diam nonumy eirmod tempor invidunt ut labore
+                        </Text>
+                        <Text fontSize={'lg'}>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+                            aliquid amet at delectus doloribus dolorum expedita hic, ipsum
+                            maxime modi nam officiis porro, quae, quisquam quos
+                            reprehenderit velit? Natus, totam.
+                        </Text>
+                    </VStack>
 
                 </GridItem>
                 <Stack spacing={{ base: 6, md: 10 }}>
@@ -55,14 +62,16 @@ export default function ProductDetails () {
                         <Heading
                             lineHeight={1.1}
                             fontWeight={600}
-                            fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
+                            fontSize={{ base: 'xl', sm: '2xl', lg: '3xl' }}>
                             Automatic Watch
                         </Heading>
                         <Text
                             color={useColorModeValue('gray.900', 'gray.400')}
-                            fontWeight={300}
-                            fontSize={'2xl'}>
-                            $350.00 USD
+                            fontWeight={400}
+                            fontSize={'2xl'}
+                            mt={"2"}>
+                            Price:$350.00 USD
+
                         </Text>
                     </Box>
 
@@ -74,44 +83,20 @@ export default function ProductDetails () {
                                 borderColor={useColorModeValue('gray.200', 'gray.600')}
                             />
                         }>
-                        <VStack spacing={{ base: 4, sm: 6 }}>
-                            <Text
-                                color={useColorModeValue('gray.500', 'gray.400')}
-                                fontSize={'2xl'}
-                                fontWeight={'300'}>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                diam nonumy eirmod tempor invidunt ut labore
-                            </Text>
-                            <Text fontSize={'lg'}>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                                aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                                maxime modi nam officiis porro, quae, quisquam quos
-                                reprehenderit velit? Natus, totam.
-                            </Text>
-                        </VStack>
-                        <Box>
-                            <Text
-                                fontSize={{ base: '16px', lg: '18px' }}
-                                color={useColorModeValue('yellow.500', 'yellow.300')}
-                                fontWeight={'500'}
-                                textTransform={'uppercase'}
-                                mb={'4'}>
-                                Features
-                            </Text>
+                        <Center><Box>
 
-                            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                                <List spacing={2}>
-                                    <ListItem>Chronograph</ListItem>
-                                    <ListItem>Master Chronometer Certified</ListItem>{' '}
-                                    <ListItem>Tachymeter</ListItem>
-                                </List>
-                                <List spacing={2}>
-                                    <ListItem>Anti‑magnetic</ListItem>
-                                    <ListItem>Chronometer</ListItem>
-                                    <ListItem>Small seconds</ListItem>
-                                </List>
-                            </SimpleGrid>
-                        </Box>
+                            <Select placeholder='Select Your Size'>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                            </Select>
+                        </Box></Center>
+
+
+
                         <Box>
                             <Text
                                 fontSize={{ base: '16px', lg: '18px' }}
@@ -171,22 +156,40 @@ export default function ProductDetails () {
                         </Box>
 
                     </Stack>
-
+                    <Center  >
                     <Button
+
+                        size="md"
+                        height="48px"
+                        width="200px"
+                        border="2px"
+                        alignItems={"center"}
+                        borderColor="#7928CA"
+                        m={2}
+                        _hover={{
+                            bg: "#ff6262",
+                            color: "white",
+                            transform: 'translateY(2px)',
+                            boxShadow: 'lg',
+                        }}
+                    >
+                            Add to Cart
+                        </Button>
+                    </Center>
+                    {/* <Button
                         rounded={'none'}
-                        w={'full'}
+
                         mt={8}
-                        size={'lg'}
-                        py={'7'}
+                        size={'md'}
+                        py={'6'}
                         bg={useColorModeValue('gray.900', 'gray.50')}
                         color={useColorModeValue('white', 'gray.900')}
                         textTransform={'uppercase'}
                         _hover={{
-                            transform: 'translateY(2px)',
-                            boxShadow: 'lg',
+
                         }}>
                         Add to cart
-                    </Button>
+                    </Button> */}
 
                     <Stack direction="row" alignItems="center" justifyContent={'center'}>
                         <MdLocalShipping />
