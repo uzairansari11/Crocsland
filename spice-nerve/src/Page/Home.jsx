@@ -109,7 +109,7 @@ export const Home = () => {
 
         </Center>
       <Center>
-        <Box  w={'xl'} p={2} m={2} >
+        <Box  w={'2xl'} p={2} m={2} >
         <Faq />
 
         </Box>
