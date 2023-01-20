@@ -116,7 +116,8 @@ placeholder="search"
                      >
                          Sign In
                      </Button>
-                 </ReactLink>
+                    </ReactLink>
+                    <ReactLink   to="/cart">
                     <Button
                         display={{ xl: "inline-flex" }}
                         fontSize={"sm"}
@@ -132,7 +133,7 @@ placeholder="search"
                     >
                         Cart
                     </Button>
-
+                    </ReactLink>
              </Stack>
          </Flex>
 
@@ -322,16 +323,7 @@ const NAV_ITEMS = [
 
           href: "#",
       },
-      {
-          label: "Platform  and Wedges",
 
-          href: "#",
-      },
-      {
-          label: "Jibbitz Charms",
-
-          href: "#",
-      },
       {
           label: "Socks",
 
@@ -366,16 +358,7 @@ const NAV_ITEMS = [
 
           href: "#",
       },
-      {
-          label: "Platform  and Wedges",
 
-          href: "#",
-      },
-      {
-          label: "Jibbitz Charms",
-
-          href: "#",
-      },
       {
           label: "Socks",
 
@@ -410,16 +393,7 @@ const NAV_ITEMS = [
 
           href: "#",
       },
-      {
-          label: "Platform  and Wedges",
-
-          href: "#",
-      },
-      {
-          label: "Jibbitz Charms",
-
-          href: "#",
-      },
+     
       {
           label: "Socks",
 
