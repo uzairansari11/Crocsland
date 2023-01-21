@@ -7,10 +7,11 @@ import {
     Stack,
     Button,
     Heading,
-    useColorModeValue,
+    
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useReducer, useState } from "react";
+import { Navigate } from "react-router";
 
 const initialState = {
     email: "",
@@ -58,12 +59,15 @@ export function Login () {
         });
     };
     console.log(name);
-    return (
-     <Flex
+
+
+
+
+    return (flag ? <Navigate to="/" /> : <Flex
          minH={"100vh"}
          align={"center"}
          justify={"center"}
-         bg={useColorModeValue("gray.50", "gray.800")}
+
      >
          <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
              <Stack align={"center"}>
@@ -71,7 +75,7 @@ export function Login () {
              </Stack>
              <Box
                  rounded={"lg"}
-                 bg={useColorModeValue("white", "gray.700")}
+
                  boxShadow={"lg"}
                  p={8}
              >

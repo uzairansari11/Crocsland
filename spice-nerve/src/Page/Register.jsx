@@ -44,13 +44,13 @@ const reducer = (state, action) => {
             };
         }
 
-        case "reset": {
-            return initialState;
-        }
-        default: {
-            return state;
-        }
-    }
+     case "reset": {
+         return initialState;
+     }
+     default: {
+         return state;
+     }
+ }
 };
 export default function Register () {
     const [showPassword, setShowPassword] = useState(false);
@@ -63,18 +63,13 @@ export default function Register () {
     const postDataFormToken = (data) => {
         axios
             .post("http://localhost:8080/users", {
-                name:data.name,
-                email: data.email,
-                password: data.password,
-            })
-            .then(function (response) {
-                console.log(response.headers);
-                // if (response.data.token) {
-                //     const token = response.data.token
-                //     console.log(token);
-                //     loginUser(token)
-                // }
-            })
+       name: data.name,
+       email: data.email,
+       password: data.password,
+   })
+      .then(function (response) {
+          console.log(response.headers);
+   })
             .catch(function (error) {
                 console.log(error);
             });
@@ -110,58 +105,58 @@ export default function Register () {
                             />
                         </FormControl>
 
-                        <FormControl id="email" isRequired>
-                            <FormLabel>Email address</FormLabel>
-                            <Input
-                                placeholder="Email"
-                                type="email"
-                                onChange={(e) => dispatch({ type: "email", payload: e.target.value })}
-                            />
-                        </FormControl>
-                        <FormControl id="password" isRequired>
-                            <FormLabel>Password</FormLabel>
-                            <InputGroup>
-                                <Input
-                                    placeholder="Password"
-                                    type={showPassword ? "text" : "password"}
-                                    required
-                                    onChange={(e) =>
-                                        dispatch({ type: "password", payload: e.target.value })
-                                    }
-                                />
+                     <FormControl id="email" isRequired>
+                         <FormLabel>Email address</FormLabel>
+                         <Input
+                             placeholder="Email"
+                             type="email"
+                             onChange={(e) => dispatch({ type: "email", payload: e.target.value })}
+                         />
+                     </FormControl>
+                     <FormControl id="password" isRequired>
+                         <FormLabel>Password</FormLabel>
+                         <InputGroup>
+                             <Input
+                                 placeholder="Password"
+                                 type={showPassword ? "text" : "password"}
+                                 required
+                                 onChange={(e) =>
+                                     dispatch({ type: "password", payload: e.target.value })
+                                 }
+                             />
 
-                                <InputRightElement h={"full"}>
-                                    <Button
-                                        variant={"ghost"}
-                                        onClick={() => setShowPassword((showPassword) => !showPassword)}
-                                    >
-                                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                                    </Button>
-                                </InputRightElement>
-                            </InputGroup>
-                        </FormControl>
-                        <Stack spacing={10} pt={2}>
-                            <Button
-                                onClick={handleSubmit}
-                                loadingText="Submitting"
-                                size="lg"
-                                bg={"#8c52ff"}
-                                color={"white"}
-                                _hover={{
-                                    bg: "#ff6262",
-                                }}
-                            >
-                                Sign up
-                            </Button>
-                        </Stack>
-                        <Stack pt={6}>
-                            <Text align={"center"}>
-                                Already a user? <Link color={"#8c52ff"}>Login</Link>
-                            </Text>
-                        </Stack>
-                    </Stack>
-                </Box>
-            </Stack>
-        </Flex>
-    );
+                             <InputRightElement h={"full"}>
+                                 <Button
+                                     variant={"ghost"}
+                                     onClick={() => setShowPassword((showPassword) => !showPassword)}
+                                 >
+                                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                 </Button>
+                             </InputRightElement>
+                         </InputGroup>
+                     </FormControl>
+                     <Stack spacing={10} pt={2}>
+                         <Button
+                             onClick={handleSubmit}
+                             loadingText="Submitting"
+                             size="lg"
+                             bg={"#8c52ff"}
+                             color={"white"}
+                             _hover={{
+                                 bg: "#ff6262",
+                             }}
+                         >
+                             Sign up
+                         </Button>
+                     </Stack>
+                     <Stack pt={6}>
+                         <Text align={"center"}>
+                             Already a user? <Link color={"#8c52ff"}>Login</Link>
+                         </Text>
+                     </Stack>
+                 </Stack>
+             </Box>
+         </Stack>
+     </Flex>
+ );
 }
