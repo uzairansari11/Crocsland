@@ -9,11 +9,9 @@ import { Box, Image, Button, Grid, Center } from "@chakra-ui/react";
 import Faq from "../Component/Faq";
 export const Home = () => {
   return (
-    <Box>
+    <Box bgGradient="linear(to-l,#A0AEC0, #E2E8F0)" >
       <Box bgGradient="linear(to-l, #7928CA, #FF0080)">
         <Image src={banner1} alt="" p={12} />
-
-
      </Box>
      <Grid
        spacing={1}
@@ -80,42 +78,34 @@ export const Home = () => {
            color: "white",
          }}
        >
-         SHOP JIBBITZ™
+         SHOP WORK
        </Button>
-      </Grid>
-      <Box >
-        <Center>
-        <Image src={banner2} alt="" p={2} />
-        </Center>
-
-      </Box>
-      <Box >
-        <Center>
-
-
-        <Image src={banner3} alt="" p={2} />
-        </Center>
-
-      </Box>
-      <Box >
-        <Center>
-        <Image src={banner4} alt="" p={2} />
-
-        </Center>
-      </Box>
-      <Box >
-        <Center>
-        <Image src={banner5} alt="" p={2} />
-
-        </Center>
-      <Center>
-        <Box  w={'2xl'} p={2} m={2} >
-        <Faq />
-
-        </Box>
-      </Center>
-
-      </Box>
+     </Grid>
+     <Box>
+       <Center>
+         <Image src={banner2} alt="" p={2} />
+       </Center>
+     </Box>
+     <Box>
+       <Center>
+         <Image src={banner3} alt="" p={2} />
+       </Center>
+     </Box>
+     <Box>
+       <Center>
+         <Image src={banner4} alt="" p={2} />
+       </Center>
+     </Box>
+     <Box>
+       <Center>
+         <Image src={banner5} alt="" p={2} />
+       </Center>
+       <Center>
+         <Box w={"2xl"} p={2} m={2}>
+           <Faq />
+         </Box>
+       </Center>
+     </Box>
    </Box>
  );
 };

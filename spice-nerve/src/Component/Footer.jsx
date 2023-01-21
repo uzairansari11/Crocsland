@@ -88,10 +88,10 @@ export default function LargeWithAppLinksAndSocial () {
 
                     <Stack align={"flex-start"}>
                         <ListHeader>               Customer Service</ListHeader>
-                 <Text>Mon -Opens at 9 AM ET</Text>
-                            <Text  >  Tues - Thurs 24 Hours  </Text>
-                            <Text  >  Fri Closes at 5 PM ET  </Text>
-                            <Text > Sat - Sun CLOSED   </Text>
+                        <Text>Mon -Opens at 9 AM ET</Text>
+                        <Text  >  Tues - Thurs 24 Hours  </Text>
+                        <Text  >  Fri Closes at 5 PM ET  </Text>
+                        <Text > Sat - Sun CLOSED   </Text>
 
 
 
