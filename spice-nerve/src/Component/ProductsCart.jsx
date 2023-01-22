@@ -23,6 +23,9 @@ export const ProductsCart = ({
                         <Text color="black" fontSize="2xl">
                             Price: ${price}
                         </Text>
+                        <Text color="black" fontSize="2xl">
+                            Price: ${gender}
+                        </Text>
                     </Stack>
                 </CardBody>
             </ReactLink>
