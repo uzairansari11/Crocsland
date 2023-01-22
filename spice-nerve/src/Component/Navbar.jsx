@@ -29,187 +29,219 @@ import { Link as ReactLink } from "react-router-dom";
 
 import { useContext } from "react";
 import { ApiContext } from "../Context/ApiContext";
+import { AuthContext } from "../Context/AuthContextProvider";
+import { cartQuantityContext } from "../Context/CartQunatityContext";
 
-export default function Navbar () {
-    const { isOpen, onToggle } = useDisclosure();
 
-    return (
-     <Box position={"fixed"} w={"full"} top={0} left={0} zIndex={3}>
-         <Flex
-             bg={useColorModeValue("white", "gray.800")}
-             color={useColorModeValue("gray.600", "white")}
-             minH={"60px"}
-             py={{ base: 2 }}
-             px={{ base: 4 }}
-             borderBottom={1}
-             borderStyle={"solid"}
-             borderColor={useColorModeValue("gray.200", "gray.900")}
-             align={"center"}
-         >
-             <Flex
-                 flex={{ base: 1, md: "auto" }}
-                 ml={{ base: -2 }}
-                 display={{ base: "flex", md: "none" }}
-             >
-                 <IconButton
-                     onClick={onToggle}
-                     icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-                     variant={"ghost"}
-                     aria-label={"Toggle Navigation"}
-                 />
-             </Flex>
+export default function Navbar() {
+ const { authentification, logout } = useContext(AuthContext);
+ const { isOpen, onToggle } = useDisclosure();
+ const { item, totalItem } = useContext(cartQuantityContext);
+ const handleLogout = () => {
 
-             <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-                 <ReactLink to="/">
-                     <Box>
-                         <Image src={logo} w={"70%"} />
-                     </Box>
-                 </ReactLink>
-                 <Flex display={{ base: "none", md: "flex" }} ml={10}>
-                     <DesktopNav />
-                 </Flex>
-             </Flex>
+    localStorage.setItem("isAuthUse", false);
+    localStorage.setItem("name", null);
+     logout();
 
-             <Stack
-                 flex={{ base: 1, md: 0.2 }}
-                 justifyItems={"space-around"}
-                 direction={"row"}
-                 spacing={3}
-             >
-                 <Input
-                     display={{ sm: "inline-flex" }}
-                     fontSize={"sm"}
-                     p={"2"}
-                     w={"-webkit-fit-content"}
-                     placeholder="search"
-                 />
 
-                 <ReactLink to="/login">
-                     <Button
-                         display={{ xl: "inline-flex" }}
-                         fontSize={"sm"}
-                         fontWeight={600}
-                         color={"white"}
-                         bg={"#8c52ff"}
-                         _hover={{
-                             bg: "#8c52ff",
-                         }}
-                     >
-                         Sign In
-                     </Button>
-                 </ReactLink>
-                 <ReactLink to="/cart">
-                     <Button
-                         display={{ xl: "inline-flex" }}
-                         fontSize={"sm"}
-                         fontWeight={600}
-                         color={"white"}
-                         bg={"#ff6262"}
-                         p={"2"}
-                         _hover={{
-                             bg: "#ff6262",
-                         }}
-                     >
-                         Cart
-                     </Button>
-                 </ReactLink>
-             </Stack>
-         </Flex>
+ };
+ return (
+  <Box position={"fixed"} w={"full"} top={0} left={0} zIndex={3}>
+   <Flex
+    bg={useColorModeValue("white", "gray.800")}
+    color={useColorModeValue("gray.600", "white")}
+    minH={"60px"}
+    py={{ base: 2 }}
+    px={{ base: 4 }}
+    borderBottom={1}
+    borderStyle={"solid"}
+    borderColor={useColorModeValue("gray.200", "gray.900")}
+    align={"center"}
+   >
+    <Flex
+     flex={{ base: 1, md: "auto" }}
+     ml={{ base: -2 }}
+     display={{ base: "flex", md: "none" }}
+    >
+     <IconButton
+      onClick={onToggle}
+      icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+      variant={"ghost"}
+      aria-label={"Toggle Navigation"}
+     />
+    </Flex>
 
-         <Collapse in={isOpen} animateOpacity>
-             <MobileNav />
-         </Collapse>
-     </Box>
+    <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+     <ReactLink to="/">
+      <Box>
+       <Image src={logo} w={"70%"} />
+      </Box>
+     </ReactLink>
+     <Flex display={{ base: "none", md: "flex" }} ml={10}>
+      <DesktopNav />
+     </Flex>
+    </Flex>
+
+    <Stack
+     flex={{ base: 1, md: 0.2 }}
+     justifyItems={"space-around"}
+     direction={"row"}
+     spacing={3}
+    >
+     <Input
+      display={{ sm: "inline-flex" }}
+      fontSize={"sm"}
+      p={"2"}
+      w={"-webkit-fit-content"}
+      placeholder="search"
+     />
+     {authentification.isAuth ? (
+      <Button
+       display={{ xl: "inline-flex" }}
+       fontSize={"sm"}
+       fontWeight={600}
+       color={"white"}
+       bg={"#8c52ff"}
+       _hover={{
+        bg: "#8c52ff",
+       }}
+       onClick={handleLogout}
+      >
+       Logout {authentification.name}
+      </Button>
+     ) : (
+      <ReactLink to="/login">
+       <Button
+        display={{ xl: "inline-flex" }}
+        fontSize={"sm"}
+        fontWeight={600}
+        color={"white"}
+        bg={"#8c52ff"}
+        _hover={{
+         bg: "#8c52ff",
+        }}
+       >
+        Sign In
+       </Button>
+      </ReactLink>
+     )}
+
+     <ReactLink to="/cart">
+      <Button
+       display={{ xl: "inline-flex" }}
+       fontSize={"sm"}
+       fontWeight={600}
+       color={"white"}
+       bg={"#ff6262"}
+       p={"2"}
+       _hover={{
+        bg: "#ff6262",
+       }}
+      >
+       Cart:{item}
+      </Button>
+     </ReactLink>
+    </Stack>
+   </Flex>
+
+   <Collapse in={isOpen} animateOpacity>
+    <MobileNav />
+   </Collapse>
+  </Box>
  );
 }
 
 const DesktopNav = () => {
-    const { apiData, setApiData } = useContext(ApiContext);
-    const linkColor = useColorModeValue("gray.600", "gray.200");
-    const linkHoverColor = useColorModeValue("gray.800", "white");
-    const popoverContentBgColor = useColorModeValue("white", "gray.800");
+ const { apiData, setApiData } = useContext(ApiContext);
+ const linkColor = useColorModeValue("gray.600", "gray.200");
+ const linkHoverColor = useColorModeValue("gray.800", "white");
+ const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
-    const handleApiParameter = (data) => {
-        const dataforfetch = data.toLowerCase();
-        setApiData(dataforfetch);
-    };
-    console.log(apiData);
+ const handleApiParameter = (data) => {
+  const dataforfetch = data.toLowerCase();
+  setApiData(dataforfetch);
+ };
+ console.log(apiData);
 
-    return (
-        <Stack direction={"row"} spacing={4}>
-            {NAV_ITEMS.map((navItem) => (
-       <Box key={navItem.label} onClick={() => handleApiParameter(navItem.label)}>
-           <Popover trigger={"hover"} placement={"bottom-start"}>
-               <PopoverTrigger>
-                   <Link
-                       p={2}
-                       fontSize={"sm"}
-                       fontWeight={500}
-                       color={linkColor}
-                       _hover={{
-                           textDecoration: "none",
-                           color: linkHoverColor,
-                       }}
-                   >
-                       <ReactLink to="/product">{navItem.label}</ReactLink>
-                   </Link>
-               </PopoverTrigger>
+ return (
+  <Stack direction={"row"} spacing={4}>
+   {NAV_ITEMS.map((navItem) => (
+    <Box key={navItem.label} onClick={() => handleApiParameter(navItem.label)}>
+     <Popover trigger={"hover"} placement={"bottom-start"}>
+      <PopoverTrigger>
+       <Link
+        p={2}
+        fontSize={"sm"}
+        fontWeight={500}
+        color={linkColor}
+        _hover={{
+         textDecoration: "none",
+         color: linkHoverColor,
+        }}
+       >
+        <ReactLink to="/product">{navItem.label}</ReactLink>
+       </Link>
+      </PopoverTrigger>
 
-               {navItem.children && (
-                   <PopoverContent
-                       border={0}
-                       boxShadow={"xl"}
-                       bg={popoverContentBgColor}
-                       p={4}
-                       rounded={"xl"}
-                       minW={"sm"}
-                   >
-                       <Stack>
-                           {navItem.children.map((child) => (
-                               <DesktopSubNav key={child.label} {...child} />
-                           ))}
-                       </Stack>
-                   </PopoverContent>
-               )}
-           </Popover>
-       </Box>
+      {navItem.children && (
+       <PopoverContent
+        border={0}
+        boxShadow={"xl"}
+        bg={popoverContentBgColor}
+        p={4}
+        rounded={"xl"}
+        minW={"sm"}
+       >
+        <Stack>
+         {navItem.children.map((child) => (
+          <DesktopSubNav key={child.label} {...child} />
+         ))}
+        </Stack>
+       </PopoverContent>
+      )}
+     </Popover>
+    </Box>
    ))}
-     </Stack>
+  </Stack>
  );
 };
 
 const DesktopSubNav = ({ label }) => {
-    return (
-        <Link
-         role={"group"}
-         display={"block"}
-         p={2}
-         rounded={"md"}
-         _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+ const { apiData, setApiData } = useContext(ApiContext);
+ const handleSubParameter = (data) => {
+  console.log(apiData, data);
+ };
+ return (
+  <Link
+   role={"group"}
+   display={"block"}
+   p={2}
+   rounded={"md"}
+   _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+  >
+   <Stack direction={"row"} align={"center"}>
+    <Box onClick={() => handleSubParameter(label)}>
+     <Text
+      transition={"all .3s ease"}
+      _groupHover={{ color: "pink.400" }}
+      fontWeight={500}
      >
-         <Stack direction={"row"} align={"center"}>
-             <Box>
-                 <Text
-                     transition={"all .3s ease"}
-                     _groupHover={{ color: "pink.400" }}
-                     fontWeight={500}
-                 >
-                     {label}
-                 </Text>
-             </Box>
-             <Flex
-                 transition={"all .3s ease"}
-                 transform={"translateX(-10px)"}
-                 opacity={0}
-                 _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-                 justify={"flex-end"}
-                 align={"center"}
-                 flex={1}
-             >
-                 <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
-             </Flex>
-         </Stack>
-     </Link>
+      {label}
+     </Text>
+    </Box>
+    <Flex
+     transition={"all .3s ease"}
+     transform={"translateX(-10px)"}
+     opacity={0}
+     _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+     justify={"flex-end"}
+     align={"center"}
+     flex={1}
+    >
+     <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+    </Flex>
+   </Stack>
+  </Link>
  );
 };
 

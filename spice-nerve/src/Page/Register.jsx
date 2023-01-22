@@ -14,10 +14,13 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
+
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { Link as ReactLink } from "react-router-dom";
+import { useEffect } from "react";
+import swal from 'sweetalert';
 const initialState = {
     name: "",
     email: "",
@@ -55,12 +58,32 @@ const reducer = (state, action) => {
 export default function Register () {
     const [showPassword, setShowPassword] = useState(false);
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:8080/users").then((res) => {
+            setUser(res.data);
+        });
+    }, []);
     const handleSubmit = () => {
-        console.log(state);
-        postDataFormToken(state);
+
+        user.forEach((ele) => {
+            if (ele.email === state.email) {
+                swal("User Already Exists");
+                return
+            } else {
+                postDataFormToken(state);
+            }
+    })
+
     };
 
     const postDataFormToken = (data) => {
+
+        if (data.name==="" || data.email ===""|| data.password==="") {
+            swal("Please fill all detials");
+return
+}
+
         axios
             .post("http://localhost:8080/users", {
        name: data.name,
@@ -69,6 +92,7 @@ export default function Register () {
    })
       .then(function (response) {
           console.log(response.headers);
+          swal("Congrats!", "Your account is created", "success");
    })
             .catch(function (error) {
                 console.log(error);
@@ -151,7 +175,7 @@ export default function Register () {
                      </Stack>
                      <Stack pt={6}>
                          <Text align={"center"}>
-                             Already a user? <Link color={"#8c52ff"}>Login</Link>
+                             Already a user? <ReactLink color={"#8c52ff"}  to="/login"  >Login</ReactLink>
                          </Text>
                      </Stack>
                  </Stack>
