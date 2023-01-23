@@ -64,17 +64,15 @@ export default function Register () {
             setUser(res.data);
         });
     }, []);
-    const handleSubmit = () => {
-
-        user.forEach((ele) => {
-            if (ele.email === state.email) {
-                swal("User Already Exists");
-                return
-            } else {
-                postDataFormToken(state);
-            }
-    })
-
+    const handleSubmit = (e) => {
+     user.forEach((ele) => {
+      if (ele.email === state.email) {
+       swal("User Already Exists");
+       return;
+      } else {
+       postDataFormToken(state);
+      }
+     });
     };
 
     const postDataFormToken = (data) => {

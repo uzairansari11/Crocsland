@@ -3,26 +3,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddToCartCard } from "../Component/AddToCartCard";
 import {
- Center,
- Grid,
  Stack,
  Box,
  Button,
- ButtonGroup,
  Divider,
- Flex,
  Badge,
  HStack,
- IconButton,
  Image,
  Spacer,
- Spinner,
  Text,
  VStack,
  Wrap,
 } from "@chakra-ui/react";
-import { AddIcon, ArrowRightIcon, CloseIcon } from "@chakra-ui/icons";
-import { BiShoppingBag } from "react-icons/bi";
+import { ArrowRightIcon } from "@chakra-ui/icons";
+
 import { Loading } from "../Component/Loading";
 import { Error } from "../Component/Error";
 
@@ -37,13 +31,11 @@ export const Cart = () => {
   axios
    .get("http://localhost:8080/cart")
    .then(function (response) {
-    // handle success
-    console.log("cart page",response.data.length);
+    console.log("cart page", response.data.length);
     setData(response.data);
     setLoading(false);
    })
    .catch(function (error) {
-    // handle error
     console.log(error);
     setLoading(false);
     setError(true);
@@ -54,10 +46,9 @@ export const Cart = () => {
   cartDataFromApi();
  }, []);
 
-  const totalPrice = data.reduce((acc, el) => {
-
-return acc+Number(el.price)
-},0)
+ const totalPrice = data.reduce((acc, el) => {
+  return acc + Number(el.price*el.quantity);
+ }, 0);
  return loading ? (
   <Loading />
  ) : error ? (
@@ -81,10 +72,6 @@ return acc+Number(el.price)
         {" "}
         <Image w={10} />
        </HStack>
-       {/* {cart_data.map((el) => (
-         <SingleProduct el {...el} />
-        ))} */}
-       happyyyy
       </VStack>
       <VStack spacing={5}>
        <HStack spacing={5} w="full" padding={3} bg="yellow.300">
