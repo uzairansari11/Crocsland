@@ -676,15 +676,7 @@
       "category": "flip-flop"
     }
   ],
-  "cart": [
-    {
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
-      "size": "4",
-      "title": "Classic Lined Clog",
-      "price": "59.99",
-      "id": 1
-    }
-  ],
+  "cart": [],
   "users": [
     {
       "name": "uzair",
@@ -693,16 +685,70 @@
       "id": 1
     },
     {
-      "name": "uzair",
-      "email": "uairans53@gmail.com",
-      "password": "1234",
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "123",
       "id": 2
     },
     {
-      "name": "uzair",
+      "name": "Uzair",
       "email": "uzairans532@gmail.com",
       "password": "1234",
       "id": 3
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1234",
+      "id": 6
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1",
+      "id": 7
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "12",
+      "id": 8
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "12",
+      "id": 9
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "123",
+      "id": 10
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1234",
+      "id": 11
+    },
+    {
+      "name": "Uzair",
+      "email": "uzairans532@gmail.com",
+      "password": "1234",
+      "id": 12
     }
   ]
 }

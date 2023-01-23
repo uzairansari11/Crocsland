@@ -1,9 +1,5 @@
 import React from "react";
 import {
- Slider,
- SliderTrack,
- SliderFilledTrack,
- SliderThumb,
  HStack,
  Box,
  Card,
@@ -14,10 +10,14 @@ import {
  CardBody,
  Center,
  Button,
+ IconButton,
+ VStack,
 } from "@chakra-ui/react";
+import { MinusIcon, AddIcon} from "@chakra-ui/icons";
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext,useEffect } from "react";
 import { cartQuantityContext } from "../Context/CartQunatityContext";
+let qty = 1;
 export const AddToCartCard = ({
  image,
  title,
@@ -26,8 +26,9 @@ export const AddToCartCard = ({
  id,
  cartDataFromApi,
 }) => {
- const [itemQuantity, setItemQuantity] = useState(1);
- const { totalItem, item } = useContext(cartQuantityContext);
+
+ const { totalItem } = useContext(cartQuantityContext);
+ const [quantityOfProduct, setquantityOfProduct] = useState(1);
  const deleteDataFromApi = (data) => {
   axios.delete(`http://localhost:8080/cart/${data}`);
   cartDataFromApi();
@@ -37,7 +38,32 @@ export const AddToCartCard = ({
   deleteDataFromApi(data);
   totalItem(-1);
  };
+ const handleQuantity = (data, id) => {
 
+  qty = qty + data;
+updateProductQuantityInApi(id,qty)
+ };
+
+
+    const updateProductQuantityInApi = (id,qty) => {
+     fetch(`http://localhost:8080/cart/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+       quantity: qty,
+      }),
+      headers: {
+       "Content-type": "application/json",
+      },
+     })
+      .then((response) => response.json())
+         .then((json) => {
+          setquantityOfProduct(json.quantity);
+
+         });
+  cartDataFromApi();
+}
+
+    useEffect(() => {}, [quantityOfProduct]);
  return (
   <Card maxW="sm">
    <CardBody bgGradient="linear(to-l, #E2E8F0)">
@@ -50,10 +76,10 @@ export const AddToCartCard = ({
         Size: {size}
        </Text>
        <Text color="black" fontSize="sm">
-        Price: ${Math.round(price * itemQuantity)}
+        Price: ${Math.round(price * quantityOfProduct)}
        </Text>
        <Text color="black" fontSize="sm">
-        Qty: {itemQuantity} No.
+        Qty: {quantityOfProduct} No.
        </Text>
       </HStack>
      </Center>
@@ -61,20 +87,27 @@ export const AddToCartCard = ({
    </CardBody>
    <Center>
     <Box w={"40"}>
-     <Slider
-      aria-label="slider-ex-4"
-      min={1}
-      defaultValue={1}
-      max={5}
-      onChange={(val) => setItemQuantity(val)}
-     >
-      <SliderTrack bg="red.100">
-       <SliderFilledTrack bg="tomato" />
-      </SliderTrack>
-      <SliderThumb boxSize={3}>
-       <Box color="tomato" />
-      </SliderThumb>
-     </Slider>
+     <Center>
+      <HStack mb={"4"}>
+       <IconButton
+        aria-label="Add to friends"
+        icon={<MinusIcon />}
+        colorScheme="teal"
+        size="xs"
+        isDisabled={quantityOfProduct === 1}
+        onClick={() => handleQuantity(-1, id)}
+       />
+
+       <IconButton
+        aria-label="Add to friends"
+        icon={<AddIcon />}
+        colorScheme="teal"
+        size="xs"
+        isDisabled={quantityOfProduct === 5}
+        onClick={() => handleQuantity(+1, id)}
+       />
+      </HStack>
+     </Center>
     </Box>
    </Center>
    <Center>

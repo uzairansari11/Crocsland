@@ -54,7 +54,8 @@ export default function ProductDetails () {
             image: data.image,
             size: data.size,
             title:data.title,
-            price:data.price
+            price: data.price,
+            quantity:1
         })
             .then(function (response) {
                 console.log(response);
