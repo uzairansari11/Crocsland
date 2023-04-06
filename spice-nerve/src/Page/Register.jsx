@@ -60,7 +60,7 @@ export default function Register () {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [user, setUser] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:8080/users").then((res) => {
+        axios.get("https://crabby-culottes-ant.cyclic.app/users").then((res) => {
             setUser(res.data);
         });
     }, []);
@@ -83,7 +83,7 @@ return
 }
 
         axios
-            .post("http://localhost:8080/users", {
+            .post("https://crabby-culottes-ant.cyclic.app/users", {
        name: data.name,
        email: data.email,
        password: data.password,

@@ -29,7 +29,7 @@ export const Cart = () => {
  const cartDataFromApi = () => {
   setLoading(true);
   axios
-   .get("http://localhost:8080/cart")
+   .get("https://crabby-culottes-ant.cyclic.app/cart")
    .then(function (response) {
     console.log("cart page", response.data.length);
     setData(response.data);

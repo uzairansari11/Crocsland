@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Box, Center, Grid, HStack, Stack } from "@chakra-ui/react";
+import { Box, Center, Grid, HStack, Stack,Badge } from "@chakra-ui/react";
 import { ProductsCart } from "../Component/ProductsCart";
 import { ApiContext } from "../Context/ApiContext";
 import { Loading } from "../Component/Loading";
@@ -19,7 +19,7 @@ export const Products = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:8080/products?gender=${value}`)
+      .get(`https://crabby-culottes-ant.cyclic.app/products?gender=${value}`)
       .then((res) => {
         if (sort === "low") {
           const lowToHighData = res.data.sort((a, b) => {

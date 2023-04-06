@@ -30,7 +30,7 @@ export const AddToCartCard = ({
  const { totalItem } = useContext(cartQuantityContext);
  const [quantityOfProduct, setquantityOfProduct] = useState(1);
  const deleteDataFromApi = (data) => {
-  axios.delete(`http://localhost:8080/cart/${data}`);
+  axios.delete(`https://crabby-culottes-ant.cyclic.app/cart/${data}`);
   cartDataFromApi();
  };
  const handleDelete = (data) => {
@@ -46,7 +46,7 @@ updateProductQuantityInApi(id,qty)
 
 
     const updateProductQuantityInApi = (id,qty) => {
-     fetch(`http://localhost:8080/cart/${id}`, {
+     fetch(`https://crabby-culottes-ant.cyclic.app/cart/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
        quantity: qty,

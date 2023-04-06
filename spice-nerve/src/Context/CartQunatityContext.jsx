@@ -5,7 +5,7 @@ export const cartQuantityContext = createContext();
 
 export const CartQunatityContextProvider = ({ children }) => {
  useEffect(() => {
-  axios.get("http://localhost:8080/cart").then((response) => {
+  axios.get("https://crabby-culottes-ant.cyclic.app/cart").then((response) => {
    // handle success
    console.log(response.data);
    setItem(response.data.length);

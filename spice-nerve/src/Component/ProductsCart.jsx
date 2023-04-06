@@ -19,13 +19,9 @@ export const ProductsCart = ({
                     <Stack mt="6" spacing="3">
                         <Heading size="md">{title}</Heading>
                         <Text>{description.substring(0, 50)}</Text>
+                        <Heading as='h4' size="sm"> Price: ${price}</Heading>
+                        <Heading as='h4' size="sm">  Gender: {gender}</Heading>
 
-                        <Text color="black" fontSize="2xl">
-                            Price: ${price}
-                        </Text>
-                        <Text color="black" fontSize="2xl">
-                            Price: ${gender}
-                        </Text>
                     </Stack>
                 </CardBody>
             </ReactLink>
