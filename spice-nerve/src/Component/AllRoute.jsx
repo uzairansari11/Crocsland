@@ -8,21 +8,20 @@ import ProductDetails from "../Page/ProductDetails";
 import { Cart } from "../Page/Cart";
 import PaymentForm from "../Page/PaymentForm";
 import OrderSuccessful from "../Page/OrderSuccessful";
-import Search from "../Page/Search"
+import Search from "../Page/Search";
 export const AllRoute = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/product" element={<Products />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/payment" element={<PaymentForm />} />
-            <Route path="/successful" element={<OrderSuccessful />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="*" element={<h1>NO PAGE FOUND</h1>} />
-
-        </Routes>
-    );
+	return (
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/register" element={<Register />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/product" element={<Products />} />
+			<Route path="/product/:id" element={<ProductDetails />} />
+			<Route path="/cart" element={<Cart />} />
+			<Route path="/payment" element={<PaymentForm />} />
+			<Route path="/successful" element={<OrderSuccessful />} />
+			<Route path="/search" element={<Search />} />
+			<Route path="*" element={<h1>NO PAGE FOUND</h1>} />
+		</Routes>
+	);
 };

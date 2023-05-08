@@ -1,754 +1,754 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "title": "Classic Lined Clog",
-      "price": "59.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
-      "description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 2,
-      "title": "Classic Lined Clog",
-      "price": "70.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
-      "description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 3,
-      "title": "Mega Crush Clog",
-      "price": "69.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
-      "description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 4,
-      "title": "Mega Crush Clog",
-      "price": "100.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
-      "description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 5,
-      "title": "Classic Vera Bradley Harry Potter Clog",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 6,
-      "title": "Personalize with Jibbitz™ Charms",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environments. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
-      "gender": "women",
-      "category": "clogs"
-    },
-    {
-      "id": 7,
-      "title": "Crush Boot",
-      "price": "70.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
-      "description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
-      "gender": "women",
-      "category": "boots"
-    },
-    {
-      "id": 8,
-      "title": "Furever Crush Shoe",
-      "price": "20.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
-      "description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
-      "gender": "women",
-      "category": "boots"
-    },
-    {
-      "id": 9,
-      "title": "CLASSIC LINED NEO PUFF BOOT",
-      "price": "36.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
-      "description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "women",
-      "category": "boots"
-    },
-    {
-      "id": 10,
-      "title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
-      "price": "47.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
-      "description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "women",
-      "category": "boots"
-    },
-    {
-      "id": 11,
-      "title": "CLASSIC COZZZY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
-      "description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
-      "gender": "women",
-      "category": "sandals"
-    },
-    {
-      "id": 12,
-      "title": "CLASSIC PLATFORM FLIP",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
-      "description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
-      "gender": "women",
-      "category": "sandals"
-    },
-    {
-      "id": 13,
-      "title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
-      "description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
-      "gender": "women",
-      "category": "sandals"
-    },
-    {
-      "id": 14,
-      "title": "WOMEN'S CROCS TULUM SANDAL",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "women",
-      "category": "sandals"
-    },
-    {
-      "id": 15,
-      "title": "CRUSH BUTTERFLY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
-      "description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
-      "gender": "women",
-      "category": "sandals"
-    },
-    {
-      "id": 16,
-      "title": "CLASSIC PLATFORM SLIDE",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "women",
-      "category": "slides"
-    },
-    {
-      "id": 17,
-      "title": "WOMEN’S CLEO SANDAL",
-      "price": "34.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
-      "description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
-      "gender": "women",
-      "category": "slides"
-    },
-    {
-      "id": 18,
-      "title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
-      "description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
-      "gender": "women",
-      "category": "slides"
-    },
-    {
-      "id": 19,
-      "title": "CLASSIC CROCS META SCAPE SLIDE",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
-      "description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
-      "gender": "women",
-      "category": "slides"
-    },
-    {
-      "id": 20,
-      "title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishments for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "women",
-      "category": "slides"
-    },
-    {
-      "id": 21,
-      "title": "WOMEN’S KADEE II FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
-      "description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
-      "gender": "women",
-      "category": "flip-flop"
-    },
-    {
-      "id": 22,
-      "title": "WOMEN'S CROCS TULUM TOE POST SANDAL",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "women",
-      "category": "flip-flop"
-    },
-    {
-      "id": 23,
-      "title": "CLASSIC PLATFORM GLITTER FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
-      "description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatment. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
-      "gender": "women",
-      "category": "flip-flop"
-    },
-    {
-      "id": 24,
-      "title": "CLASSIC CROCS MARBLE FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
-      "description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
-      "gender": "women",
-      "category": "flip-flop"
-    },
-    {
-      "id": 25,
-      "title": "ATHENS FLIP",
-      "price": "26.24 ",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
-      "description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
-      "gender": "women",
-      "category": "flip-flop"
-    },
-    {
-      "id": 26,
-      "title": "Classic Vera Bradley Harry Potter Clog",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 27,
-      "title": "Mega Crush Clog",
-      "price": "69.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
-      "description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 28,
-      "title": "Mega Crush Clog",
-      "price": "100.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
-      "description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 29,
-      "title": "Classic Lined Clog",
-      "price": "59.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
-      "description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 30,
-      "title": "Classic Lined Clog",
-      "price": "70.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
-      "description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 31,
-      "title": "Personalize with Jibbitz™ Charms",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environments. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
-      "gender": "men",
-      "category": "clogs"
-    },
-    {
-      "id": 32,
-      "title": "Crush Boot",
-      "price": "70.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
-      "description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
-      "gender": "men",
-      "category": "boots"
-    },
-    {
-      "id": 33,
-      "title": "Furever Crush Shoe",
-      "price": "20.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
-      "description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
-      "gender": "men",
-      "category": "boots"
-    },
-    {
-      "id": 34,
-      "title": "CLASSIC LINED NEO PUFF BOOT",
-      "price": "36.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
-      "description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "men",
-      "category": "boots"
-    },
-    {
-      "id": 35,
-      "title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
-      "price": "47.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
-      "description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "men",
-      "category": "boots"
-    },
-    {
-      "id": 36,
-      "title": "CLASSIC COZZZY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
-      "description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
-      "gender": "men",
-      "category": "sandals"
-    },
-    {
-      "id": 37,
-      "title": "CLASSIC PLATFORM FLIP",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
-      "description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
-      "gender": "men",
-      "category": "sandals"
-    },
-    {
-      "id": 38,
-      "title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
-      "description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
-      "gender": "men",
-      "category": "sandals"
-    },
-    {
-      "id": 39,
-      "title": "men'S CROCS TULUM SANDAL",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "men",
-      "category": "sandals"
-    },
-    {
-      "id": 40,
-      "title": "CRUSH BUTTERFLY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
-      "description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
-      "gender": "men",
-      "category": "sandals"
-    },
-    {
-      "id": 41,
-      "title": "CLASSIC PLATFORM SLIDE",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "men",
-      "category": "slides"
-    },
-    {
-      "id": 42,
-      "title": "men’S CLEO SANDAL",
-      "price": "34.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
-      "description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
-      "gender": "men",
-      "category": "slides"
-    },
-    {
-      "id": 43,
-      "title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
-      "description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
-      "gender": "men",
-      "category": "slides"
-    },
-    {
-      "id": 44,
-      "title": "CLASSIC CROCS META SCAPE SLIDE",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
-      "description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
-      "gender": "men",
-      "category": "slides"
-    },
-    {
-      "id": 45,
-      "title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishments for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "men",
-      "category": "slides"
-    },
-    {
-      "id": 46,
-      "title": "men’S KADEE II FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
-      "description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
-      "gender": "men",
-      "category": "flip-flop"
-    },
-    {
-      "id": 47,
-      "title": "men'S CROCS TULUM TOE POST SANDAL",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "men",
-      "category": "flip-flop"
-    },
-    {
-      "id": 48,
-      "title": "CLASSIC PLATFORM GLITTER FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
-      "description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatment. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
-      "gender": "men",
-      "category": "flip-flop"
-    },
-    {
-      "id": 49,
-      "title": "CLASSIC CROCS MARBLE FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
-      "description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
-      "gender": "men",
-      "category": "flip-flop"
-    },
-    {
-      "id": 50,
-      "title": "ATHENS FLIP",
-      "price": "26.24 ",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
-      "description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
-      "gender": "men",
-      "category": "flip-flop"
-    },
-    {
-      "id": 51,
-      "title": "Classic Lined Clog",
-      "price": "59.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
-      "description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 52,
-      "title": "Classic Lined Clog",
-      "price": "70.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
-      "description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 53,
-      "title": "Mega Crush Clog",
-      "price": "69.99",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
-      "description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 54,
-      "title": "Mega Crush Clog",
-      "price": "100.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
-      "description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 55,
-      "title": "Classic Vera Bradley Harry Potter Clog",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 56,
-      "title": "Personalize with Jibbitz™ Charms",
-      "price": "30.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
-      "description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environkidsts. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
-      "gender": "kids",
-      "category": "clogs"
-    },
-    {
-      "id": 57,
-      "title": "Crush Boot",
-      "price": "70.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
-      "description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
-      "gender": "kids",
-      "category": "boots"
-    },
-    {
-      "id": 58,
-      "title": "Furever Crush Shoe",
-      "price": "20.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
-      "description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
-      "gender": "kids",
-      "category": "boots"
-    },
-    {
-      "id": 59,
-      "title": "CLASSIC LINED NEO PUFF BOOT",
-      "price": "36.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
-      "description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "kids",
-      "category": "boots"
-    },
-    {
-      "id": 60,
-      "title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
-      "price": "47.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
-      "description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-      "gender": "kids",
-      "category": "boots"
-    },
-    {
-      "id": 61,
-      "title": "CLASSIC COZZZY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
-      "description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
-      "gender": "kids",
-      "category": "sandals"
-    },
-    {
-      "id": 62,
-      "title": "CLASSIC PLATFORM FLIP",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
-      "description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
-      "gender": "kids",
-      "category": "sandals"
-    },
-    {
-      "id": 63,
-      "title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
-      "description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
-      "gender": "kids",
-      "category": "sandals"
-    },
-    {
-      "id": 64,
-      "title": "kids'S CROCS TULUM SANDAL",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "kids",
-      "category": "sandals"
-    },
-    {
-      "id": 65,
-      "title": "CRUSH BUTTERFLY SANDAL",
-      "price": "54.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
-      "description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
-      "gender": "kids",
-      "category": "sandals"
-    },
-    {
-      "id": 66,
-      "title": "CLASSIC PLATFORM SLIDE",
-      "price": "39.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "kids",
-      "category": "slides"
-    },
-    {
-      "id": 67,
-      "title": "kids’S CLEO SANDAL",
-      "price": "34.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
-      "description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
-      "gender": "kids",
-      "category": "slides"
-    },
-    {
-      "id": 68,
-      "title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
-      "description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
-      "gender": "kids",
-      "category": "slides"
-    },
-    {
-      "id": 69,
-      "title": "CLASSIC CROCS META SCAPE SLIDE",
-      "price": "31.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
-      "description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
-      "gender": "kids",
-      "category": "slides"
-    },
-    {
-      "id": 70,
-      "title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
-      "price": "49.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
-      "description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishkidsts for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
-      "gender": "kids",
-      "category": "slides"
-    },
-    {
-      "id": 71,
-      "title": "kids’S KADEE II FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
-      "description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
-      "gender": "kids",
-      "category": "flip-flop"
-    },
-    {
-      "id": 72,
-      "title": "kids'S CROCS TULUM TOE POST SANDAL",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
-      "description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
-      "gender": "kids",
-      "category": "flip-flop"
-    },
-    {
-      "id": 73,
-      "title": "CLASSIC PLATFORM GLITTER FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
-      "description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatkidst. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
-      "gender": "kids",
-      "category": "flip-flop"
-    },
-    {
-      "id": 74,
-      "title": "CLASSIC CROCS MARBLE FLIP",
-      "price": "18.88",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
-      "description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
-      "gender": "kids",
-      "category": "flip-flop"
-    },
-    {
-      "id": 75,
-      "title": "ATHENS FLIP",
-      "price": "26.24 ",
-      "image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
-      "description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
-      "gender": "kids",
-      "category": "flip-flop"
-    }
-  ],
-  "cart": [],
-  "users": [
-    {
-      "name": "uzair",
-      "email": "uzairan532@gmail.com",
-      "password": "1234",
-      "id": 1
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "123",
-      "id": 2
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 4
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 5
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 6
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1",
-      "id": 7
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "12",
-      "id": 8
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "12",
-      "id": 9
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "123",
-      "id": 10
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 11
-    },
-    {
-      "name": "Uzair",
-      "email": "uzairans532@gmail.com",
-      "password": "1234",
-      "id": 12
-    }
-  ]
+	"products": [
+		{
+			"id": 1,
+			"title": "Classic Lined Clog",
+			"price": "59.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
+			"description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 2,
+			"title": "Classic Lined Clog",
+			"price": "70.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
+			"description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 3,
+			"title": "Mega Crush Clog",
+			"price": "69.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
+			"description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 4,
+			"title": "Mega Crush Clog",
+			"price": "100.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
+			"description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 5,
+			"title": "Classic Vera Bradley Harry Potter Clog",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 6,
+			"title": "Personalize with Jibbitz™ Charms",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environments. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
+			"gender": "women",
+			"category": "clogs"
+		},
+		{
+			"id": 7,
+			"title": "Crush Boot",
+			"price": "70.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
+			"description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
+			"gender": "women",
+			"category": "boots"
+		},
+		{
+			"id": 8,
+			"title": "Furever Crush Shoe",
+			"price": "20.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
+			"description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
+			"gender": "women",
+			"category": "boots"
+		},
+		{
+			"id": 9,
+			"title": "CLASSIC LINED NEO PUFF BOOT",
+			"price": "36.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
+			"description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "women",
+			"category": "boots"
+		},
+		{
+			"id": 10,
+			"title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
+			"price": "47.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
+			"description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "women",
+			"category": "boots"
+		},
+		{
+			"id": 11,
+			"title": "CLASSIC COZZZY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
+			"description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
+			"gender": "women",
+			"category": "sandals"
+		},
+		{
+			"id": 12,
+			"title": "CLASSIC PLATFORM FLIP",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
+			"description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
+			"gender": "women",
+			"category": "sandals"
+		},
+		{
+			"id": 13,
+			"title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
+			"description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
+			"gender": "women",
+			"category": "sandals"
+		},
+		{
+			"id": 14,
+			"title": "WOMEN'S CROCS TULUM SANDAL",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "women",
+			"category": "sandals"
+		},
+		{
+			"id": 15,
+			"title": "CRUSH BUTTERFLY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
+			"description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
+			"gender": "women",
+			"category": "sandals"
+		},
+		{
+			"id": 16,
+			"title": "CLASSIC PLATFORM SLIDE",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "women",
+			"category": "slides"
+		},
+		{
+			"id": 17,
+			"title": "WOMEN’S CLEO SANDAL",
+			"price": "34.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
+			"description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
+			"gender": "women",
+			"category": "slides"
+		},
+		{
+			"id": 18,
+			"title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
+			"description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
+			"gender": "women",
+			"category": "slides"
+		},
+		{
+			"id": 19,
+			"title": "CLASSIC CROCS META SCAPE SLIDE",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
+			"description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
+			"gender": "women",
+			"category": "slides"
+		},
+		{
+			"id": 20,
+			"title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishments for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "women",
+			"category": "slides"
+		},
+		{
+			"id": 21,
+			"title": "WOMEN’S KADEE II FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
+			"description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
+			"gender": "women",
+			"category": "flip-flop"
+		},
+		{
+			"id": 22,
+			"title": "WOMEN'S CROCS TULUM TOE POST SANDAL",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "women",
+			"category": "flip-flop"
+		},
+		{
+			"id": 23,
+			"title": "CLASSIC PLATFORM GLITTER FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
+			"description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatment. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
+			"gender": "women",
+			"category": "flip-flop"
+		},
+		{
+			"id": 24,
+			"title": "CLASSIC CROCS MARBLE FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
+			"description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
+			"gender": "women",
+			"category": "flip-flop"
+		},
+		{
+			"id": 25,
+			"title": "ATHENS FLIP",
+			"price": "26.24 ",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
+			"description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
+			"gender": "women",
+			"category": "flip-flop"
+		},
+		{
+			"id": 26,
+			"title": "Classic Vera Bradley Harry Potter Clog",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 27,
+			"title": "Mega Crush Clog",
+			"price": "69.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
+			"description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 28,
+			"title": "Mega Crush Clog",
+			"price": "100.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
+			"description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 29,
+			"title": "Classic Lined Clog",
+			"price": "59.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
+			"description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 30,
+			"title": "Classic Lined Clog",
+			"price": "70.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
+			"description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 31,
+			"title": "Personalize with Jibbitz™ Charms",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environments. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
+			"gender": "men",
+			"category": "clogs"
+		},
+		{
+			"id": 32,
+			"title": "Crush Boot",
+			"price": "70.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
+			"description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
+			"gender": "men",
+			"category": "boots"
+		},
+		{
+			"id": 33,
+			"title": "Furever Crush Shoe",
+			"price": "20.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
+			"description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
+			"gender": "men",
+			"category": "boots"
+		},
+		{
+			"id": 34,
+			"title": "CLASSIC LINED NEO PUFF BOOT",
+			"price": "36.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
+			"description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "men",
+			"category": "boots"
+		},
+		{
+			"id": 35,
+			"title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
+			"price": "47.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
+			"description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "men",
+			"category": "boots"
+		},
+		{
+			"id": 36,
+			"title": "CLASSIC COZZZY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
+			"description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
+			"gender": "men",
+			"category": "sandals"
+		},
+		{
+			"id": 37,
+			"title": "CLASSIC PLATFORM FLIP",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
+			"description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
+			"gender": "men",
+			"category": "sandals"
+		},
+		{
+			"id": 38,
+			"title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
+			"description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
+			"gender": "men",
+			"category": "sandals"
+		},
+		{
+			"id": 39,
+			"title": "men'S CROCS TULUM SANDAL",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "men",
+			"category": "sandals"
+		},
+		{
+			"id": 40,
+			"title": "CRUSH BUTTERFLY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
+			"description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
+			"gender": "men",
+			"category": "sandals"
+		},
+		{
+			"id": 41,
+			"title": "CLASSIC PLATFORM SLIDE",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "men",
+			"category": "slides"
+		},
+		{
+			"id": 42,
+			"title": "men’S CLEO SANDAL",
+			"price": "34.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
+			"description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
+			"gender": "men",
+			"category": "slides"
+		},
+		{
+			"id": 43,
+			"title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
+			"description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
+			"gender": "men",
+			"category": "slides"
+		},
+		{
+			"id": 44,
+			"title": "CLASSIC CROCS META SCAPE SLIDE",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
+			"description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
+			"gender": "men",
+			"category": "slides"
+		},
+		{
+			"id": 45,
+			"title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishments for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "men",
+			"category": "slides"
+		},
+		{
+			"id": 46,
+			"title": "men’S KADEE II FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
+			"description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
+			"gender": "men",
+			"category": "flip-flop"
+		},
+		{
+			"id": 47,
+			"title": "men'S CROCS TULUM TOE POST SANDAL",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "men",
+			"category": "flip-flop"
+		},
+		{
+			"id": 48,
+			"title": "CLASSIC PLATFORM GLITTER FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
+			"description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatment. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
+			"gender": "men",
+			"category": "flip-flop"
+		},
+		{
+			"id": 49,
+			"title": "CLASSIC CROCS MARBLE FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
+			"description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
+			"gender": "men",
+			"category": "flip-flop"
+		},
+		{
+			"id": 50,
+			"title": "ATHENS FLIP",
+			"price": "26.24 ",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
+			"description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
+			"gender": "men",
+			"category": "flip-flop"
+		},
+		{
+			"id": 51,
+			"title": "Classic Lined Clog",
+			"price": "59.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/203591_5Q6_ALT100/crocs",
+			"description": "Warm And Fuzzy Feelings Inside Everybody loves the comfort of the Crocs Classic Clog — and now there’s a toasty lined version to keep the feeling going all season. The soft, fuzzy liner adds to the cushion and comfort, indoors or out. Great as a slipper, yet capable to run errands, too. Croslite™ foam construction keeps them light and easy to wear. The pivoting heel strap gives you a secure fit, or push it forward to just step in and go.",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 52,
+			"title": "Classic Lined Clog",
+			"price": "70.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs",
+			"description": "We created a style-relevant version of our Classic icon for her. The Classic Lined Platform features a heightened, contoured outsole that supports the upper you know and love with a slimmer, sleeker look — but there’s more. The customizable backstrap also holds Jibbitz™ charms, so you can personalize your look even more. A warm, fuzzy lining brings all the cozy feelings of the Lined Classic, with an extra lift. When you’re in the mood for a little extra boost, style it up with the Classic Lined Platform.",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 53,
+			"title": "Mega Crush Clog",
+			"price": "69.99",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207988_100_ALT100/crocs",
+			"description": "The Classic Clog gets a seriously eye-catching makeover. Introducing the Classic Mega Crush Clog, featuring an enhanced rubber tread, updated detailing around the outsole, and a platform ready to take any outfit to the next level. Even better, the backstrap and upper are built to be personalized with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 54,
+			"title": "Mega Crush Clog",
+			"price": "100.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207989_6UB_ALT100/crocs",
+			"description": "The look and feel of our Classic Mega Crush Clog is now available in sandal form. Introducing the Classic Mega Crush Sandal, featuring an enhanced rubber tread, updated detailing around the outsole and a platform ready to take any outfit to the next level. A two-strap upper and secure backstrap help ensure a secure fit, while boasting holes for personalization with Jibbitz™ charms. Are you ready for your new crush?",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 55,
+			"title": "Classic Vera Bradley Harry Potter Clog",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Step into the magic of the season in Harry Potter™ Vera Bradley Collection. Each pair is covered in rich graphics inspired by the wizarding world including your favorite characters, glitter detailing, cozy touches, and room for personalization. There's a style for everyone in the family.",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 56,
+			"title": "Personalize with Jibbitz™ Charms",
+			"price": "30.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208037_0C4_ALT100/crocs",
+			"description": "Comfort For The Adventure Travel. Exploration. Adventures near and far. The Classic All-Terrain Clog is ready for it all, even in the harshest environkidsts. With a more rugged outsole and an adjustable turbo strap, the ground beneath your feet has never felt more surmountable. Lightweight Croslite™ construction makes them a practical and packable choice for any outing. It’s time to shift into all-wheel drive. Flip that strap back and go find your fun!",
+			"gender": "kids",
+			"category": "clogs"
+		},
+		{
+			"id": 57,
+			"title": "Crush Boot",
+			"price": "70.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207946_7C1_ALT100/crocs",
+			"description": "This  boot is functional for rain, but versatile for any occasion, with year-round appeal for those looking for bold, unique, iconic style. Part of the new Crush collection, this dynamic new boot features modern style, added height, and trend-right, easy to wear shaft height. Plus, Jibbitz™ holes on the shaft collar makes it easy to personalize. The Crocs comfort you love, in a waterproof boot, with an extra dose of height, attitude, and style.",
+			"gender": "kids",
+			"category": "boots"
+		},
+		{
+			"id": 58,
+			"title": "Furever Crush Shoe",
+			"price": "20.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208446_001_ALT100/crocs",
+			"description": "The Crush gets a toasty upgrade that's meant to be with the Furever Crush. Featuring a faux-shearling liner and collar, a raised heel, and the added height and bold design synonymous with the Crush Collection, this dynamic shoe also offers many personalization options, with Jibbitz™ holes on the upper and the pivoting backstrap. Get an extra dose of height, attitude, and style with a love that'll last furever.",
+			"gender": "kids",
+			"category": "boots"
+		},
+		{
+			"id": 59,
+			"title": "CLASSIC LINED NEO PUFF BOOT",
+			"price": "36.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206630_143_ALT100/crocs",
+			"description": "Original. Puffed. Comfortable.The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new lined version featuring a lined nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "kids",
+			"category": "boots"
+		},
+		{
+			"id": 60,
+			"title": "CLASSIC LINED NEO PUFF TIE DYE BOOT",
+			"price": "47.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207328_4JQ_ALT100/crocs",
+			"description": "The Classic that started a comfort revolution around the world is a do-it-all style that you’re sure to fall deeper in love with day after day. Boot up in a new graphic lined version featuring a lined tie-dye nylon funnel neck so you get the best of both worlds — Classic with a boot look. Lifelong wardrobe staples beloved by millions of all ages, Crocs Classic Clogs offer lightweight comfort, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+			"gender": "kids",
+			"category": "boots"
+		},
+		{
+			"id": 61,
+			"title": "CLASSIC COZZZY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207446_2YC_ALT100/crocs",
+			"description": "The Classic Cozzzy Sandal features a soft, fuzzy liner, style-forward heightened outsoles and two upper straps that offer enhanced foot security. Seven holes on each sandal allow for maximum personalization with Jibbitz™ charms, while Croslite foam construction keeps them light and easy to wear.",
+			"gender": "kids",
+			"category": "sandals"
+		},
+		{
+			"id": 62,
+			"title": "CLASSIC PLATFORM FLIP",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207714_3UG_ALT100/crocs",
+			"description": "Introducing the Classic Platform Flip — a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and six holes in each sandal to allow for personalization with Jibbitz charms. Classic Croslite foam cushions each step and keeps them light and easy to wear — that's how to be comfortable in your own shoes.",
+			"gender": "kids",
+			"category": "sandals"
+		},
+		{
+			"id": 63,
+			"title": "7-ELEVEN X CROCS CLASSIC 2 STRAP SANDAL",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208271_100_ALT100/crocs",
+			"description": "Slide into the foam and feel the convenience. The 7-Eleven X Crocs Classic Sandal takes the clean and classic colors of 7-Eleven and splashes them across our stylish two-strap sandal. The Original Croslite™ foam cushion will keep you comfortably supported whether you’re grabbing a cold one or feeding a snack craving.",
+			"gender": "kids",
+			"category": "sandals"
+		},
+		{
+			"id": 64,
+			"title": "kids'S CROCS TULUM SANDAL",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206107_00W_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features multiple soft Matlite™ straps arranged in a stylish asymmetrical design, and a strap around the heel keeps it from slipping off as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "kids",
+			"category": "sandals"
+		},
+		{
+			"id": 65,
+			"title": "CRUSH BUTTERFLY SANDAL",
+			"price": "54.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208247_94S_ALT100/crocs",
+			"description": "For a fresh new take on your favorite sandal, look to the Classic Crush Sandal — and this version features fashionable butterfly graphics and dynamic style. Added height, a bold design, and colorful graphics combine in this stylish sandal. You’ll also enjoy the popular and versatile two-strap design, plus Jibbitz™ holes on the sandal straps for personalization. The Crocs comfort you love, plus an extra dose of height, attitude, and style.",
+			"gender": "kids",
+			"category": "sandals"
+		},
+		{
+			"id": 66,
+			"title": "CLASSIC PLATFORM SLIDE",
+			"price": "39.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208180_100_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "kids",
+			"category": "slides"
+		},
+		{
+			"id": 67,
+			"title": "kids’S CLEO SANDAL",
+			"price": "34.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10043_13S_ALT100/crocs",
+			"description": "Double The Comfort Bring style to any season with the Crocs Cleo Sandal. With its double-cushioned footbed and secure double-strapped design, you’ll love how your feet feel at the end of the day.",
+			"gender": "kids",
+			"category": "slides"
+		},
+		{
+			"id": 68,
+			"title": "CLASSIC ALL-TERRAIN CAMO SANDAL",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208063_2UG_ALT100/crocs",
+			"description": "Travel. Exploration. Adventures near and far. The look and feel of our Classic All-Terrain Clog, now in sandal form. Featuring a heritage-inspired camo print, it’s your perfect adventure-ready sandal. The rugged tread pattern and rubber pods add traction and support, while the two-strap upper and adjustable turbo backstraps work to keep up with their outdoorsy lifestyle. Seven holes in each sandal allow for personalization with Jibbitz™ charms and a lightweight Croslite™ foam construction makes them a practical choice for any outing. Flip that strap back and go wild.",
+			"gender": "kids",
+			"category": "slides"
+		},
+		{
+			"id": 69,
+			"title": "CLASSIC CROCS META SCAPE SLIDE",
+			"price": "31.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208471_0C4_ALT100/crocs",
+			"description": "City nights are calling with this Classic Slide covered in a moody, noir street scene. The ever-comfortable Classic Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose this Classic and stay out late with your new favorite!",
+			"gender": "kids",
+			"category": "slides"
+		},
+		{
+			"id": 70,
+			"title": "CLASSIC PLATFORM CRYSTALS & PEARLS SLIDE",
+			"price": "49.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/208388_108_ALT100/crocs",
+			"description": "The Classic Platform Slide is simplicity at its best with style-relevant features for her. It’s easy on purpose – a touch of height, straightforward form, versatile wear, and plenty of ways to make them your own with Jibbitz™ charms. This slide also features fixed crystal and pearl embellishkidsts for a little extra shine. Whatever the wearing occasion, you can make them work effortlessly.",
+			"gender": "kids",
+			"category": "slides"
+		},
+		{
+			"id": 71,
+			"title": "kids’S KADEE II FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/202492_100_ALT100/crocs",
+			"description": "Where Cute Meets Comfortable Everybody needs a casual, basic flip — we’ve just made the Kadee II a little prettier. It has sleeker, slimmer straps and the Croslite™ foam cushion you love. It’s light, versatile and ready for fun whenever you are.",
+			"gender": "kids",
+			"category": "flip-flop"
+		},
+		{
+			"id": 72,
+			"title": "kids'S CROCS TULUM TOE POST SANDAL",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/206108_6TH_ALT100/crocs",
+			"description": "Year-Round Summery Style Feel the warmth and joy of summer all year long with the new Crocs Tulum Collection of sandals and flats. This style features flexible Matlite™ straps with an adjustable buckle, and soft TPU toe posts feel good as you jaunt around town. Dress it up or dress it down — whatever you choose, you’ll feel pretty, elegant and summery no matter the weather. Enjoy!",
+			"gender": "kids",
+			"category": "flip-flop"
+		},
+		{
+			"id": 73,
+			"title": "CLASSIC PLATFORM GLITTER FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207830_100_ALT100/crocs",
+			"description": "The Classic Platform Glitter Flip is a stylish revamp of our Classic Crocs Flip that features an elevated, textured heel and a stunning glitter treatkidst. With six holes in each sandal, personalization with Jibbitz charms has never been easier.",
+			"gender": "kids",
+			"category": "flip-flop"
+		},
+		{
+			"id": 74,
+			"title": "CLASSIC CROCS MARBLE FLIP",
+			"price": "18.88",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/207822_6RW_ALT100/crocs",
+			"description": "Enjoy a flip that’s as comfortable as the Classic Clog — now sporting our new marbled Croslite™ material that creates a unique colorful effect. While all marbled shoes have the same wavy look, no two shoes are exactly alike. Show off your creative side in this incredibly light, incredibly cushy flip made with Croslite™ foam. Easy to wear, not afraid to get wet, dries quickly, and goes anywhere.",
+			"gender": "kids",
+			"category": "flip-flop"
+		},
+		{
+			"id": 75,
+			"title": "ATHENS FLIP",
+			"price": "26.24 ",
+			"image": "https://media.crocs.com/images/t_pdphero/f_auto%2Cq_auto/products/10024_6QQ_ALT100/crocs",
+			"description": "Crocs Athens, the trendsetter. The first Crocs sandal to feature an extrasoft double-cushioned footbed for additional comfort and support with a Croslite™ material toe post. So comfy, your feet will thank you.",
+			"gender": "kids",
+			"category": "flip-flop"
+		}
+	],
+	"cart": [],
+	"users": [
+		{
+			"name": "uzair",
+			"email": "uzairan532@gmail.com",
+			"password": "1234",
+			"id": 1
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "123",
+			"id": 2
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 3
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 4
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 5
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 6
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1",
+			"id": 7
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "12",
+			"id": 8
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "12",
+			"id": 9
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "123",
+			"id": 10
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 11
+		},
+		{
+			"name": "Uzair",
+			"email": "uzairans532@gmail.com",
+			"password": "1234",
+			"id": 12
+		}
+	]
 }
