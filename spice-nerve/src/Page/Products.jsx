@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Box, Center, Grid, HStack, Stack, Badge } from "@chakra-ui/react";
-import { ProductsCart } from "../Component/ProductsCart";
+import { ProductsCard } from "../Component/ProductsCard";
 import { ApiContext } from "../Context/ApiContext";
 import { Loading } from "../Component/Loading";
 import { Error } from "../Component/Error";
@@ -19,7 +19,7 @@ export const Products = () => {
 		setLoading(true);
 
 		axios
-			.get(`https://crabby-culottes-ant.cyclic.app/products?gender=${value}`)
+			.get(`https://crabby-culottes-ant.cyclic.app/products?category=${value}`)
 			.then((res) => {
 				if (sort === "low") {
 					const lowToHighData = res.data.sort((a, b) => {
@@ -44,6 +44,7 @@ export const Products = () => {
 	};
 	useEffect(() => {
 		getDataFromApi(apiData);
+		window.scrollTo(0,0);
 	}, [apiData, sort]);
 
 	const handleSort = (value) => {
@@ -72,15 +73,15 @@ export const Products = () => {
 			<Center>
 				<Grid
 					templateColumns={{
-						base: "repeat(2, 1fr)",
+						base: "repeat(1, 1fr)",
 						md: "repeat(3, 1fr)",
-						lg: "repeat(5, 1fr)",
+						lg: "repeat(4, 1fr)",
 					}}
 					gap={6}
 					p={4}
 				>
 					{data?.map((ele) => (
-						<ProductsCart key={ele.id} {...ele} />
+						<ProductsCard key={ele.id} {...ele} />
 					))}
 				</Grid>
 			</Center>

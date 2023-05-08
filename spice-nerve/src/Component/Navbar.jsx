@@ -332,9 +332,6 @@ const NAV_ITEMS = [
 				label: "Flip Flops",
 			},
 
-			{
-				label: "Socks",
-			},
 		],
 	},
 	{
@@ -356,9 +353,7 @@ const NAV_ITEMS = [
 				label: "Flip Flops",
 			},
 
-			{
-				label: "Socks",
-			},
+			
 		],
 	},
 	{
@@ -380,83 +375,80 @@ const NAV_ITEMS = [
 				label: "Flip Flops",
 			},
 
-			{
-				label: "Socks",
-			},
 		],
 	},
 
-	{
-		label: "WORK",
-		children: [
-			{
-				label: "Nursing Shoes",
-			},
-			{
-				label: "Chef Shoes",
-			},
-			{
-				label: "Slip - Resistant Shoes",
-			},
-			{
-				label: "Standing Shoes",
-			},
-			{
-				label: "Hospitality Shoes",
-			},
-		],
-	},
+	// {
+	// 	label: "WORK",
+	// 	children: [
+	// 		{
+	// 			label: "Nursing Shoes",
+	// 		},
+	// 		{
+	// 			label: "Chef Shoes",
+	// 		},
+	// 		{
+	// 			label: "Slip - Resistant Shoes",
+	// 		},
+	// 		{
+	// 			label: "Standing Shoes",
+	// 		},
+	// 		{
+	// 			label: "Hospitality Shoes",
+	// 		},
+	// 	],
+	// },
 
-	{
-		label: "SALES",
-		children: [
-			{
-				label: "$19.99 or Less",
-			},
-			{
-				label: "$20.00 - $29.99",
-			},
-			{
-				label: "$30.00 - $39.99",
-			},
-			{
-				label: "$40.00 - $49.99",
-			},
-		],
-	},
-	{
-		label: "FEATURED",
-		children: [
-			{
-				label: "Harry Potter",
-			},
-			{
-				label: "Pokemon",
-			},
-			{
-				label: "Disney",
-			},
-			{
-				label: "Marvel",
-			},
-			{
-				label: "Pixar",
-			},
-			{
-				label: "Star Wars",
-			},
-			{
-				label: "Paw Patrol",
-			},
-			{
-				label: "DC Comics",
-			},
-			{
-				label: "Nickelodeon",
-			},
-			{
-				label: "Warner Brothers",
-			},
-		],
-	},
+	// {
+	// 	label: "SALES",
+	// 	children: [
+	// 		{
+	// 			label: "$19.99 or Less",
+	// 		},
+	// 		{
+	// 			label: "$20.00 - $29.99",
+	// 		},
+	// 		{
+	// 			label: "$30.00 - $39.99",
+	// 		},
+	// 		{
+	// 			label: "$40.00 - $49.99",
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	label: "FEATURED",
+	// 	children: [
+	// 		{
+	// 			label: "Harry Potter",
+	// 		},
+	// 		{
+	// 			label: "Pokemon",
+	// 		},
+	// 		{
+	// 			label: "Disney",
+	// 		},
+	// 		{
+	// 			label: "Marvel",
+	// 		},
+	// 		{
+	// 			label: "Pixar",
+	// 		},
+	// 		{
+	// 			label: "Star Wars",
+	// 		},
+	// 		{
+	// 			label: "Paw Patrol",
+	// 		},
+	// 		{
+	// 			label: "DC Comics",
+	// 		},
+	// 		{
+	// 			label: "Nickelodeon",
+	// 		},
+	// 		{
+	// 			label: "Warner Brothers",
+	// 		},
+	// 	],
+	// },
 ];

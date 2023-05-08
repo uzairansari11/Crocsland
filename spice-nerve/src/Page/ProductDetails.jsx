@@ -73,6 +73,7 @@ export default function ProductDetails() {
 			swal("Please Add Size");
 		}
 	};
+	console.log(data);
 
 	return loading ? (
 		<Loading />
@@ -123,12 +124,20 @@ export default function ProductDetails() {
 									placeholder="Select Your Size"
 									onChange={(e) => setSize(e.target.value)}
 								>
-									<option value="4">Your Size Is :4</option>
+									{/* <option value="4">Your Size Is :4</option>
 									<option value="5">Your Size Is :5</option>
 									<option value="6">Your Size Is :6</option>
 									<option value="7">Your Size Is :7</option>
 									<option value="8">Your Size Is :8</option>
-									<option value="9">Your Size Is :9</option>
+									<option value="9">Your Size Is :9</option> */}
+
+									{data?.size?.map((ele) => {
+										return (
+											<option key={ele.id} value={ele}>
+												Avaliable Size : {ele}
+											</option>
+										);
+									})}
 								</Select>
 							</Box>
 						</Center>
