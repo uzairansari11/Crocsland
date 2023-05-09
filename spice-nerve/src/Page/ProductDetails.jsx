@@ -22,6 +22,7 @@ import { Error } from "../Component/Error";
 import swal from "sweetalert";
 import { cartQuantityContext } from "../Context/CartQunatityContext";
 
+
 export default function ProductDetails() {
 	const [data, setData] = useState([]);
 	const { totalItem, item } = useContext(cartQuantityContext);
@@ -124,13 +125,6 @@ export default function ProductDetails() {
 									placeholder="Select Your Size"
 									onChange={(e) => setSize(e.target.value)}
 								>
-									{/* <option value="4">Your Size Is :4</option>
-									<option value="5">Your Size Is :5</option>
-									<option value="6">Your Size Is :6</option>
-									<option value="7">Your Size Is :7</option>
-									<option value="8">Your Size Is :8</option>
-									<option value="9">Your Size Is :9</option> */}
-
 									{data?.size?.map((ele) => {
 										return (
 											<option key={ele.id} value={ele}>

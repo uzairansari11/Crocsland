@@ -10,7 +10,7 @@ export const Loading = () => {
 				emptyColor="#8c52ff"
 				m="100"
 				p={"20"}
-				speed="1.5s"
+				speed="2s"
 			/>
 		</Center>
 	);

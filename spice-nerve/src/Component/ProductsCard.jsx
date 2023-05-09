@@ -1,72 +1,167 @@
-import { Card, Text, Image, Stack, CardBody, Box } from "@chakra-ui/react";
-
-import React from "react";
-import { Link as ReactLink } from "react-router-dom";
-import { useState } from "react";
-import { DynamicStar } from "react-dynamic-star";
+import { Button } from "@chakra-ui/button";
+import { Box, Flex, Text } from "@chakra-ui/layout";
+import React, { useState } from "react";
+import { AiOutlineHeart } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import SingleProductImageSlider from "./SingleProductImageSlider";
+import { useDispatch, useSelector } from "react-redux";
+// import { addToWishlist } from "../../../Redux/Wishlist/wishlist.actions";
+import { useToast } from "@chakra-ui/react";
 export const ProductsCard = ({
 	id,
 	title,
 	offerPrice,
 	originalPrice,
 	discount,
-	quantity,
 	image,
-	category,
 	subCategory,
-	size,
 	rating,
 	ratingCount,
-	description,
 }) => {
-	const [star, setStar] = useState({
-		rating: rating,
-		totalStars: 5,
-		sharpness: 2.5,
-		width: 15,
-		height: 15,
-		outlined: true,
-		outlinedColor: "",
-		fullStarColor: "red",
-		emptyStarColor: "transparent",
-	});
+	const [show, setShow] = useState(false);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const toast = useToast();
+	// const userData = useSelector((store) => {
+	// 	return store.userAuthReducer.user;
+	// });
+	// const allWishlistData = useSelector((store) => {
+	// 	return store.wishlistReducer.wishlist;
+	// });
+
+	// const userId = userData?.uid;
+	// const handleClick = (e) => {
+	// 	if (!userId) {
+	// 		navigate("/login");
+	// 		return;
+	// 	}
+	// 	if (e.target.closest(".wishlistBtn")) {
+	// 		// let btn = e.currentTarget.querySelector('.wishlistBtn')
+	// 		// console.log(btn.id)
+
+	// 		dispatch(addToWishlist(userId, props, id));
+	// 		toast({
+	// 			title: "Product is Added to the Wishlist",
+	// 			description: "Shop More ...",
+	// 			status: "success",
+	// 			duration: 4000,
+	// 			position: "top",
+	// 			isClosable: true,
+	// 		});
+	// 		return;
+	// 	}
+	// 	navigate(`/product/${products}/${id}`);
+	// };
 	return (
-		<Card maxW="sm">
-			<ReactLink to={`/product/${id}`}>
-				<CardBody textAlign={"left"}>
-					<Image src={image} alt={title} borderRadius="lg" />
-					<Stack>
-						<Text size="md">{title}</Text>
-						<Text size="sm"> Offer Price: ₹ {offerPrice}</Text>
-						<Text size="sm" as="s">
-							{" "}
-							Price: ₹ {originalPrice}
+		<Box
+			// onClick={handleClick}
+
+			cursor={"pointer"}
+			className="shadow"
+			transition={"all 0.3s"}
+			height={{ base: "300px", md: "350px" }}
+			width={{ base: "150px", md: "210px" }}
+			onMouseEnter={() => {
+				setShow(true);
+			}}
+			onMouseLeave={() => {
+				setShow(false);
+			}}
+			boxShadow={"lg"}
+			borderRadius={10}
+			
+		>
+			<Box>
+				<SingleProductImageSlider
+					images={image}
+					rating={rating}
+					ratingCount={ratingCount}
+					id={id}
+				/>
+			</Box>
+			<Box px="0px" bg="white">
+				<Text
+					fontWeight={"600"}
+					fontSize="0.94rem"
+					pl="10px"
+					width="100%"
+					overflow={"hidden"}
+					whiteSpace="nowrap"
+					textOverflow={"ellipsis"}
+				>
+					{subCategory}
+				</Text>
+				<Box position={"relative"} bg="white">
+					<Text
+						fontSize={"0.9rem"}
+						color="gray.700"
+						pl="10px"
+						width="100%"
+						overflow={"hidden"}
+						whiteSpace="nowrap"
+						textOverflow={"ellipsis"}
+					>
+						{title.substring(0, 30)}
+					</Text>
+					<Flex
+						height={!show && "0"}
+						className="wishlistlayer"
+						flexDir={"column"}
+						align="center"
+						position={"absolute"}
+						py={"1rem"}
+						pb="0"
+						bottom={"0"}
+						bg="white"
+						width={"full"}
+						zIndex={show ? "1" : "-100"}
+					>
+						<Flex justify={"center"} align="center" display={!show && "none"}>
+							<Button
+								variant={"unstyled"}
+								className="wishlistBtn"
+								id={id}
+								// isDisabled={allWishlistData.find((item) => item.id === id)}
+								width={{ base: "9rem", md: "11.5rem" }}
+								outline={"1px solid grey"}
+							>
+								{" "}
+								<Flex align={"center"} justify="center">
+									<AiOutlineHeart fontSize={"1.5rem"} color="grey" />
+									<Text pl={"0.5rem"} color="gray.600">
+										Wishlist
+									</Text>
+								</Flex>
+							</Button>
+						</Flex>
+						<Text
+							width={"100%"}
+							fontSize="0.9rem"
+							my={"6px"}
+							pl="1rem"
+							display={!show && "none"}
+						>
+							{/* {size?.map((ele, index) => {
+									return <Avatar size="2px" name={ele} />;
+								})} */}
 						</Text>
-						<Text size="sm" as="mark">
-							{" "}
-							Discount: {discount}
-						</Text>
-						<Text size="sm"> Gender: {category}</Text>
-						<Box display="flex" alidnItem="center">
-							<Text>
-								Rating : {rating}
-								<DynamicStar
-									rating={parseFloat(star.rating)}
-									width={parseFloat(star.width)}
-									height={parseFloat(star.height)}
-									outlined={
-										star.outlinedColor ? star.outlinedColor : star.outlined
-									}
-									totalStars={star.totalStars}
-									sharpnessStar={star.sharpness}
-									fullStarColor={star.fullStarColor}
-									emptyStarColor={star.emptyStarColor}
-								/>
-							</Text>
-						</Box>
-					</Stack>
-				</CardBody>
-			</ReactLink>
-		</Card>
+					</Flex>
+				</Box >
+				<Text fontWeight={"bold"} fontSize="0.84rem" my="0.1rem" pl="10px">
+					Rs. {offerPrice || 456}{" "}
+					<Text
+						as="span"
+						textDecoration={"line-through"}
+						fontWeight="300"
+						fontSize="0.8rem"
+					>
+						Rs.{originalPrice}
+					</Text>
+					<Text as="span" color={"pink.400"} fontSize="0.7rem" px="4px">
+						({discount || "54%"}off)
+					</Text>
+				</Text>
+			</Box>
+		</Box>
 	);
 };
