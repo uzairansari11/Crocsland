@@ -5,7 +5,6 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
 	const userAuthorized = JSON.parse(localStorage.getItem("isAuthUse")) || false;
 	const userName = localStorage.getItem("name") || null;
-	console.log(userAuthorized);
 	const [authentification, setAuthentification] = useState({
 		isAuth: userAuthorized || false,
 		name: userName || null,

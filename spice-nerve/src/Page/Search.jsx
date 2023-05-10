@@ -21,7 +21,7 @@ const Search = (props) => {
 				setProducts(res.data);
 			})
 			.catch((err) => {
-				console.log(err);
+				
 			});
 	};
 	useEffect(() => {
@@ -32,7 +32,7 @@ const Search = (props) => {
 		if (throttledText === "") {
 			setSuggestions([]);
 		} else {
-			console.log(throttledText);
+		
 			let newSuggestions = product.filter((item) => {
 				return item.title
 					.split(" ")
@@ -48,7 +48,7 @@ const Search = (props) => {
 			setShowDropdown.on();
 		}
 	}, [throttledText]);
-	console.log(suggestions, "suggestions");
+
 	return (
 		<Box
 			className="search_main"

@@ -1,3 +1,5 @@
+/* This component is for showing error */
+
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 

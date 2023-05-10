@@ -31,12 +31,10 @@ export const Cart = () => {
 		axios
 			.get("https://crabby-culottes-ant.cyclic.app/cart")
 			.then(function (response) {
-				console.log("cart page", response.data.length);
 				setData(response.data);
 				setLoading(false);
 			})
 			.catch(function (error) {
-				console.log(error);
 				setLoading(false);
 				setError(true);
 			});

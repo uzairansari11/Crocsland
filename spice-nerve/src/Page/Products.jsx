@@ -1,42 +1,15 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
-import { Box, Center, Grid, HStack, Stack, Badge } from "@chakra-ui/react";
+import { Box, Center, Grid } from "@chakra-ui/react";
 import { ProductsCard } from "../Component/ProductsCard";
-import { ApiContext } from "../Context/ApiContext";
 import { Loading } from "../Component/Loading";
 import { Error } from "../Component/Error";
 import { Filter } from "../Component/Filter";
-export const Products = () => {
-	const { apiData } = useContext(ApiContext);
-	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(false);
 
-	const getDataFromApi = (value) => {
-		setLoading(true);
-		axios
-			.get(
-				`https://crabby-culottes-ant.cyclic.app/products?category=${value}&_limit=8`,
-			)
-			.then((res) => {
-				setLoading(false);
-				setData(res.data);
-			})
-			.catch((err) => {
-				setLoading(false);
-				setError(true);
-			});
-	};
-	useEffect(() => {
-		getDataFromApi(apiData);
-		window.scrollTo(0, 0);
-	}, [apiData]);
 
-	return loading ? (
+export const Products = ({ isLoading, isError, products }) => {
+	
+	return isLoading ? (
 		<Loading />
-	) : error ? (
+	) : isError ? (
 		<Error />
 	) : (
 		<Center mt={14}>
@@ -55,7 +28,7 @@ export const Products = () => {
 						gap={6}
 						p={4}
 					>
-						{data?.map((ele) => (
+						{products?.map((ele) => (
 							<ProductsCard key={ele.id} {...ele} />
 						))}
 					</Grid>

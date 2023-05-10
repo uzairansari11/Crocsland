@@ -33,7 +33,6 @@ export const AddToCartCard = ({
 		cartDataFromApi();
 	};
 	const handleDelete = (data) => {
-		console.log(data);
 		deleteDataFromApi(data);
 		totalItem(-1);
 	};

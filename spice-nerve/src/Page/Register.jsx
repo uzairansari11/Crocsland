@@ -9,6 +9,8 @@ import {
 	Input,
 	InputGroup,
 	InputRightElement,
+	InputLeftAddon,
+	InputRightAddon,
 	Stack,
 	Button,
 	Heading,
@@ -87,59 +89,48 @@ export default function Register() {
 				password: data.password,
 			})
 			.then(function (response) {
-				console.log(response.headers);
+
 				swal("Congrats!", "Your account is created", "success");
 			})
 			.catch(function (error) {
-				console.log(error);
+		
 			});
 	};
 	return (
-		<Flex
-			minH={"100vh"}
-			align={"center"}
-			justify={"center"}
-			bg={useColorModeValue("gray.50", "gray.800")}
-		>
-			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={8} px={6}>
-				<Stack align={"center"}>
-					<Heading fontSize={"2xl"} textAlign={"center"}>
-						Please Register Here
-					</Heading>
-				</Stack>
-				<Box
-					rounded={"lg"}
-					bg={useColorModeValue("white", "gray.700")}
-					boxShadow={"lg"}
-					p={8}
-				>
-					<Stack spacing={4}>
+		<Flex height={"100vh"} alignItems={"center"} justify={"center"}>
+			<Stack>
+				<Text>Please Register And Get Exciting Offers!</Text>
+				<Box>
+					<Stack>
 						<FormControl id="firstName" isRequired>
-							<FormLabel>Name</FormLabel>
-							<Input
-								w={"auto"}
-								placeholder="Name"
-								type="text"
-								required
-								onChange={(e) =>
-									dispatch({ type: "name", payload: e.target.value })
-								}
-							/>
+							<InputGroup>
+								<InputLeftAddon children="Name" />
+								<Input
+									placeholder="Please enter a name"
+									type="text"
+									required
+									onChange={(e) =>
+										dispatch({ type: "name", payload: e.target.value })
+									}
+								/>
+							</InputGroup>
 						</FormControl>
 
 						<FormControl id="email" isRequired>
-							<FormLabel>Email address</FormLabel>
-							<Input
-								placeholder="Email"
-								type="email"
-								onChange={(e) =>
-									dispatch({ type: "email", payload: e.target.value })
-								}
-							/>
+							<InputGroup>
+								<InputLeftAddon children="Email" />
+								<Input
+									placeholder="Please enter your email ..."
+									type="email"
+									onChange={(e) =>
+										dispatch({ type: "email", payload: e.target.value })
+									}
+								/>
+							</InputGroup>
 						</FormControl>
 						<FormControl id="password" isRequired>
-							<FormLabel>Password</FormLabel>
 							<InputGroup>
+								<InputLeftAddon children="Password" />
 								<Input
 									placeholder="Password"
 									type={showPassword ? "text" : "password"}
@@ -161,27 +152,26 @@ export default function Register() {
 								</InputRightElement>
 							</InputGroup>
 						</FormControl>
-						<Stack spacing={10} pt={2}>
+						<Stack>
 							<Button
 								onClick={handleSubmit}
-								loadingText="Submitting"
-								size="lg"
-								bg={"#8c52ff"}
+								bg={"blue.400"}
 								color={"white"}
 								_hover={{
-									bg: "#ff6262",
+									bg: "blue.500",
 								}}
+								width={"xs"}
+								m={'auto'}
 							>
 								Sign up
 							</Button>
 						</Stack>
 						<Stack pt={6}>
-							<Text align={"center"}>
-								Already a user?{" "}
-								<ReactLink color={"#8c52ff"} to="/login">
-									Login
-								</ReactLink>
-							</Text>
+							<ReactLink to="/login">
+								<Text align={"center"}>
+									Already a user ? <span style={{ color: "red" }}>Login</span>
+								</Text>
+							</ReactLink>
 						</Stack>
 					</Stack>
 				</Box>

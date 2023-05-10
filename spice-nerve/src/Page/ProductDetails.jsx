@@ -47,17 +47,16 @@ export default function ProductDetails() {
 	};
 	useEffect(() => {
 		getDataFromApi(param.id);
-		console.log(param.id);
 	}, []);
 	const postDataToCart = (data) => {
 		data.quantity = 1;
 		axios
 			.post("https://crabby-culottes-ant.cyclic.app/cart", data)
 			.then(function (response) {
-				console.log(response);
+
 			})
 			.catch(function (error) {
-				console.log(error);
+
 			});
 	};
 	const handleCartData = (data, size) => {
@@ -74,7 +73,7 @@ export default function ProductDetails() {
 			swal("Please Add Size");
 		}
 	};
-	console.log(data);
+
 
 	return loading ? (
 		<Loading />

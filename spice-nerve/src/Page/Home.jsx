@@ -4,17 +4,22 @@ import banner2 from "../files/banner-2.PNG";
 import banner3 from "../files/banner-3.PNG";
 import banner4 from "../files/banner-4.PNG";
 import banner5 from "../files/banner-5.PNG";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
-import { Link as ReactLink } from "react-router-dom";
+import { Link as ReactLink,  useSearchParams } from "react-router-dom";
 import { Box, Image, Button, Grid, Center } from "@chakra-ui/react";
 import Faq from "../Component/Faq";
 import { ApiContext } from "../Context/ApiContext";
+
+
 export const Home = () => {
 	const { apiData, setApiData } = useContext(ApiContext);
 	const handleApiParameter = (data) => {
 		const dataforfetch = data.toLowerCase();
 		setApiData(dataforfetch);
 	};
+
+
 	return (
 		<Box bgGradient="linear(to-l,#A0AEC0, #E2E8F0)">
 			<ReactLink to="/product">
@@ -23,7 +28,11 @@ export const Home = () => {
 						src={banner1}
 						alt=""
 						p={12}
-						onClick={() => handleApiParameter("women")}
+						onClick={() => {
+							
+							handleApiParameter("women")
+							
+						}}
 					/>
 				</Box>
 			</ReactLink>
@@ -40,15 +49,16 @@ export const Home = () => {
 			>
 				<ReactLink to="/product">
 					<Button
+						rightIcon={<ArrowForwardIcon />}
+						colorScheme="teal"
+						variant="outline"
 						size="md"
 						height="48px"
 						width="200px"
-						border="2px"
-						borderColor="#7928CA"
 						m={2}
 						onClick={() => handleApiParameter("women")}
 						_hover={{
-							bg: "#FF0080",
+							bg: "teal.500",
 							color: "white",
 						}}
 					>
@@ -57,15 +67,16 @@ export const Home = () => {
 				</ReactLink>
 				<ReactLink to="/product">
 					<Button
+						rightIcon={<ArrowForwardIcon />}
+						colorScheme="teal"
+						variant="outline"
 						size="md"
 						height="48px"
 						width="200px"
-						border="2px"
-						borderColor=" #FF0080"
 						m={2}
 						onClick={() => handleApiParameter("men")}
 						_hover={{
-							bg: "#7928CA",
+							bg: "teal.500",
 							color: "white",
 						}}
 					>
@@ -75,15 +86,16 @@ export const Home = () => {
 
 				<ReactLink to="/product">
 					<Button
+						rightIcon={<ArrowForwardIcon />}
+						colorScheme="teal"
+						variant="outline"
 						size="md"
 						height="48px"
 						width="200px"
-						border="2px"
-						borderColor="#7928CA"
-						onClick={() => handleApiParameter("kids")}
 						m={2}
+						onClick={() => handleApiParameter("kids")}
 						_hover={{
-							bg: "#FF0080",
+							bg: "teal.500",
 							color: "white",
 						}}
 					>
@@ -91,18 +103,19 @@ export const Home = () => {
 					</Button>
 				</ReactLink>
 				<Button
+					rightIcon={<ArrowForwardIcon />}
+					colorScheme="teal"
+					variant="outline"
 					size="md"
 					height="48px"
 					width="200px"
-					border="2px"
-					borderColor=" #FF0080"
 					m={2}
 					_hover={{
-						bg: "#7928CA",
+						bg: "teal.500",
 						color: "white",
 					}}
 				>
-					SHOP WORK
+					Coming Soon ...
 				</Button>
 			</Grid>
 			<ReactLink to="/product">

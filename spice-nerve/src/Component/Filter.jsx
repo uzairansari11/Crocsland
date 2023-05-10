@@ -1,48 +1,78 @@
 import { Checkbox, CheckboxGroup } from "@chakra-ui/checkbox";
 import { Box, Flex, Stack, Text } from "@chakra-ui/layout";
 import { Radio, RadioGroup } from "@chakra-ui/radio";
-import React, { useEffect, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
 import { Button as AutButton } from "antd";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { PoweroffOutlined } from "@ant-design/icons";
+
 import {
 	Accordion,
 	AccordionItem,
 	AccordionButton,
 	AccordionPanel,
 	AccordionIcon,
-	Button,
 } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-export const Filter = ({
-	category,
-	setCategory,
-	brand,
-	setBrand,
-	discountRange,
-	setDiscountRange,
-	setPage,
-	setCat,
-}) => {
-	// let location = useLocation();
-	// useEffect(() => {}, [location.search]);
-	// console.log(category, brand, discountRange);
-	const handleCategories = (e) => {
-		// console.log(e);
-		setPage(1);
-		setCategory(e);
-		setDiscountRange("");
+export const Filter = () => {
+	const [searchParams, setSearchParams] = useSearchParams();
+	const initialFilterValue = searchParams.getAll("filter");
+	const initialRatingValue = searchParams.get("rating_gte");
+	const initialDiscountValue = searchParams.get("discount_gte");
+	const initialPageValue = searchParams.get("_page");
+	const initialLimitValue = searchParams.get("_limit");
+	const order = searchParams.get("_order");
+	const [orderBy, setOrderBy] = useState(order || "");
+
+	const [filterValues, setFilterValues] = useState(initialFilterValue || []);
+	const [ratingValues, setRatingValues] = useState(initialRatingValue || "");
+	const [discountValues, setDiscountValues] = useState(
+		initialDiscountValue || "",
+	);
+	const [pageValue] = useState(initialPageValue||1);
+	const [limit] = useState(initialLimitValue || 5);
+	const handleFilterChange = (value) => {
+		setFilterValues(value);
 	};
-	const handleBrands = (e) => {
-		setPage(1);
-		setBrand(e);
-		setDiscountRange("");
+	const handlePriceChange = (value) => {
+		setOrderBy(value);
 	};
-	const handleDiscountRange = (e) => {
-		setPage(1);
-		setDiscountRange(e);
+	const handleRatingChange = (value) => {
+		setRatingValues(value);
 	};
+	const handleDiscountChange = (value) => {
+		setDiscountValues(value);
+	};
+	useEffect(() => {
+		let params = {};
+		if (filterValues.length) params.filter = filterValues;
+		if (orderBy) {
+			params._sort = "offerPrice";
+
+			params._order = orderBy;
+		}
+		if (discountValues) {
+			params.discount_gte = discountValues;
+		}
+		if (ratingValues) {
+			params.rating_gte = ratingValues;
+		}
+		if (pageValue) {
+			params._page = pageValue;
+		}
+		if (limit) {
+			params._limit = limit;
+		}
+		setSearchParams(params);
+	}, [
+		filterValues,
+		orderBy,
+		discountValues,
+		ratingValues,
+		pageValue,
+		initialPageValue,
+		limit,
+	]);
 
 	return (
 		<Box
@@ -50,7 +80,7 @@ export const Filter = ({
 			alignContent={"center"}
 			shadow={"xl"}
 			mt={4}
-			px={4}
+			px={2}
 			py={5}
 			borderRadius={2}
 		>
@@ -68,32 +98,6 @@ export const Filter = ({
 						Reset Filter
 					</AutButton>
 				</Box>
-
-				<CheckboxGroup
-					colorScheme="pink"
-					value={category}
-					defaultValue={category}
-					onChange={handleCategories}
-				>
-					<Stack spacing={"1"} color="gray.500" textTransform={"capitalize"}>
-						{setCat == "MensData" && (
-							<Flex flexDir={"column"}>
-								<Checkbox value="Shirt">Shirt</Checkbox>
-								<Checkbox value="Joggers">Joggers</Checkbox>
-							</Flex>
-						)}
-						{setCat == "WomensData" && (
-							<Flex flexDir={"column"}>
-								<Checkbox value="KurtaSet">KurtaSet</Checkbox>
-							</Flex>
-						)}
-						{setCat == "ChildrensData" && (
-							<Flex flexDir={"column"}>
-								<Checkbox value="SweatShirt">SweatShirt</Checkbox>
-							</Flex>
-						)}
-					</Stack>
-				</CheckboxGroup>
 			</Box>
 			<Box>
 				<Accordion allowMultiple>
@@ -107,18 +111,16 @@ export const Filter = ({
 
 						<AccordionPanel pb={4}>
 							<CheckboxGroup
-								colorScheme="pink"
-								defaultValue={brand}
-								value={brand}
-								onChange={handleBrands}
+								colorScheme="green"
+								value={filterValues}
+								onChange={handleFilterChange}
 							>
 								<Stack spacing={"1"} color="gray.500">
-									<Checkbox value="Roadster">Clogs</Checkbox>
-									<Checkbox value="HIGHLANDER">Boots</Checkbox>
-									<Checkbox value="U.S. Polo Assn">Sandle</Checkbox>
-									<Checkbox value="Jack & Jones">Slides</Checkbox>
-									<Checkbox value="WROGN">Wrogn</Checkbox>
-									<Checkbox value="HERE&NOW">Flip</Checkbox>
+									<Checkbox value="clogs">Clogs</Checkbox>
+									<Checkbox value="boots">Boots</Checkbox>
+									<Checkbox value="sandals">Sandle</Checkbox>
+									<Checkbox value="slides">Slides</Checkbox>
+									<Checkbox value="flip-flop">Flip</Checkbox>
 								</Stack>
 							</CheckboxGroup>
 						</AccordionPanel>
@@ -132,22 +134,14 @@ export const Filter = ({
 						</AccordionButton>
 
 						<AccordionPanel pb={4}>
-							<CheckboxGroup
-								colorScheme="pink"
-								defaultValue={brand}
-								value={brand}
-								onChange={handleBrands}
-							>
+							<CheckboxGroup colorScheme="pink">
 								<Stack spacing={"1"} color="gray.500">
-									<RadioGroup
-										onChange={handleDiscountRange}
-										value={discountRange}
-									>
+									<RadioGroup onChange={handlePriceChange} value={orderBy}>
 										<Stack direction="column" color={"gray.500"}>
-											<Radio value="10" colorScheme={"pink"}>
+											<Radio value="asc" colorScheme={"green"}>
 												Low to High
 											</Radio>
-											<Radio value="20" colorScheme={"pink"}>
+											<Radio value="desc" colorScheme={"green"}>
 												High to Low
 											</Radio>
 										</Stack>
@@ -165,27 +159,30 @@ export const Filter = ({
 						</AccordionButton>
 
 						<AccordionPanel pb={4}>
-							<RadioGroup onChange={handleDiscountRange} value={discountRange}>
+							<RadioGroup
+								value={discountValues}
+								onChange={handleDiscountChange}
+							>
 								<Stack direction="column" color={"gray.500"}>
-									<Radio value="10" colorScheme={"pink"}>
+									<Radio value="10" colorScheme={"green"}>
 										10% and above
 									</Radio>
-									<Radio value="20" colorScheme={"pink"}>
+									<Radio value="20" colorScheme={"green"}>
 										20% and above
 									</Radio>
-									<Radio value="30" colorScheme={"pink"}>
+									<Radio value="30" colorScheme={"green"}>
 										30% and above
 									</Radio>
-									<Radio value="40" colorScheme={"pink"}>
+									<Radio value="40" colorScheme={"green"}>
 										40% and above
 									</Radio>
-									<Radio value="50" colorScheme={"pink"}>
+									<Radio value="50" colorScheme={"green"}>
 										50% and above
 									</Radio>
-									<Radio value="60" colorScheme={"pink"}>
+									<Radio value="60" colorScheme={"green"}>
 										60% and above
 									</Radio>
-									<Radio value="70" colorScheme={"pink"}>
+									<Radio value="70" colorScheme={"green"}>
 										70% and above
 									</Radio>
 								</Stack>
@@ -206,22 +203,18 @@ export const Filter = ({
 						</h2>
 						<AccordionPanel pb={4}>
 							<RadioGroup
-								colorScheme="pink"
-								// value={rating}
-								// onChange={productRatingOnchange}
+								colorScheme="green"
+								value={ratingValues}
+								onChange={handleRatingChange}
 							>
 								<Stack spacing={1} direction={"column"}>
 									{[4, 3, 2, 1].map((index) => {
 										return (
 											<Radio
-												value={`${index},${index + 1}`}
+												value={`${index}`}
 												key={Date() + Math.random() + Date.now()}
 											>
-												<Flex
-													color="pink"
-													alignItems={"center"}
-													// gap="2px"
-												>
+												<Flex color="black" alignItems={"center"}>
 													<Flex>
 														{Array(5)
 															.fill("")

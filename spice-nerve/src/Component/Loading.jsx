@@ -1,16 +1,19 @@
+/* This Component is for showing loading state */
+
 import React from "react";
 import { Spinner, Center } from "@chakra-ui/react";
+
 export const Loading = () => {
 	return (
 		<Center>
 			<Spinner
-				color="#ff6262"
+				colorScheme="blue.500"
 				size="xl"
 				thickness="4px"
-				emptyColor="#8c52ff"
+				emptyColor="grey"
 				m="100"
 				p={"20"}
-				speed="2s"
+				speed="5s"
 			/>
 		</Center>
 	);

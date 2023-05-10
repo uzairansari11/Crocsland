@@ -158,7 +158,7 @@ export const ProductsCard = ({
 						Rs.{originalPrice}
 					</Text>
 					<Text as="span" color={"pink.400"} fontSize="0.7rem" px="4px">
-						({discount || "54%"}off)
+						({discount || "54%"}% off)
 					</Text>
 				</Text>
 			</Box>

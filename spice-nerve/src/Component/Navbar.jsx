@@ -158,8 +158,6 @@ const DesktopNav = () => {
 		const dataforfetch = data.toLowerCase();
 		setApiData(dataforfetch);
 	};
-	console.log(apiData);
-
 	return (
 		<Stack direction={"row"} spacing={4}>
 			{NAV_ITEMS.map((navItem) => (
@@ -209,7 +207,6 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label }) => {
 	const { apiData, setApiData } = useContext(ApiContext);
 	const handleSubParameter = (data) => {
-		console.log(apiData, data);
 	};
 	return (
 		<Link

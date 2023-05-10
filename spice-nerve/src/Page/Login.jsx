@@ -7,8 +7,12 @@ import {
 	Stack,
 	Button,
 	Heading,
-	HStack,
+	VStack,
 	Center,
+	InputGroup,
+	InputLeftAddon,
+	InputRightAddon,
+	Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useReducer, useState } from "react";
@@ -49,9 +53,8 @@ const reducer = (state, action) => {
 export function Login() {
 	const { authentification, login } = useContext(AuthContext);
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const navigate = useNavigate();
-
 	const [user, setUser] = useState([]);
+	const navigate = useNavigate();
 	useEffect(() => {
 		axios.get("https://crabby-culottes-ant.cyclic.app/users").then((res) => {
 			setUser(res.data);
@@ -84,33 +87,44 @@ export function Login() {
 	}
 
 	return (
-		<Flex minH={"100vh"} align={"center"} justify={"center"}>
-			<Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-				<Stack align={"center"}>
-					<Heading fontSize={"4xl"}>Sign in to your account</Heading>
-				</Stack>
-				<Box rounded={"lg"} boxShadow={"lg"} p={8}>
+		<Flex justify={"center"}>
+			<Stack
+				spacing={4}
+				mx={"auto"}
+				maxW={"lg"}
+				py={"10%"}
+				px={10}
+				boxShadow={"sm"}
+			>
+				<Text>Login Here & Purchase Your Favorite Crocs</Text>
+				<Box rounded={"lg"} px={14}>
 					<Stack spacing={4}>
 						<FormControl id="email">
-							<FormLabel>Email address</FormLabel>
-							<Input
-								type="email"
-								onChange={(e) =>
-									dispatch({ type: "email", payload: e.target.value })
-								}
-							/>
+							<InputGroup>
+								<InputLeftAddon children="Email" />
+								<Input
+									placeholder="Please enter your email ..."
+									type="email"
+									onChange={(e) =>
+										dispatch({ type: "email", payload: e.target.value })
+									}
+								/>
+							</InputGroup>
 						</FormControl>
 						<FormControl id="password">
-							<FormLabel>Password</FormLabel>
-							<Input
-								type="password"
-								onChange={(e) =>
-									dispatch({ type: "password", payload: e.target.value })
-								}
-							/>
+							<InputGroup>
+								<InputLeftAddon children="Password" />
+								<Input
+									placeholder="Please enter your pass ..."
+									type="password"
+									onChange={(e) =>
+										dispatch({ type: "password", payload: e.target.value })
+									}
+								/>
+							</InputGroup>
 						</FormControl>
 						<Center>
-							<HStack spacing={10}>
+							<VStack spacing={4}>
 								<Button
 									onClick={handleSubmit}
 									bg={"blue.400"}
@@ -118,21 +132,16 @@ export function Login() {
 									_hover={{
 										bg: "blue.500",
 									}}
+									width={"xs"}
 								>
 									Login
 								</Button>
 								<ReactLink to="/register">
-									<Button
-										bg={"red.400"}
-										color={"white"}
-										_hover={{
-											bg: "blue.500",
-										}}
-									>
-										Register
-									</Button>
+									<Text>
+										New User ? <span style={{ color: "red" }}>Signup</span>
+									</Text>
 								</ReactLink>
-							</HStack>
+							</VStack>
 						</Center>
 					</Stack>
 				</Box>

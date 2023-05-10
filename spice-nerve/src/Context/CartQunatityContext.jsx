@@ -8,8 +8,6 @@ export const CartQunatityContextProvider = ({ children }) => {
 		axios
 			.get("https://crabby-culottes-ant.cyclic.app/cart")
 			.then((response) => {
-				// handle success
-				console.log(response.data);
 				setItem(response.data.length);
 			});
 	}, []);
