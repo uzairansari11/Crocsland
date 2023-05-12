@@ -29,8 +29,8 @@ export const Filter = () => {
 	const [discountValues, setDiscountValues] = useState(
 		initialDiscountValue || "",
 	);
-	const [pageValue] = useState(initialPageValue||1);
-	const [limit] = useState(initialLimitValue || 5);
+	const [pageValue, setPageValue] = useState(initialPageValue || 1);
+	const [limit] = useState(initialLimitValue || 4);
 	const handleFilterChange = (value) => {
 		setFilterValues(value);
 	};
@@ -43,6 +43,9 @@ export const Filter = () => {
 	const handleDiscountChange = (value) => {
 		setDiscountValues(value);
 	};
+	const handlePageChnage = (value) => {
+		setPageValue(value)
+	}
 	useEffect(() => {
 		let params = {};
 		if (filterValues.length) params.filter = filterValues;
@@ -76,11 +79,12 @@ export const Filter = () => {
 
 	return (
 		<Box
-		
 			alignContent={"center"}
 			shadow={"xl"}
 			px={6}
-			borderRadius={2}
+			borderRadius={10}
+			py={"4"}
+			marginY={"4"}
 		>
 			<Box>
 				<Box display={"flex"} alignItems={"center"} gap={2}>
@@ -157,10 +161,7 @@ export const Filter = () => {
 						</AccordionButton>
 
 						<AccordionPanel pb={4}>
-							<RadioGroup
-								value={discountValues}
-								onChange={handleDiscountChange}
-							>
+							<RadioGroup value={discountValues} onChange={handleDiscountChange}>
 								<Stack direction="column" color={"gray.500"}>
 									<Radio value="10" colorScheme={"green"}>
 										10% and above
@@ -208,10 +209,7 @@ export const Filter = () => {
 								<Stack spacing={1} direction={"column"}>
 									{[4, 3, 2, 1].map((index) => {
 										return (
-											<Radio
-												value={`${index}`}
-												key={Date() + Math.random() + Date.now()}
-											>
+											<Radio value={`${index}`} key={Date() + Math.random() + Date.now()}>
 												<Flex color="black" alignItems={"center"}>
 													<Flex>
 														{Array(5)
@@ -221,9 +219,7 @@ export const Filter = () => {
 																if (roundedRating - i >= 1) {
 																	return (
 																		<BsStarFill
-																			key={
-																				Date() + Math.random() + i + Date.now()
-																			}
+																			key={Date() + Math.random() + i + Date.now()}
 																			style={{ marginLeft: "1" }}
 																		/>
 																	);
@@ -237,14 +233,11 @@ export const Filter = () => {
 																	);
 																}
 																return (
-																	<BsStar
-																		key={Date() + Math.random() + i + "A"}
-																		style={{ marginLeft: "1" }}
-																	/>
+																	<BsStar key={Date() + Math.random() + i + "A"} style={{ marginLeft: "1" }} />
 																);
 															})}
 													</Flex>
-													<Text color="sm.sparkle">& up</Text>
+													{/* <Text color="sm.sparkle">& up</Text> */}
 												</Flex>
 											</Radio>
 										);

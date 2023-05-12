@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Text, Image, Button, Flex } from "@chakra-ui/react";
 import { MdMoreTime } from "react-icons/md";
+import { Link as ReactLink } from "react-router-dom";
 export const AddToCartCard = ({
 	image,
 	title,
@@ -21,8 +22,9 @@ export const AddToCartCard = ({
 			padding={2}
 		>
 			<Flex gap={2}>
+				<ReactLink to={`/product/${productID}`}>
 				<Image h={"100px"} src={image} />
-
+				</ReactLink>
 				<Box>
 					<p style={{ fontSize: "12px" }}>{title}</p>
 					<Flex gap={2}>

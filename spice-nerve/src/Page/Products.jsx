@@ -16,21 +16,19 @@ export const Products = ({ isLoading, isError, products }) => {
 					<Filter />
 				</Box>
 
-				<Center>
-					<Grid
-						templateColumns={{
-							base: "repeat(1, 1fr)",
-							md: "repeat(3, 1fr)",
-							lg: "repeat(4, 1fr)",
-						}}
-						gap={6}
-						p={4}
-					>
-						{products?.map((ele) => (
-							<ProductsCard key={ele.id} {...ele} />
-						))}
-					</Grid>
-				</Center>
+				<Grid
+					templateColumns={{
+						base: "repeat(1, 1fr)",
+						md: "repeat(3, 1fr)",
+						lg: "repeat(4, 1fr)",
+					}}
+					gap={6}
+					p={4}
+				>
+					{products?.map((ele) => (
+						<ProductsCard key={ele.id} {...ele} />
+					))}
+				</Grid>
 			</Box>
 		</Center>
 	);

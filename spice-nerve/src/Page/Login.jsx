@@ -37,13 +37,13 @@ export function Login() {
 				title: "Login Successful",
 				description: "Welcom to Crocs Land",
 				status: "success",
-				duration: 3000,
+				duration: 1000,
 				isClosable: true,
 				position: "top",
 			});
 			setTimeout(() => {
 				navigate("/", { replace: true });
-			}, 3000);
+			}, 1000);
 			let userID = authentication[0]["id"];
 			let token = tokenGenrator();
 			let name = authentication[0]["username"];

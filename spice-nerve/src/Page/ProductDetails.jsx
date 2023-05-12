@@ -13,16 +13,17 @@ import {
 	Select,
 	Toast,
 	useToast,
+	Flex,
 } from "@chakra-ui/react";
 
 import { MdLocalShipping } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { DynamicStar } from "react-dynamic-star";
 import { getSingleProduct } from "../Component/utils/getSigleProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartRequest, getCartRequest } from "../Redux/Cart/api";
-
+import { Tooltip } from '@chakra-ui/react'
 export default function ProductDetails() {
 	const param = useParams();
 	const [data, setData] = useState([]);
@@ -88,6 +89,7 @@ export default function ProductDetails() {
 			});
 		}
 	};
+	console.log(data, "single product page data");
 	useEffect(() => {
 		getSingleProduct(param.id).then((res) => setData(res));
 		if (userID) {
@@ -96,43 +98,68 @@ export default function ProductDetails() {
 	}, []);
 
 	return (
-		<Container maxW={"full"}>
+		<Container maxW={"full"} py={4}>
 			<SimpleGrid
 				columns={{ base: 1, lg: 2 }}
-				spacing={{ base: 8, md: 10 }}
-				py={{ base: 4, md: 4 }}
+
 			>
 				<GridItem>
-					<Box p={2}>
+					<Box
+						display={"flex"}
+						justifyContent={"center"}
+						alignItems={"center"}
+						width={"80%"}
+						margin={"auto"}
+						boxShadow={'md'}
+					>
 						<Image
 							alt={data.image}
 							src={data.image}
 							fit={"cover"}
 							align={"center"}
-							w={"100%"}
+							w={"80%"}
 						/>
 					</Box>
 				</GridItem>
-				<Stack spacing={{ base: 6, md: 4 }}>
-					<Box as={"header"}>
-						<Heading
-							// lineHeight={1.1}
-							fontWeight={600}
-							fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
+				<Stack >
+					<Box  >
+						<Heading fontWeight={600} fontSize={{ base: "xl", sm: "xl", lg: "xl" }}
+							color={'red'}
 						>
 							{data.title}
 						</Heading>
+						<Box display={'flex'} justifyContent={'space-around'} mt={4}
 
-						<Text color="black" fontWeight={400} fontSize={"2xl"} mt={"2"}>
-							Price:{data.offerPrice}
-						</Text>
+							flexDirection={{ base: "column", md: "row" }}
+						>
+							<Text
+								fontSize={{ base: "16px", lg: "18px" }}
+								color="black.500"
+								fontWeight={"400"}
+
+
+
+							>
+								Offer Price : ₹ {data.offerPrice}
+							</Text>
+							<Text
+								fontSize={{ base: "16px", lg: "18px" }}
+								color="black.500"
+								fontWeight={"400"}
+
+
+								textDecoration={"line-through"}
+							>
+								Original Price : ₹ {data.originalPrice}
+							</Text>
+							<Text fontSize={{ base: "16px", lg: "18px" }}
+								color="black.500"
+								fontWeight={"400"}
+							>Discount : {data.discount}%</Text>
+						</Box>
 					</Box>
 
-					<Stack
-						spacing={{ base: 4, sm: 6 }}
-						direction={"column"}
-						divider={<StackDivider borderColor="black" />}
-					>
+					<Stack direction={"column"} >
 						<Center>
 							<Box>
 								<Select
@@ -165,7 +192,6 @@ export default function ProductDetails() {
 								color="black.500"
 								fontWeight={"500"}
 								textTransform={"uppercase"}
-								mb={"4"}
 								align={"left"}
 							>
 								{data.description}
@@ -173,24 +199,30 @@ export default function ProductDetails() {
 						</Box>
 					</Stack>
 					<Center>
-						<Button
-							size="md"
-							height="48px"
-							width="200px"
-							border="2px"
-							alignItems={"center"}
-							borderColor="#7928CA"
-							m={2}
-							_hover={{
-								bg: "#ff6262",
-								color: "white",
-								transform: "translateY(2px)",
-								boxShadow: "lg",
-							}}
-							onClick={() => handleCartData(size, data)}
-						>
-							Add to Cart
-						</Button>
+						<Flex gap={4}>
+							<Tooltip label='ADD TO BAG' placement='left-start'>
+								<Button
+									size="sm"
+									colorScheme="blue"
+									height={10}
+									width={20}
+									onClick={() => handleCartData(size, data)}
+								>
+									<img width="24" height="24" src="https://img.icons8.com/android/24/shopping-bag.png" alt="shopping-bag" />
+								</Button>
+							</Tooltip>
+							<Tooltip label='ADD TO WISHLIST' placement='right-start'>
+								<Button
+									height={10}
+									width={20}
+									colorScheme="pink"
+									onClick={() => handleCartData(size, data)}
+
+								>
+									<img width="24" height="24" src="https://img.icons8.com/ios-filled/24/like--v1.png" alt="like--v1" />
+								</Button>
+							</Tooltip>
+						</Flex>
 					</Center>
 
 					<Stack direction="row" alignItems="center" justifyContent={"center"}>
@@ -199,6 +231,6 @@ export default function ProductDetails() {
 					</Stack>
 				</Stack>
 			</SimpleGrid>
-		</Container>
+		</Container >
 	);
 }

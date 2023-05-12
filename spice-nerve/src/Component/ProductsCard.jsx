@@ -1,11 +1,12 @@
 import { Button } from "@chakra-ui/button";
 import { Box, Flex, Text } from "@chakra-ui/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import SingleProductImageSlider from "./SingleProductImageSlider";
 import { useDispatch, useSelector } from "react-redux";
-import { useToast } from "@chakra-ui/react";
+import { Avatar, Select, Tooltip, useToast } from "@chakra-ui/react";
+import { getCartRequest } from "../Redux/Cart/api";
 export const ProductsCard = ({
 	id,
 	title,
@@ -16,16 +17,22 @@ export const ProductsCard = ({
 	subCategory,
 	rating,
 	ratingCount,
+	size,
 }) => {
 	const [show, setShow] = useState(false);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const toast = useToast();
-
+	const [selectedSize, setSlectedSize] = useState("");
+	const { cart, wishList } = useSelector((store) => store.cartReducer)
+	const { userID } = useSelector((store) => store.authReducer)
+	useEffect(() => {
+		if (userID) {
+			dispatch(getCartRequest(userID))
+		}
+	}, [])
 	return (
 		<Box
-			// onClick={handleClick}
-
 			cursor={"pointer"}
 			className="shadow"
 			transition={"all 0.3s"}
@@ -39,7 +46,7 @@ export const ProductsCard = ({
 			}}
 			boxShadow={"lg"}
 			borderRadius={10}
-			
+			pb={"4"}
 		>
 			<Box>
 				<SingleProductImageSlider
@@ -61,6 +68,7 @@ export const ProductsCard = ({
 				>
 					{subCategory}
 				</Text>
+
 				<Box position={"relative"} bg="white">
 					<Text
 						fontSize={"0.9rem"}
@@ -86,37 +94,35 @@ export const ProductsCard = ({
 						width={"full"}
 						zIndex={show ? "1" : "-100"}
 					>
-						<Flex justify={"center"} align="center" display={!show && "none"}>
-							<Button
-								variant={"unstyled"}
-								className="wishlistBtn"
-								id={id}
-								// isDisabled={allWishlistData.find((item) => item.id === id)}
-								width={{ base: "9rem", md: "11.5rem" }}
-								outline={"1px solid grey"}
-							>
-								{" "}
-								<Flex align={"center"} justify="center">
-									<AiOutlineHeart fontSize={"1.5rem"} color="grey" />
-									<Text pl={"0.5rem"} color="gray.600">
-										Wishlist
-									</Text>
-								</Flex>
-							</Button>
-						</Flex>
-						<Text
-							width={"100%"}
-							fontSize="0.9rem"
-							my={"6px"}
-							pl="1rem"
+						<Flex
+
 							display={!show && "none"}
+
+
 						>
-							{/* {size?.map((ele, index) => {
-									return <Avatar size="2px" name={ele} />;
-								})} */}
-						</Text>
+							<Tooltip label="ADD TO BAG" placement="left-start">
+								<Button size="sm" colorScheme="blue" height={10} width={14} mr={'2'}>
+									<img
+										width="24"
+										height="24"
+										src="https://img.icons8.com/android/24/shopping-bag.png"
+										alt="shopping-bag"
+									/>
+								</Button>
+							</Tooltip>
+							<Tooltip label="ADD TO WISHLIST" placement="right-start">
+								<Button height={10} width={14} colorScheme="pink" ml={2}>
+									<img
+										width="24"
+										height="24"
+										src="https://img.icons8.com/ios-filled/24/like--v1.png"
+										alt="like--v1"
+									/>
+								</Button>
+							</Tooltip>
+						</Flex>
 					</Flex>
-				</Box >
+				</Box>
 				<Text fontWeight={"bold"} fontSize="0.84rem" my="0.1rem" pl="10px">
 					Rs. {offerPrice || 456}{" "}
 					<Text
@@ -131,6 +137,22 @@ export const ProductsCard = ({
 						({discount || "54%"}% off)
 					</Text>
 				</Text>
+				<Select
+					textAlign={"center"}
+					placeholder="Sizes"
+					width={"60%"}
+					height={6}
+					margin={"auto"}
+					onChange={(e) => setSlectedSize(e.target.value)}
+				>
+					{size.map((ele, index) => {
+						return (
+							<option key={+index} value={ele} textAlign={"center"}>
+								{ele}
+							</option>
+						);
+					})}
+				</Select>
 			</Box>
 		</Box>
 	);

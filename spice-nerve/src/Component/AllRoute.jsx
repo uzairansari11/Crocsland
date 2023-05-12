@@ -12,6 +12,7 @@ import Search from "../Page/Search";
 import { Men } from "../Page/Men";
 import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
+import Wishlist from "../Page/Wishlist";
 export const AllRoute = () => {
 	return (
 		<Routes>
@@ -22,6 +23,7 @@ export const AllRoute = () => {
 			<Route path="/payment" element={<PaymentForm />} />
 			<Route path="/successful" element={<OrderSuccessful />} />
 			<Route path="/product" element={<Products />} />
+			<Route path="/wishlist" element={<Wishlist />} />
 
 			<Route path="/men" element={<Men />} />
 			<Route path="/women" element={<Women />} />

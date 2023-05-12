@@ -10,20 +10,17 @@ export const Women = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const dispatch = useDispatch();
 	const product = useSelector((store) => store.newProductReducer);
-	const [currentPage, setCurrentPage] = useState(
-		Number(searchParams.get("_page")) || 1,
-	);
+	const [currentPage, setCurrentPage] = useState(searchParams.get("_page") || 1);
 	const location = useLocation();
 	const handlePagination = (value) => {
 		setCurrentPage(value);
 	};
-	// console.log(currentPage,"before");
-	
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		// console.log(currentPage,"insedei useeff");
 		const filterParama = {
 			params: {
+				_page: currentPage,
 				subCategory: searchParams.getAll("filter"),
 				category: "women",
 				_sort: "offerPrice",
@@ -31,7 +28,6 @@ export const Women = () => {
 				discount_gte: searchParams.get("discount_gte"),
 				rating_gte: searchParams.get("rating_gte"),
 				_limit: searchParams.get("_limit"),
-				_page: currentPage > 1 ? currentPage : 1,
 			},
 		};
 

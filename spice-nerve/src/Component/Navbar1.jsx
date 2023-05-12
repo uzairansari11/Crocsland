@@ -91,7 +91,7 @@ const Navbar1 = () => {
 									display={{ base: "none", md: "block" }}
 									color={"blackAlpha.600"}
 								>
-									Profile
+									{!userID ? "Profile" : ""}
 								</Text>
 							</Flex>
 						</PopoverTrigger>
