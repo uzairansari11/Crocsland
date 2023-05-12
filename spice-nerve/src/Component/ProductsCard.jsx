@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SingleProductImageSlider from "./SingleProductImageSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, Select, Tooltip, useToast } from "@chakra-ui/react";
-import { getCartRequest } from "../Redux/Cart/api";
+import { addCartRequest, getCartRequest } from "../Redux/Cart/api";
 export const ProductsCard = ({
 	id,
 	title,
@@ -17,6 +17,7 @@ export const ProductsCard = ({
 	subCategory,
 	rating,
 	ratingCount,
+	category,
 	size,
 }) => {
 	const [show, setShow] = useState(false);
@@ -25,7 +26,69 @@ export const ProductsCard = ({
 	const toast = useToast();
 	const [selectedSize, setSlectedSize] = useState("");
 	const { cart, wishList } = useSelector((store) => store.cartReducer)
-	const { userID } = useSelector((store) => store.authReducer)
+	const { userID, isAuth } = useSelector((store) => store.authReducer)
+
+	const handleCartData = (size, data) => {
+		const alreadyAdded = cart.filter((product) => {
+			return product.productID == data && product.size == size;
+		});
+		if (alreadyAdded.length >= 1) {
+			toast({
+				title: "Product Alreacy  Added In Cart",
+				variant: "subtle",
+				status: "error",
+				position: "top",
+				duration: 1000,
+				isClosable: true,
+			});
+			return;
+		}
+
+		if (!isAuth) {
+			toast({
+				title: `Please Login`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
+			});
+			return;
+		}
+		if (!size) {
+			toast({
+				title: `Please Add the Size`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
+			});
+			return;
+		} else {
+			let productDetail = {
+				productID: id,
+				size: selectedSize,
+				image: image,
+				offerPrice: offerPrice,
+				quantity: 1,
+				title: title,
+				category: category,
+				userID: userID,
+				originalPrice: originalPrice,
+			};
+
+			dispatch(addCartRequest(userID, [...cart, productDetail])).then((res) => {
+				toast({
+					title: `Product Added into Cart`,
+					status: `success`,
+					isClosable: true,
+					position: "top",
+					duration: 1000,
+				});
+			});
+		}
+
+	};
+
+
+
 	useEffect(() => {
 		if (userID) {
 			dispatch(getCartRequest(userID))
@@ -107,6 +170,7 @@ export const ProductsCard = ({
 										height="24"
 										src="https://img.icons8.com/android/24/shopping-bag.png"
 										alt="shopping-bag"
+										onClick={() => handleCartData(selectedSize, id,)}
 									/>
 								</Button>
 							</Tooltip>
