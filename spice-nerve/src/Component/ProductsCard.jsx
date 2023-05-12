@@ -5,7 +5,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import SingleProductImageSlider from "./SingleProductImageSlider";
 import { useDispatch, useSelector } from "react-redux";
-// import { addToWishlist } from "../../../Redux/Wishlist/wishlist.actions";
 import { useToast } from "@chakra-ui/react";
 export const ProductsCard = ({
 	id,
@@ -22,36 +21,7 @@ export const ProductsCard = ({
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const toast = useToast();
-	// const userData = useSelector((store) => {
-	// 	return store.userAuthReducer.user;
-	// });
-	// const allWishlistData = useSelector((store) => {
-	// 	return store.wishlistReducer.wishlist;
-	// });
 
-	// const userId = userData?.uid;
-	// const handleClick = (e) => {
-	// 	if (!userId) {
-	// 		navigate("/login");
-	// 		return;
-	// 	}
-	// 	if (e.target.closest(".wishlistBtn")) {
-	// 		// let btn = e.currentTarget.querySelector('.wishlistBtn')
-	// 		// console.log(btn.id)
-
-	// 		dispatch(addToWishlist(userId, props, id));
-	// 		toast({
-	// 			title: "Product is Added to the Wishlist",
-	// 			description: "Shop More ...",
-	// 			status: "success",
-	// 			duration: 4000,
-	// 			position: "top",
-	// 			isClosable: true,
-	// 		});
-	// 		return;
-	// 	}
-	// 	navigate(`/product/${products}/${id}`);
-	// };
 	return (
 		<Box
 			// onClick={handleClick}
@@ -59,7 +29,7 @@ export const ProductsCard = ({
 			cursor={"pointer"}
 			className="shadow"
 			transition={"all 0.3s"}
-			height={{ base: "300px", md: "350px" }}
+			// height={{ base: "300px", md: "350px" }}
 			width={{ base: "150px", md: "210px" }}
 			onMouseEnter={() => {
 				setShow(true);

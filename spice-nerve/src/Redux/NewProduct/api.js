@@ -3,7 +3,7 @@ import axios from "axios";
 export const getProductApi = async (filterValue) => {
 	try {
 		let response = await axios.get(
-			`https://crabby-culottes-ant.cyclic.app/products`,
+			`https://crocsland.onrender.com/products`,
 			filterValue,
 		);
 		return response;
@@ -15,7 +15,7 @@ export const getProductApi = async (filterValue) => {
 export const getSingleProduct = async (id) => {
 	try {
 		let response = await axios.get(
-			`https://crabby-culottes-ant.cyclic.app/products/${id}`,
+			`https://crocsland.onrender.com/products/${id}`,
 		);
 		return response.data;
 	} catch (error) {

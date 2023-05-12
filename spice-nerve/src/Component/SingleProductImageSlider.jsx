@@ -10,7 +10,8 @@ export default class SingleProductImageSlider extends Component {
 		return (
 			<ReactLink to={`/product/${this.props.id}`}>
 				<Box
-					height={{ base: "200px", md: "280px" }}
+					height={{ base: "150px", md: "200px" }}
+					// height={{ base: "200px", md: "280px" }}
 					onMouseEnter={this.onMove}
 					onMouseLeave={this.onLeave}
 				>
@@ -26,7 +27,8 @@ export default class SingleProductImageSlider extends Component {
 					>
 						<Box
 							width={{ base: "150px", md: "210px" }}
-							height={{ base: "200px", md: "280px" }}
+							height={{ base: "150px", md: "200px" }}
+							// height={{ base: "200px", md: "280px" }}
 							pos="relative"
 						>
 							<Image src={this.props.images} px={2} />

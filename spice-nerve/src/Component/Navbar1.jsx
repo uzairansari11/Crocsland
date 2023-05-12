@@ -11,6 +11,7 @@ import {
 	PopoverTrigger,
 	Text,
 	Button,
+	WrapItem,
 } from "@chakra-ui/react";
 
 import React, { useEffect } from "react";
@@ -19,39 +20,26 @@ import { BsBag, BsFillBagFill, BsPerson } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import MegaMenu from "./MegaMenu";
 import { Link } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { cartAddData, getCart } from "../../../Redux/Cart/cart.actions";
-// import { userLogout } from "../../../Redux/UserAuth/userAuth.actions";
+import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import Sidebar from "./Sidebar";
-// import { getWishlist } from "../../../Redux/Wishlist/wishlist.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartRequest } from "../Redux/Cart/api";
+import { userLogout } from "../Redux/Authentication/action";
+
 const Navbar1 = () => {
-	// const dispatch = useDispatch();
-	// const userData = useSelector((store) => {
-	// 	return store.userAuthReducer.user;
-	// });
+	const dispatch = useDispatch();
+	const { isAuth, userID, name } = useSelector((store) => store.authReducer);
+	const { cart, wishList } = useSelector((store) => store.cartReducer);
 
-	// const id = userData?.uid;
-	// const email = userData?.email;
-
-	// const cartData = useSelector((store) => {
-	// 	return store.cartReducer.cart;
-	// });
-	// const wishlistData = useSelector((store) => {
-	// 	return store.wishlistReducer.wishlist;
-	// });
-
-	// //logout
 	const handleLogout = () => {
-		// localStorage.setItem("userInfoF", null);
-		// dispatch(userLogout());
-		// dispatch(cartAddData([]));
+		localStorage.removeItem("userResponse");
+		dispatch(userLogout());
 	};
-	// useEffect(() => {
-	// 	if (id) {
-	// 		dispatch(getCart(id));
-	// 		dispatch(getWishlist(id));
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (userID) {
+			dispatch(getCartRequest(userID));
+		}
+	}, [userID]);
 	let id = 0;
 	return (
 		<Box
@@ -91,7 +79,11 @@ const Navbar1 = () => {
 						<PopoverTrigger>
 							<Flex flexDir={"column"} align={"center"} cursor="pointer">
 								<Text>
-									<BsPerson fontSize={"1.26rem"} />
+									{!userID ? (
+										<BsPerson fontSize={"1.26rem"} />
+									) : (
+										<Avatar name={name} size="sm" />
+									)}
 								</Text>
 								<Text
 									fontSize={"0.8rem"}
@@ -109,7 +101,7 @@ const Navbar1 = () => {
 							<PopoverHeader py="1rem"></PopoverHeader>
 							<PopoverBody>
 								<Flex flexDir={"column"} gap="3" textTransform={"capitalize"}>
-									{!id ? (
+									{!userID ? (
 										<Link to="/login">
 											<Text
 												pl="2rem"
@@ -128,10 +120,10 @@ const Navbar1 = () => {
 											py="0.3rem"
 										>
 											<Text fontWeight={"800"}>Hello,</Text>
-											{/* <Text>{email}</Text> */}
+											<Text>{name}</Text>
 										</Box>
 									)}
-									{id && (
+									{userID && (
 										<Link to="/profile">
 											<Text pl="2rem">Profile</Text>
 										</Link>
@@ -149,9 +141,11 @@ const Navbar1 = () => {
 									<Link to="#">
 										<Text pl="2rem">contact us</Text>
 									</Link>
-									{id && (
+									{userID && (
 										<Link>
-											<Button width="full">Logout</Button>
+											<Button width="full" onClick={handleLogout}>
+												Logout
+											</Button>
 										</Link>
 									)}
 								</Flex>
@@ -170,7 +164,7 @@ const Navbar1 = () => {
 								color={"blackAlpha.600"}
 							>
 								Wishlist{" "}
-								{id && (
+								{userID && (
 									<Flex
 										justify={"center"}
 										align="center"
@@ -183,7 +177,7 @@ const Navbar1 = () => {
 										borderRadius={"50%"}
 										bg="pink.400"
 									>
-										{/* {wishlistData.length} */}
+										{wishList.length}
 									</Flex>
 								)}
 							</Text>
@@ -201,7 +195,7 @@ const Navbar1 = () => {
 								color={"blackAlpha.600"}
 							>
 								Bag
-								{id && (
+								{userID && (
 									<Flex
 										justify={"center"}
 										align="center"
@@ -214,7 +208,7 @@ const Navbar1 = () => {
 										borderRadius={"50%"}
 										bg="pink.400"
 									>
-										{/* {cartData.length} */}
+										{cart.length}
 									</Flex>
 								)}
 							</Text>

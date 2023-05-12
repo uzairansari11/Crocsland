@@ -23,23 +23,23 @@ const Searchbar = () => {
 			return;
 		}
 	};
-	useEffect(() => {
-		const id = setTimeout(() => {
-			if (text) {
-                let filterData
-                //     = searchOutput.filter((item) => {
-				// 	if (item.title.toLowerCase().includes(text.toLowerCase())) {
-				// 		return item;
-				// 	}
-				// });
+	// useEffect(() => {
+	// 	const id = setTimeout(() => {
+	// 		if (text) {
+    //             let filterData
+    //                 = searchOutput.filter((item) => {
+	// 				if (item.title.toLowerCase().includes(text.toLowerCase())) {
+	// 					return item;
+	// 				}
+	// 			});
 
-				setData(filterData);
-			}
-		}, 900);
-		return () => {
-			clearTimeout(id);
-		};
-	}, [text]);
+	// 			setData(filterData);
+	// 		}
+	// 	}, 900);
+	// 	return () => {
+	// 		clearTimeout(id);
+	// 	};
+	// }, [text]);
 
 	return (
 		<Box bg={color} borderRadius={"md"} pos="relative">

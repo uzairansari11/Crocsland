@@ -5,7 +5,7 @@ export const PaginationComponent = ({
 	handlePagination,
 	currentPage,
 }) => {
-	const totalButton = new Array(Math.ceil(100 / 5)).fill(0);
+	const totalButton = new Array(Math.ceil(totalCount / 5)).fill(0);
 	return (
 		<Box>
 			{totalButton?.map((ele, index) => {

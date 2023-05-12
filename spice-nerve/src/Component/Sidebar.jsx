@@ -74,7 +74,7 @@ function Sidebar({ id, handleLogout }) {
 								Cart
 							</Text>
 						</Link>
-						<Link to="/product/MensData">
+						<Link to="/men">
 							<Text
 								textAlign={"center"}
 								fontSize={"1.5rem"}
@@ -83,7 +83,7 @@ function Sidebar({ id, handleLogout }) {
 								Mens
 							</Text>
 						</Link>
-						<Link to="/product/WomensData">
+						<Link to="/women">
 							<Text
 								textAlign={"center"}
 								fontSize={"1.5rem"}
@@ -92,7 +92,7 @@ function Sidebar({ id, handleLogout }) {
 								Womens
 							</Text>
 						</Link>
-						<Link to="/product/ChildrensData">
+						<Link to="/kids">
 							<Text
 								textAlign={"center"}
 								fontSize={"1.5rem"}

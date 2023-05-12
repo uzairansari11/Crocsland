@@ -76,12 +76,10 @@ export const Filter = () => {
 
 	return (
 		<Box
-			pl={"2rem"}
+		
 			alignContent={"center"}
 			shadow={"xl"}
-			mt={4}
-			px={2}
-			py={5}
+			px={6}
 			borderRadius={2}
 		>
 			<Box>

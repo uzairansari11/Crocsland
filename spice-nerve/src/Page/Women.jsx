@@ -9,18 +9,19 @@ import { PaginationComponent } from "../Component/Pagination";
 export const Women = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const dispatch = useDispatch();
-	let initialPage = searchParams.get("_page");
 	const product = useSelector((store) => store.newProductReducer);
-	const [currentPage, setCurrentPage] = useState(initialPage);
-	console.log(initialPage, "iiiiiiiiiiii");
-
+	const [currentPage, setCurrentPage] = useState(
+		Number(searchParams.get("_page")) || 1,
+	);
 	const location = useLocation();
 	const handlePagination = (value) => {
-		initialPage = value;
+		setCurrentPage(value);
 	};
-	console.log(searchParams, "current page");
+	// console.log(currentPage,"before");
+	
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		// console.log(currentPage,"insedei useeff");
 		const filterParama = {
 			params: {
 				subCategory: searchParams.getAll("filter"),
@@ -30,21 +31,20 @@ export const Women = () => {
 				discount_gte: searchParams.get("discount_gte"),
 				rating_gte: searchParams.get("rating_gte"),
 				_limit: searchParams.get("_limit"),
-				_page: searchParams.get("_page"),
+				_page: currentPage > 1 ? currentPage : 1,
 			},
 		};
 
 		dispatch(getProducts(filterParama));
 	}, [location.search, currentPage]);
-	console.log(product, "-------");
 	return (
 		<Box>
 			<Products {...product} />
-			{/* <PaginationComponent
+			<PaginationComponent
 				totalCount={product.totalCount}
 				handlePagination={handlePagination}
 				currentPage={currentPage}
-			/> */}
+			/>
 		</Box>
 	);
 };

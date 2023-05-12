@@ -1,117 +1,113 @@
-import { useReducer } from "react";
-import axios from "axios";
-
 import {
 	Flex,
 	Box,
 	FormControl,
-	FormLabel,
 	Input,
 	InputGroup,
 	InputRightElement,
 	InputLeftAddon,
-	InputRightAddon,
 	Stack,
 	Button,
-	Heading,
 	Text,
-	useColorModeValue,
+	useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { Link as ReactLink } from "react-router-dom";
+import { Link as ReactLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import swal from "sweetalert";
-const initialState = {
-	name: "",
-	email: "",
-	password: "",
-};
-const reducer = (state, action) => {
-	switch (action.type) {
-		case "name": {
-			return {
-				...state,
-				name: action.payload,
-			};
-		}
-		case "email": {
-			return {
-				...state,
-				email: action.payload,
-			};
-		}
-		case "password": {
-			return {
-				...state,
-				password: action.payload,
-			};
-		}
+import { useDispatch, useSelector } from "react-redux";
+import {
+	gettingUsersData,
+	userRegisterationToApi,
+} from "../Redux/Authentication/action";
 
-		case "reset": {
-			return initialState;
-		}
-		default: {
-			return state;
-		}
-	}
-};
 export default function Register() {
+	/* navigation and tost */
+	const toast = useToast();
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	/* user details input */
 	const [showPassword, setShowPassword] = useState(false);
-	const [state, dispatch] = useReducer(reducer, initialState);
-	const [user, setUser] = useState([]);
-	useEffect(() => {
-		axios.get("https://crabby-culottes-ant.cyclic.app/users").then((res) => {
-			setUser(res.data);
-		});
-	}, []);
-	const handleSubmit = (e) => {
-		user.forEach((ele) => {
-			if (ele.email === state.email) {
-				swal("User Already Exists");
-				return;
-			} else {
-				postDataFormToken(state);
-			}
-		});
-	};
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [name, setName] = useState("");
 
-	const postDataFormToken = (data) => {
-		if (data.name === "" || data.email === "" || data.password === "") {
-			swal("Please fill all detials");
+	/* retriving data from redux store  */
+	const authData = useSelector((store) => store.authReducer);
+	const { users } = authData;
+	/* Registering user through API */
+	const handleRegistration = () => {
+		/* checking if user already present or not! */
+		const isUserPresent = users?.filter(
+			(elements) => elements.userEmail === email,
+		);
+		if (isUserPresent.length > 0) {
+			toast({
+				title: "Email Already Exists",
+				status: "error",
+				duration: 3000,
+				isClosable: true,
+				position: "top",
+			});
+
 			return;
 		}
+		/* checking if user providing all details properly then inserting Registering in dataBase */
+		if (email && password && name) {
+			const userDetails = {
+				username: name,
+				userEmail: email,
+				password: password,
+				wishlists: [],
+				orders: [],
+				cart: [],
+			};
 
-		axios
-			.post("https://crabby-culottes-ant.cyclic.app/users", {
-				name: data.name,
-				email: data.email,
-				password: data.password,
-			})
-			.then(function (response) {
-
-				swal("Congrats!", "Your account is created", "success");
-			})
-			.catch(function (error) {
-		
-			});
+			dispatch(userRegisterationToApi(userDetails))
+				.then((res) => {
+					toast({
+						title: "Register Successful Redirecting to Website....",
+						status: "success",
+						duration: 3000,
+						isClosable: true,
+						position: "top",
+					});
+					setTimeout(() => {
+						navigate("/login");
+					}, 3000);
+				})
+				.catch((err) => {
+					toast({
+						title: "Something Went Wrong Successful",
+						status: "error",
+						duration: 500,
+						isClosable: true,
+						position: "top",
+					});
+				});
+		}
 	};
+
+	/* getting all data of user before register */
+	useEffect(() => {
+		dispatch(gettingUsersData());
+	}, []);
+
 	return (
 		<Flex height={"100vh"} alignItems={"center"} justify={"center"}>
 			<Stack>
 				<Text>Please Register And Get Exciting Offers!</Text>
 				<Box>
 					<Stack>
-						<FormControl id="firstName" isRequired>
+						<FormControl id="name" isRequired>
 							<InputGroup>
 								<InputLeftAddon children="Name" />
 								<Input
 									placeholder="Please enter a name"
 									type="text"
 									required
-									onChange={(e) =>
-										dispatch({ type: "name", payload: e.target.value })
-									}
+									value={name}
+									onChange={(e) => setName(e.target.value)}
 								/>
 							</InputGroup>
 						</FormControl>
@@ -122,9 +118,8 @@ export default function Register() {
 								<Input
 									placeholder="Please enter your email ..."
 									type="email"
-									onChange={(e) =>
-										dispatch({ type: "email", payload: e.target.value })
-									}
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</InputGroup>
 						</FormControl>
@@ -135,9 +130,8 @@ export default function Register() {
 									placeholder="Password"
 									type={showPassword ? "text" : "password"}
 									required
-									onChange={(e) =>
-										dispatch({ type: "password", payload: e.target.value })
-									}
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
 								/>
 
 								<InputRightElement h={"full"}>
@@ -154,14 +148,14 @@ export default function Register() {
 						</FormControl>
 						<Stack>
 							<Button
-								onClick={handleSubmit}
+								onClick={handleRegistration}
 								bg={"blue.400"}
 								color={"white"}
 								_hover={{
 									bg: "blue.500",
 								}}
 								width={"xs"}
-								m={'auto'}
+								m={"auto"}
 							>
 								Sign up
 							</Button>

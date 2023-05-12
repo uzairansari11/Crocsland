@@ -1,126 +1,75 @@
 import React from "react";
-import {
-	HStack,
-	Box,
-	Card,
-	Text,
-	Heading,
-	Image,
-	Stack,
-	CardBody,
-	Center,
-	Button,
-	IconButton,
-	VStack,
-} from "@chakra-ui/react";
-import { MinusIcon, AddIcon } from "@chakra-ui/icons";
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
-import { cartQuantityContext } from "../Context/CartQunatityContext";
-let qty = 1;
+import { Box, Text, Image, Button, Flex } from "@chakra-ui/react";
+import { MdMoreTime } from "react-icons/md";
 export const AddToCartCard = ({
 	image,
 	title,
-	price,
 	size,
-	id,
-	cartDataFromApi,
+	offerPrice,
+	quantity,
+	originalPrice,
+	productID,
+	deleteHandler,
+	handleUpdateQuantity,
 }) => {
-	const { totalItem } = useContext(cartQuantityContext);
-	const [quantityOfProduct, setquantityOfProduct] = useState(1);
-	const deleteDataFromApi = (data) => {
-		axios.delete(`https://crabby-culottes-ant.cyclic.app/cart/${data}`);
-		cartDataFromApi();
-	};
-	const handleDelete = (data) => {
-		deleteDataFromApi(data);
-		totalItem(-1);
-	};
-	const handleQuantity = (data, id) => {
-		qty = qty + data;
-		updateProductQuantityInApi(id, qty);
-	};
-
-	const updateProductQuantityInApi = (id, qty) => {
-		fetch(`https://crabby-culottes-ant.cyclic.app/cart/${id}`, {
-			method: "PATCH",
-			body: JSON.stringify({
-				quantity: qty,
-			}),
-			headers: {
-				"Content-type": "application/json",
-			},
-		})
-			.then((response) => response.json())
-			.then((json) => {
-				setquantityOfProduct(json.quantity);
-			});
-		cartDataFromApi();
-	};
-
-	useEffect(() => {}, [quantityOfProduct]);
 	return (
-		<Card maxW="sm">
-			<CardBody bgGradient="linear(to-l, #E2E8F0)">
-				<Image src={image} alt={title} borderRadius="lg" />
-				<Stack spacing="3">
-					<Heading size="sm">{title}</Heading>
-					<Center>
-						<HStack>
-							<Text color="black" fontSize="sm">
-								Size: {size}
-							</Text>
-							<Text color="black" fontSize="sm">
-								Price: ${Math.round(price * quantityOfProduct)}
-							</Text>
-							<Text color="black" fontSize="sm">
-								Qty: {quantityOfProduct} No.
-							</Text>
-						</HStack>
-					</Center>
-				</Stack>
-			</CardBody>
-			<Center>
-				<Box w={"40"}>
-					<Center>
-						<HStack mb={"4"}>
-							<IconButton
-								aria-label="Add to friends"
-								icon={<MinusIcon />}
-								colorScheme="teal"
-								size="xs"
-								isDisabled={quantityOfProduct === 1}
-								onClick={() => handleQuantity(-1, id)}
-							/>
+		<Flex
+			justifyContent={"space-between"}
+			boxShadow={
+				"rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+			}
+			padding={2}
+		>
+			<Flex gap={2}>
+				<Image h={"100px"} src={image} />
 
-							<IconButton
-								aria-label="Add to friends"
-								icon={<AddIcon />}
-								colorScheme="teal"
-								size="xs"
-								isDisabled={quantityOfProduct === 5}
-								onClick={() => handleQuantity(+1, id)}
-							/>
-						</HStack>
-					</Center>
+				<Box>
+					<p style={{ fontSize: "12px" }}>{title}</p>
+					<Flex gap={2}>
+						<Text>size : {size}</Text>
+						<Button
+							fontSize={"md"}
+							size="xs"
+							isDisabled={quantity === 1}
+							onClick={() => handleUpdateQuantity(-1, productID, size)}
+						>
+							-
+						</Button>
+						<Text>{quantity}</Text>
+						<Button
+							fontSize={"md"}
+							size="xs"
+							isDisabled={quantity === 4}
+							onClick={() => handleUpdateQuantity(1, productID, size)}
+						>
+							+
+						</Button>
+					</Flex>
+					<Flex py="0.4rem">
+						<Text fontSize={"0.9rem"} pr={"0.5rem"}>
+							₹ {offerPrice}
+						</Text>
+						<Text
+							textDecoration={"line-through"}
+							fontSize={"0.9rem"}
+							color="gray.400"
+						>
+							₹ {originalPrice}
+						</Text>
+					</Flex>
+
+					<Flex>
+						<MdMoreTime />{" "}
+						<p style={{ fontSize: "10px" }}> 14 Days return Avilalble</p>
+					</Flex>
 				</Box>
-			</Center>
-			<Center>
-				<Stack direction="row" spacing={4} align="center" mb={2}>
-					<Button colorScheme="teal" variant="solid" size={"sm"}>
-						Buy Now
-					</Button>
-
-					<Button
-						colorScheme="red"
-						variant="solid"
-						onClick={() => handleDelete(id)}
-						size={"sm"}
-					>
-						Remove
-					</Button>
-				</Stack>
-			</Center>
-		</Card>
+			</Flex>
+			<Button
+				backgroundColor={"#ffffff"}
+				onClick={() => deleteHandler(productID, size)}
+			>
+				x
+			</Button>
+		</Flex>
 	);
 };

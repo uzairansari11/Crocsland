@@ -2,90 +2,68 @@ import {
 	Flex,
 	Box,
 	FormControl,
-	FormLabel,
 	Input,
 	Stack,
 	Button,
-	Heading,
 	VStack,
 	Center,
 	InputGroup,
 	InputLeftAddon,
-	InputRightAddon,
 	Text,
+	useToast,
 } from "@chakra-ui/react";
-import axios from "axios";
-import { useReducer, useState } from "react";
-import { Link as ReactLink } from "react-router-dom";
-import swal from "sweetalert";
-import { AuthContext } from "../Context/AuthContextProvider";
-import { useContext } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link as ReactLink, json, useNavigate } from "react-router-dom";
+import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { tokenGenrator } from "../Component/utils/tokenGenrator";
 
-const initialState = {
-	email: "",
-	password: "",
-};
-const reducer = (state, action) => {
-	switch (action.type) {
-		case "email": {
-			return {
-				...state,
-				email: action.payload,
-			};
-		}
-		case "password": {
-			return {
-				...state,
-				password: action.payload,
-			};
-		}
-
-		case "reset": {
-			return initialState;
-		}
-		default: {
-			return state;
-		}
-	}
-};
 export function Login() {
-	const { authentification, login } = useContext(AuthContext);
-	const [state, dispatch] = useReducer(reducer, initialState);
-	const [user, setUser] = useState([]);
+	const dispatch = useDispatch();
+	const authData = useSelector((store) => store.authReducer);
+	const { users } = authData;
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const toast = useToast();
 	const navigate = useNavigate();
-	useEffect(() => {
-		axios.get("https://crabby-culottes-ant.cyclic.app/users").then((res) => {
-			setUser(res.data);
-		});
-	}, []);
 
-	const handleSubmit = () => {
-		let flag = false;
-		user.forEach((ele) => {
-			if (ele.email === state.email && ele.password === state.password) {
-				localStorage.setItem("isAuthUse", true);
-				localStorage.setItem("name", ele.name);
-				flag = true;
-			}
+	const handleLogin = (users) => {
+		const authentication = users.filter((user) => {
+			return user.userEmail === email && user.password === password;
 		});
 
-		if (flag) {
-			login();
-			redirectToLoginSuccess();
-			return;
+		if (authentication.length === 1) {
+			toast({
+				title: "Login Successful",
+				description: "Welcom to Crocs Land",
+				status: "success",
+				duration: 3000,
+				isClosable: true,
+				position: "top",
+			});
+			setTimeout(() => {
+				navigate("/", { replace: true });
+			}, 3000);
+			let userID = authentication[0]["id"];
+			let token = tokenGenrator();
+			let name = authentication[0]["username"];
+			let userDetials = { userID, token, name };
+			localStorage.setItem("userResponse", JSON.stringify(userDetials));
+			dispatch(authSuccess(userDetials));
 		} else {
-			swal("Please Check Your credentials!", "", "warning");
+			toast({
+				title: "Login Unsuccessful",
+				description: "Invalid Credentials",
+				status: "error",
+				duration: 3000,
+				isClosable: true,
+				position: "top",
+			});
 		}
 	};
-
-	function redirectToLoginSuccess() {
-		swal("Logged In", "", "success");
-		navigate("/", { replace: true });
-		window.location.reload(false);
-	}
-
+	useEffect(() => {
+		dispatch(gettingUsersData());
+	}, []);
 	return (
 		<Flex justify={"center"}>
 			<Stack
@@ -105,9 +83,8 @@ export function Login() {
 								<Input
 									placeholder="Please enter your email ..."
 									type="email"
-									onChange={(e) =>
-										dispatch({ type: "email", payload: e.target.value })
-									}
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</InputGroup>
 						</FormControl>
@@ -117,22 +94,21 @@ export function Login() {
 								<Input
 									placeholder="Please enter your pass ..."
 									type="password"
-									onChange={(e) =>
-										dispatch({ type: "password", payload: e.target.value })
-									}
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
 								/>
 							</InputGroup>
 						</FormControl>
 						<Center>
 							<VStack spacing={4}>
 								<Button
-									onClick={handleSubmit}
 									bg={"blue.400"}
 									color={"white"}
 									_hover={{
 										bg: "blue.500",
 									}}
 									width={"xs"}
+									onClick={() => handleLogin(users)}
 								>
 									Login
 								</Button>

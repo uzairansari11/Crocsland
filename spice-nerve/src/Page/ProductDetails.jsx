@@ -11,105 +11,120 @@ import {
 	StackDivider,
 	GridItem,
 	Select,
+	Toast,
+	useToast,
 } from "@chakra-ui/react";
 
 import { MdLocalShipping } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { Loading } from "../Component/Loading";
-import { Error } from "../Component/Error";
-import swal from "sweetalert";
-import { cartQuantityContext } from "../Context/CartQunatityContext";
+import { useState, useEffect } from "react";
 
+import { getSingleProduct } from "../Component/utils/getSigleProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartRequest, getCartRequest } from "../Redux/Cart/api";
 
 export default function ProductDetails() {
-	const [data, setData] = useState([]);
-	const { totalItem, item } = useContext(cartQuantityContext);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(false);
-	const [size, setSize] = useState(null);
-	const [allCartData, setAllCartData] = useState({});
 	const param = useParams();
-	const getDataFromApi = (data) => {
-		setLoading(true);
-		axios
-			.get(`https://crabby-culottes-ant.cyclic.app/products/${data}`)
-			.then((res) => {
-				setData(res.data);
-
-				setLoading(false);
-			})
-			.catch((err) => {
-				setLoading(false);
-				setError(true);
+	const [data, setData] = useState([]);
+	const [size, setSize] = useState(null);
+	const toast = useToast();
+	const dispatch = useDispatch();
+	const { isAuth, userID } = useSelector((store) => store.authReducer);
+	const { cart } = useSelector((store) => store.cartReducer);
+	const handleCartData = (size, data) => {
+		const alreadyAdded = cart.filter((product) => {
+			return product.productID == data.id && product.size == size;
+		});
+		if (alreadyAdded.length >= 1) {
+			toast({
+				title: "Product Alreacy  Added In Cart",
+				variant: "subtle",
+				status: "error",
+				position: "top",
+				duration: 1000,
+				isClosable: true,
 			});
-	};
-	useEffect(() => {
-		getDataFromApi(param.id);
-	}, []);
-	const postDataToCart = (data) => {
-		data.quantity = 1;
-		axios
-			.post("https://crabby-culottes-ant.cyclic.app/cart", data)
-			.then(function (response) {
+			return;
+		}
 
-			})
-			.catch(function (error) {
-
+		if (!isAuth) {
+			toast({
+				title: `Please Login`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
 			});
-	};
-	const handleCartData = (data, size) => {
-		setSize(size);
-		if (size) {
-			postDataToCart({ ...data, size: size });
-			swal({
-				title: "Product Is Added",
-				icon: "success",
-				button: "OK",
+			return;
+		}
+		if (!size) {
+			toast({
+				title: `Please Add the Size`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
 			});
-			totalItem(+1);
+			return;
 		} else {
-			swal("Please Add Size");
+			let productDetail = {
+				productID: data.id,
+				size: size,
+				image: data.image,
+				offerPrice: data.offerPrice,
+				quantity: 1,
+				title: data.title,
+				category: data.category,
+				userID: userID,
+				originalPrice: data.originalPrice,
+			};
+
+			dispatch(addCartRequest(userID, [...cart, productDetail])).then((res) => {
+				toast({
+					title: `Product Added into Cart`,
+					status: `success`,
+					isClosable: true,
+					position: "top",
+					duration: 1000,
+				});
+			});
 		}
 	};
+	useEffect(() => {
+		getSingleProduct(param.id).then((res) => setData(res));
+		if (userID) {
+			dispatch(getCartRequest(userID));
+		}
+	}, []);
 
-
-	return loading ? (
-		<Loading />
-	) : error ? (
-		<Error />
-	) : (
-		<Container maxW={"full"} bgGradient="linear(to-l,#A0AEC0, #E2E8F0)">
+	return (
+		<Container maxW={"full"}>
 			<SimpleGrid
 				columns={{ base: 1, lg: 2 }}
 				spacing={{ base: 8, md: 10 }}
-				py={{ base: 18, md: 24 }}
+				py={{ base: 4, md: 4 }}
 			>
 				<GridItem>
-					<Box p={2} rounded={"2xl"} size={"xl"}>
+					<Box p={2}>
 						<Image
-							rounded={"md"}
 							alt={data.image}
 							src={data.image}
 							fit={"cover"}
 							align={"center"}
 							w={"100%"}
-							h={{ base: "100%", sm: "400px", lg: "500px" }}
 						/>
 					</Box>
 				</GridItem>
-				<Stack spacing={{ base: 6, md: 10 }}>
+				<Stack spacing={{ base: 6, md: 4 }}>
 					<Box as={"header"}>
 						<Heading
-							lineHeight={1.1}
+							// lineHeight={1.1}
 							fontWeight={600}
 							fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
 						>
 							{data.title}
 						</Heading>
+
 						<Text color="black" fontWeight={400} fontSize={"2xl"} mt={"2"}>
-							Price:${data.price} USD
+							Price:{data.offerPrice}
 						</Text>
 					</Box>
 
@@ -124,9 +139,9 @@ export default function ProductDetails() {
 									placeholder="Select Your Size"
 									onChange={(e) => setSize(e.target.value)}
 								>
-									{data?.size?.map((ele) => {
+									{data?.size?.map((ele, index) => {
 										return (
-											<option key={ele.id} value={ele}>
+											<option key={+index} value={ele}>
 												Avaliable Size : {ele}
 											</option>
 										);
@@ -172,7 +187,7 @@ export default function ProductDetails() {
 								transform: "translateY(2px)",
 								boxShadow: "lg",
 							}}
-							onClick={() => handleCartData(data, size)}
+							onClick={() => handleCartData(size, data)}
 						>
 							Add to Cart
 						</Button>

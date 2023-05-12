@@ -4,15 +4,13 @@ import { Loading } from "../Component/Loading";
 import { Error } from "../Component/Error";
 import { Filter } from "../Component/Filter";
 
-
 export const Products = ({ isLoading, isError, products }) => {
-	
 	return isLoading ? (
 		<Loading />
 	) : isError ? (
 		<Error />
 	) : (
-		<Center mt={14}>
+		<Center>
 			<Box display={"flex"} justifyContent={"space-around"} width={"full"}>
 				<Box>
 					<Filter />
