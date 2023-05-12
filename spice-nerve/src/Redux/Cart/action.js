@@ -21,3 +21,24 @@ export const deleteCartData = (payload) => {
     };
 };
 
+
+export const addWishlistData = (payload) => {
+    return {
+        type: types.ADD_WISHLIST_DATA,
+        payload,
+    };
+};
+
+export const getWishlistData = (payload) => {
+    return {
+        type: types.GET_WISHLIST_DATA,
+        payload,
+    };
+};
+
+export const deleteWishlistData = (payload) => {
+    return {
+        type: types.DELETE_WISHLIST_DATA,
+        payload
+    };
+};

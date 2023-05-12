@@ -22,8 +22,9 @@ import { useState, useEffect } from "react";
 import { DynamicStar } from "react-dynamic-star";
 import { getSingleProduct } from "../Component/utils/getSigleProduct";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartRequest, getCartRequest } from "../Redux/Cart/api";
+import { addCartRequest, getCartRequest, getWishlistRequest } from "../Redux/Cart/api";
 import { Tooltip } from '@chakra-ui/react'
+import { addWishlistRequest } from "../Redux/Cart/api";
 export default function ProductDetails() {
 	const param = useParams();
 	const [data, setData] = useState([]);
@@ -31,14 +32,14 @@ export default function ProductDetails() {
 	const toast = useToast();
 	const dispatch = useDispatch();
 	const { isAuth, userID } = useSelector((store) => store.authReducer);
-	const { cart } = useSelector((store) => store.cartReducer);
+	const { cart, wishlist } = useSelector((store) => store.cartReducer);
 	const handleCartData = (size, data) => {
 		const alreadyAdded = cart.filter((product) => {
 			return product.productID == data.id && product.size == size;
 		});
 		if (alreadyAdded.length >= 1) {
 			toast({
-				title: "Product Alreacy  Added In Cart",
+				title: "Product Already  Added In Cart",
 				variant: "subtle",
 				status: "error",
 				position: "top",
@@ -89,11 +90,76 @@ export default function ProductDetails() {
 			});
 		}
 	};
+
+
+	const handleWishlistData = (size, data) => {
+		const alreadyAdded = wishlist.filter((product) => {
+			return product.productID == data.id && product.size == size;
+		});
+		if (alreadyAdded.length >= 1) {
+			toast({
+				title: "Product Already  Added In Wishlist",
+				variant: "subtle",
+				status: "error",
+				position: "top",
+				duration: 1000,
+				isClosable: true,
+			});
+			return;
+		}
+
+		if (!isAuth) {
+			toast({
+				title: `Please Login`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
+			});
+			return;
+		}
+		if (!size) {
+			toast({
+				title: `Please Add the Size`,
+				status: `error`,
+				isClosable: true,
+				position: "top",
+			});
+			return;
+		} else {
+			let productDetail = {
+				productID: data.id,
+				size: size,
+				image: data.image,
+				offerPrice: data.offerPrice,
+				quantity: 1,
+				title: data.title,
+				category: data.category,
+				userID: userID,
+				originalPrice: data.originalPrice,
+			};
+
+			dispatch(addWishlistRequest(userID, [...wishlist, productDetail])).then((res) => {
+				toast({
+					title: `Product Added into Wishlist`,
+					status: `success`,
+					isClosable: true,
+					position: "top",
+					duration: 1000,
+				});
+			});
+		}
+	};
+
+
+
+
+
 	console.log(data, "single product page data");
 	useEffect(() => {
 		getSingleProduct(param.id).then((res) => setData(res));
 		if (userID) {
 			dispatch(getCartRequest(userID));
+			dispatch(getWishlistRequest(userID));
 		}
 	}, []);
 
@@ -216,7 +282,7 @@ export default function ProductDetails() {
 									height={10}
 									width={20}
 									colorScheme="pink"
-									onClick={() => handleCartData(size, data)}
+									onClick={() => handleWishlistData(size, data)}
 
 								>
 									<img width="24" height="24" src="https://img.icons8.com/ios-filled/24/like--v1.png" alt="like--v1" />

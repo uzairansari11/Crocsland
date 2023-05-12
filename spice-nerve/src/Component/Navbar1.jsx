@@ -29,7 +29,7 @@ import { userLogout } from "../Redux/Authentication/action";
 const Navbar1 = () => {
 	const dispatch = useDispatch();
 	const { isAuth, userID, name } = useSelector((store) => store.authReducer);
-	const { cart, wishList } = useSelector((store) => store.cartReducer);
+	const { cart, wishlist } = useSelector((store) => store.cartReducer);
 
 	const handleLogout = () => {
 		localStorage.removeItem("userResponse");
@@ -177,7 +177,7 @@ const Navbar1 = () => {
 										borderRadius={"50%"}
 										bg="pink.400"
 									>
-										{wishList.length}
+										{wishlist.length}
 									</Flex>
 								)}
 							</Text>

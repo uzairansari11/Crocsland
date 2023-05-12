@@ -26,7 +26,7 @@ export const Products = ({ isLoading, isError, products }) => {
 					p={4}
 				>
 					{products?.map((ele) => (
-						<ProductsCard key={ele.id} {...ele} />
+						<ProductsCard key={ele.id} data={ele} />
 					))}
 				</Grid>
 			</Box>
