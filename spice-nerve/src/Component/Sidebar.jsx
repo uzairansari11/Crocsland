@@ -13,10 +13,13 @@ import {
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
-function Sidebar({ id, handleLogout }) {
+function Sidebar({ userID, handleLogout }) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
-
+	const handleUserLogout = () => {
+		handleLogout()
+		onClose()
+	}
 	return (
 		<Box display={{ lg: "none" }}>
 			<Button ref={btnRef} colorScheme="pink" onClick={onOpen}>
@@ -39,76 +42,36 @@ function Sidebar({ id, handleLogout }) {
 							height={{ base: "5rem", md: "100%" }}
 						/>
 					</Box>
-					<Flex
-						justify="center"
-						pl="1rem"
-						gap="5"
-						flexDir={"column"}
-						mx="2rem"
-						mt="2rem"
-					>
+					<Flex justify="center" pl="1rem" gap="5" flexDir={"column"} mx="2rem" mt="2rem">
 						<Link to="/">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
+							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose} >
 								Home
-							</Text>
+							</Button>
 						</Link>
-						<Link to="/profile">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
-								Profile
-							</Text>
-						</Link>
-						<Link to="/cart">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
-								Cart
-							</Text>
-						</Link>
+
 						<Link to="/men">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
+							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
 								Mens
-							</Text>
+							</Button>
 						</Link>
 						<Link to="/women">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
+							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
 								Womens
-							</Text>
+							</Button>
 						</Link>
 						<Link to="/kids">
-							<Text
-								textAlign={"center"}
-								fontSize={"1.5rem"}
-								borderBottomWidth="2px"
-							>
+							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
 								Kids
-							</Text>
+							</Button>
 						</Link>
-						<Flex justify={"center"}>
-							{id ? (
-								<Button onClick={handleLogout} px="2rem">
+						<Flex>
+							{userID ? (
+								<Button onClick={handleUserLogout} px="2rem"  >
 									Logout
 								</Button>
 							) : (
 								<Link to="/login">
-									<Button px="2rem">Login</Button>
+									<Button onClick={onClose} px="2rem">Login</Button>
 								</Link>
 							)}
 						</Flex>
