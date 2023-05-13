@@ -9,6 +9,7 @@ import {
 	Text,
 } from "@chakra-ui/react";
 
+// import SingleWishlist from "../../Components/Products/SingleWishlist";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getCartRequest, getWishlistRequest } from "../Redux/Cart/api";
@@ -28,25 +29,25 @@ const Wishlist = () => {
 	}, [userID]);
 	return (
 		<>
-			<Box>
+			<Box minH={"70vh"} pos={"relative"}>
 				<Grid
 					borderBottomWidth={"1px"}
 					templateColumns={{
-						base: "repeat(1,1fr)",
-						sm: "repeat(2,1fr)",
+						base: "repeat(2,1fr)",
+						md: "repeat(2,1fr)",
 						lg: "repeat(3,1fr)",
 						xl: "repeat(4,1fr)",
 					}}
 					p={{ base: "5px", md: "1.5rem" }}
+					minHeight={"80vh"}
 					rowGap={{ base: "0.8rem", md: "2rem" }}
-					columnGap={{ base: "0.8rem", md: "2rem" }}
-					justifyItems={"space-between"}
+					justifyItems={"center"}
 				>
 					{isLoading ? (
 						<Loading />
 					) : wishlist.length ? (
 						wishlist?.map((item) => {
-							return <WishlistCard key={item.id} {...item} />;
+							<WishlistCard key={item.id} {...item} />;
 						})
 					) : (
 						<Flex
@@ -58,15 +59,13 @@ const Wishlist = () => {
 							justify={"center"}
 							align={"center"}
 						>
-							<Text textAlign={"center"} fontSize={"1.5rem"}>
-								There are no products in your wishlist
-							</Text>
+							<Text fontSize={"1.5rem"}>There are no products in your wishlist</Text>
 							<Button
 								mt={"2rem"}
 								px="2rem"
 								colorScheme="pink"
 								onClick={() => {
-									navigate("/product/MensData");
+									navigate("/women");
 								}}
 							>
 								Browse Products

@@ -10,7 +10,9 @@ export const Women = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const dispatch = useDispatch();
 	const product = useSelector((store) => store.newProductReducer);
-	const [currentPage, setCurrentPage] = useState(searchParams.get("_page") || 1);
+	const [currentPage, setCurrentPage] = useState(
+		parseInt(searchParams.get("_page")) || 1
+	);
 	const location = useLocation();
 	const handlePagination = (value) => {
 		setCurrentPage(value);
@@ -18,7 +20,7 @@ export const Women = () => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		const filterParama = {
+		const filterParams = {
 			params: {
 				_page: currentPage,
 				subCategory: searchParams.getAll("filter"),
@@ -31,8 +33,13 @@ export const Women = () => {
 			},
 		};
 
-		dispatch(getProducts(filterParama));
-	}, [location.search, currentPage]);
+		dispatch(getProducts(filterParams));
+
+		// Update the URL with the new page value
+		searchParams.set("_page", currentPage);
+		setSearchParams(searchParams.toString());
+	}, [location.search, currentPage, dispatch, searchParams, setSearchParams]);
+
 	return (
 		<Box>
 			<Products {...product} />

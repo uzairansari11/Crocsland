@@ -2,13 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddToCartCard } from "../Component/AddToCartCard";
-import { Stack, Box, Grid, useToast } from "@chakra-ui/react";
+import { Stack, Box, Grid, useToast, Flex, Text, Button } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	deleteCartApi,
 	getCartRequest,
 	updateCartApi,
 } from "../Redux/Cart/api";
+import PaymentForm from "./PaymentForm";
 export const Cart = () => {
 	const dispatch = useDispatch();
 	const { isAuth, userID } = useSelector((store) => store.authReducer);
@@ -57,17 +58,43 @@ export const Cart = () => {
 				gap={6}
 				p={4}
 				justifyContent={"left"}
+
 			>
 				<Grid gap={2} mt={"10px"}>
-					{cart?.map((ele) => (
+					{cart.length ? cart.map((ele) => (
 						<AddToCartCard
 							key={ele.productID + ele.size}
 							{...ele}
 							deleteHandler={deleteHandler}
 							handleUpdateQuantity={handleUpdateQuantity}
 						/>
-					))}
+					)) : <Flex
+						width={"full"}
+						flexDirection={'column'}
+						align={"center"}
+						justifyItems={'center'}
+					>
+						<Text textAlign={"center"} fontSize={"1.5rem"}>
+							There are no products in your bag
+						</Text>
+						<Button
+							mt={"2rem"}
+							px="2rem"
+							mb={"10"}
+							colorScheme="pink"
+							onClick={() => {
+								navigate("/women");
+							}}
+						>
+							Browse Products
+						</Button>
+					</Flex>
+					}
 				</Grid>
+			</Stack>
+			<Stack align={'right'} >
+
+				<PaymentForm />
 			</Stack>
 		</Box>
 	);

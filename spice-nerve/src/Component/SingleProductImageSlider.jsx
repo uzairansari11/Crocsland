@@ -31,7 +31,7 @@ export default class SingleProductImageSlider extends Component {
 							// height={{ base: "200px", md: "280px" }}
 							pos="relative"
 						>
-							<Image src={this.props.images} px={2} />
+							<Image src={this.props.images} px={2} alt={ this.props.id} />
 							<Box
 								pos={"absolute"}
 								bottom={{ base: "1rem", md: "0.81rem" }}
