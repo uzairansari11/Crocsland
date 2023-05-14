@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link as ReactLink, useNavigate } from "react-router-dom";
 import {
 	Flex,
 	Box,
@@ -12,13 +15,10 @@ import {
 	Text,
 	useToast,
 } from "@chakra-ui/react";
-import { Link as ReactLink, json, useNavigate } from "react-router-dom";
 import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import { tokenGenrator } from "../Component/utils/tokenGenrator";
 import { Loading } from "../Component/Loading";
-import { Error } from "../Component/Error";
+import banner1 from "../files/banner-1.avif";
 export function Login() {
 	const dispatch = useDispatch();
 	const authData = useSelector((store) => store.authReducer);
@@ -29,17 +29,17 @@ export function Login() {
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(true);
 
-	const handleLogin = (users) => {
+	const handleLogin = () => {
 		setIsLoading(true);
-		const authentication = users.filter((user) => {
-			return user.userEmail === email && user.password === password;
-		});
+		const authentication = users.filter(
+			(user) => user.userEmail === email && user.password === password,
+		);
 
 		if (authentication.length === 1) {
 			setTimeout(() => {
 				toast({
 					title: "Login Successful",
-					description: "Welcom to Crocs Land",
+					description: "Welcome to Crocs Land",
 					status: "success",
 					duration: 2000,
 					isClosable: true,
@@ -47,10 +47,9 @@ export function Login() {
 				});
 				navigate("/", { replace: true });
 			}, 1000);
-			let userID = authentication[0]["id"];
-			let token = tokenGenrator();
-			let name = authentication[0]["username"];
-			let userDetials = { userID, token, name };
+			const { id, username } = authentication[0];
+			const token = tokenGenrator();
+			const userDetials = { userID: id, token, name: username };
 			localStorage.setItem("userResponse", JSON.stringify(userDetials));
 			dispatch(authSuccess(userDetials));
 			setTimeout(() => {
@@ -70,6 +69,7 @@ export function Login() {
 			}, 500);
 		}
 	};
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		dispatch(gettingUsersData());
@@ -77,60 +77,68 @@ export function Login() {
 			setIsLoading(false);
 		}, 500);
 	}, []);
+
 	return isLoading ? (
 		<Loading />
 	) : (
-		<Flex justify="center">
-			<Stack spacing={4} mx="auto" maxW="lg" py="10%" px={10} boxShadow="sm">
-				<Text>Login Here & Purchase Your Favorite Crocs</Text>
-				<Box rounded="lg" px={14}>
-					<Stack spacing={4}>
-						<FormControl id="email">
-							<InputGroup>
-								<InputLeftAddon children="Email" />
-								<Input
-									placeholder="Please enter your email ..."
-									type="email"
-									value={email}
-									onChange={(e) => setEmail(e.target.value)}
-								/>
-							</InputGroup>
-						</FormControl>
-						<FormControl id="password">
-							<InputGroup>
-								<InputLeftAddon children="Password" />
-								<Input
-									placeholder="Please enter your pass ..."
-									type="password"
-									value={password}
-									onChange={(e) => setPassword(e.target.value)}
-								/>
-							</InputGroup>
-						</FormControl>
-						<Center>
-							<VStack spacing={4}>
-								<Button
-									bg="blue.400"
-									color="white"
-									_hover={{
-										bg: "blue.500",
-									}}
-									width="xs"
-									onClick={() => handleLogin(users)}
-									isDisabled={email === "" || password === ""}
-								>
-									Login
-								</Button>
-								<ReactLink to="/register">
-									<Text>
-										New User ? <span style={{ color: "red" }}>Signup</span>
-									</Text>
-								</ReactLink>
-							</VStack>
-						</Center>
-					</Stack>
-				</Box>
-			</Stack>
+		<Flex
+				backgroundImage={`url(${banner1})`}
+			backgroundSize="cover"
+			backgroundPosition="center"
+			minHeight="100vh"
+			alignItems="center"
+			justifyContent="center"
+		>
+			<Box w="400px" p={8} boxShadow="md" bg="white" rounded="md">
+				<Text fontSize="xl" fontWeight="bold" mb={4} textAlign="center">
+					Login Here & Purchase Your Favorite Crocs
+				</Text>
+				<Stack spacing={4}>
+					<FormControl id="email">
+						<InputGroup>
+							<InputLeftAddon children="Email" />
+							<Input
+								placeholder="Please enter your email..."
+								type="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</InputGroup>
+					</FormControl>
+					<FormControl id="password">
+						<InputGroup>
+							<InputLeftAddon children="Password" />
+							<Input
+								placeholder="Please enter your password..."
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</InputGroup>
+					</FormControl>
+					<Center>
+						<VStack spacing={4}>
+							<Button
+								bg="blue.400"
+								color="white"
+								_hover={{
+									bg: "blue.500",
+								}}
+								width="xs"
+								onClick={() => handleLogin(users)}
+								isDisabled={email === "" || password === ""}
+							>
+								Login
+							</Button>
+							<ReactLink to="/register">
+								<Text>
+									New User ? <span style={{ color: "red" }}>Signup</span>
+								</Text>
+							</ReactLink>
+						</VStack>
+					</Center>
+				</Stack>
+			</Box>
 		</Flex>
 	);
 }

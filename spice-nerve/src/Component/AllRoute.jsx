@@ -13,6 +13,7 @@ import { Men } from "../Page/Men";
 import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
 import Wishlist from "../Page/Wishlist";
+import NotFound from "../Page/NotFound";
 export const AllRoute = () => {
 	return (
 		<Routes>
@@ -33,7 +34,7 @@ export const AllRoute = () => {
 			<Route path="/login" element={<Login />} />
 
 			{/* Not Found Page Route  */}
-			<Route path="*" element={<h1>NO PAGE FOUND</h1>} />
+			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
 };
