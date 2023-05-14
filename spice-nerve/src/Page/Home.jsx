@@ -17,7 +17,7 @@ export const Home = () => {
 	return (
 		<Box bgGradient="linear(to-l, #A0AEC0, #E2E8F0)">
 			<ReactLink to="/women">
-				<Box bgGradient="linear(to-l, #7928CA, #FF0080)">
+				<Box>
 					<Image src={banner1} alt="" p={12} />
 				</Box>
 			</ReactLink>

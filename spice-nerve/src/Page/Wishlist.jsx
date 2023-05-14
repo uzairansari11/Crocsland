@@ -4,12 +4,8 @@ import {
 	Button,
 	Flex,
 	Grid,
-	Skeleton,
-	Stack,
 	Text,
 } from "@chakra-ui/react";
-
-// import SingleWishlist from "../../Components/Products/SingleWishlist";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getCartRequest, getWishlistRequest } from "../Redux/Cart/api";
@@ -19,14 +15,14 @@ const Wishlist = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	let isLoading = false;
-	const { isAuth, userID } = useSelector((store) => store.authReducer);
+	const {  userID } = useSelector((store) => store.authReducer);
 	const { wishlist } = useSelector((store) => store.cartReducer);
 	useEffect(() => {
 		if (userID) {
 			dispatch(getCartRequest(userID));
 			dispatch(getWishlistRequest(userID));
 		}
-	}, [userID]);
+	}, [userID,dispatch]);
 	return (
 		<>
 			<Box minH={"70vh"} pos={"relative"}>

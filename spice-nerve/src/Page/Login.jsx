@@ -76,7 +76,7 @@ export function Login() {
 		setTimeout(() => {
 			setIsLoading(false);
 		}, 500);
-	}, []);
+	}, [dispatch]);
 
 	return isLoading ? (
 		<Loading />
