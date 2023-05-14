@@ -39,7 +39,7 @@ export function Login() {
 			setTimeout(() => {
 				toast({
 					title: "Login Successful",
-					description: "Welcome to Crocs Land",
+					description: `Welcome back ${authentication[0]["username"].toUpperCase() }`,
 					status: "success",
 					duration: 2000,
 					isClosable: true,
@@ -82,7 +82,7 @@ export function Login() {
 		<Loading />
 	) : (
 		<Flex
-				backgroundImage={`url(${banner1})`}
+			backgroundImage={`url(${banner1})`}
 			backgroundSize="cover"
 			backgroundPosition="center"
 			minHeight="100vh"
