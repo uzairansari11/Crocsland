@@ -19,6 +19,7 @@ export const Filter = () => {
 	const initialRatingValue = searchParams.get("rating_gte");
 	const initialDiscountValue = searchParams.get("discount_gte");
 	const initialPageValue = searchParams.get("_page");
+	const initialLimitValue = searchParams.get("_limit");
 	const order = searchParams.get("_order");
 	const [orderBy, setOrderBy] = useState(order || "");
 	const [filterValues, setFilterValues] = useState(initialFilterValue || []);
@@ -27,7 +28,7 @@ export const Filter = () => {
 		initialDiscountValue || "",
 	);
 	const [pageValue, setPageValue] = useState(initialPageValue || 1);
-	const limit = 6;
+	const [limit] = useState(initialLimitValue || 6);
 
 	const handleFilterChange = (value) => {
 		setFilterValues(value);
@@ -68,11 +69,11 @@ export const Filter = () => {
 		if (pageValue) {
 			params._page = pageValue;
 		}
-		
+		if (limit) {
 			params._limit = limit;
-		
+		}
 		setSearchParams(params);
-	}, [filterValues, orderBy, discountValues, ratingValues, pageValue]);
+	}, [filterValues, orderBy, discountValues, ratingValues, pageValue, limit]);
 
 
 

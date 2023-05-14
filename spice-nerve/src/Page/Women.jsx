@@ -11,12 +11,31 @@ export const Women = () => {
 	const dispatch = useDispatch();
 	const product = useSelector((store) => store.newProductReducer);
 	const [currentPage, setCurrentPage] = useState(
-		parseInt(searchParams.get("_page")) || 1
+		parseInt(searchParams.get("_page")) || 1,
 	);
 	const [totalPages, setTotalPages] = useState(1);
-	const limit = searchParams.get("_limit");
+	const [limit] = useState(6);
 	const location = useLocation();
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		const filterParams = {
+			params: {
+				_page: currentPage,
+				subCategory: searchParams.getAll("filter"),
+				category: "women",
+				_sort: "offerPrice",
+				_order: searchParams.get("_order"),
+				discount_gte: searchParams.get("discount_gte"),
+				rating_gte: searchParams.get("rating_gte"),
+				_limit: searchParams.get("_limit"),
+			},
+		};
+
+		dispatch(getProducts(filterParams));
+		searchParams.set("_page", currentPage);
+		setSearchParams(searchParams.toString());
+	}, [location.search, currentPage, dispatch, searchParams, setSearchParams]);
 	const handlePagination = (value) => {
 		if (value > totalPages) {
 			setCurrentPage(totalPages);
@@ -24,41 +43,15 @@ export const Women = () => {
 			setCurrentPage(value);
 		}
 	};
-
 	useEffect(() => {
-		const fetchData = async () => {
-			window.scrollTo(0, 0);
-			const filterParams = {
-				params: {
-					_limit: limit,
-					_page: currentPage,
-					subCategory: searchParams.getAll("filter"),
-					category: "women",
-					_sort: "offerPrice",
-					_order: searchParams.get("_order"),
-					discount_gte: searchParams.get("discount_gte"),
-					rating_gte: searchParams.get("rating_gte"),
-				},
-			};
-
-			await dispatch(getProducts(filterParams));
-			if (product.totalCount && limit) {
-				setTotalPages(Math.ceil(product.totalCount / limit));
-			}
-		};
-
-		fetchData();
-	}, [searchParams]);
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-		const params = new URLSearchParams(location.search);
-		params.set("_page", currentPage);
-		setSearchParams(params);
-	}, [currentPage, setSearchParams, location.search]);
-
-	console.log(totalPages, "totalPages", currentPage, "currentPage");
-
+		if (product.totalCount && limit) {
+			setTotalPages(Math.ceil(product.totalCount / limit));
+		}
+		if (currentPage > totalPages) {
+			setCurrentPage(totalPages);
+		}
+	}, [product.totalCount, limit, currentPage, totalPages]);
+	console.log(totalPages, "totlapage", currentPage, "currentPage");
 	return (
 		<Box>
 			<Products {...product} />

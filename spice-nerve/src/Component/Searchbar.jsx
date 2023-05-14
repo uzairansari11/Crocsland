@@ -50,7 +50,7 @@ const Searchbar = () => {
 	const handleItemClick = () => {
 		setText("");
 	};
-console.log(data,"data")
+
 	return (
 		<Box bg={color} borderRadius="md" pos="relative">
 			<InputGroup>
@@ -78,7 +78,7 @@ console.log(data,"data")
 					pos="absolute"
 					top="3.2rem"
 					width="full"
-					maxHeight="19.4rem"
+					maxH="19.4rem"
 					bg="gray.100"
 					borderRadius="md"
 					overflowY="auto"
@@ -93,6 +93,7 @@ console.log(data,"data")
 							to={`/product/${item.id}`}
 							key={item.title}
 							onClick={handleItemClick}
+							_hover={{ textDecoration: "none", bg: "gray.200" }}
 						>
 							<Text padding="8px" pb="1.7px" pl="15px" borderBottomWidth="1px">
 								{item.title}

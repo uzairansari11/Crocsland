@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
 	Box,
-	Button,
 	Drawer,
 	DrawerCloseButton,
 	DrawerContent,
@@ -25,9 +24,9 @@ function Sidebar({ userID, handleLogout }) {
 
 	return (
 		<Box display={{ lg: "none" }}>
-			<Button ref={btnRef} colorScheme="pink" onClick={onOpen}>
-				<GiHamburgerMenu />
-			</Button>
+			<Link to="#" onClick={onOpen}>
+				<GiHamburgerMenu size={24} />
+			</Link>
 			<Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
 				<DrawerOverlay />
 				<DrawerContent>
@@ -41,57 +40,39 @@ function Sidebar({ userID, handleLogout }) {
 						/>
 					</Box>
 					<Flex justify="center" pl="1rem" gap="5" flexDir="column" mx="2rem" mt="2rem">
-						<Link to="/">
-							<Button
-								textAlign="center"
-								fontSize="1.5rem"
-								borderBottomWidth="2px"
-								onClick={onClose}
-							>
+						<Link to="/" onClick={onClose}>
+							<Text as="button" fontSize="1.5rem" borderBottomWidth="2px" fontWeight="bold">
 								Home
-							</Button>
+							</Text>
 						</Link>
 
-						<Link to="/men">
-							<Button
-								textAlign="center"
-								fontSize="1.5rem"
-								borderBottomWidth="2px"
-								onClick={onClose}
-							>
+						<Link to="/men" onClick={onClose}>
+							<Text as="button" fontSize="1.5rem" borderBottomWidth="2px" fontWeight="bold">
 								Mens
-							</Button>
+							</Text>
 						</Link>
-						<Link to="/women">
-							<Button
-								textAlign="center"
-								fontSize="1.5rem"
-								borderBottomWidth="2px"
-								onClick={onClose}
-							>
+						<Link to="/women" onClick={onClose}>
+							<Text as="button" fontSize="1.5rem" borderBottomWidth="2px" fontWeight="bold">
 								Womens
-							</Button>
+							</Text>
 						</Link>
-						<Link to="/kids">
-							<Button
-								textAlign="center"
-								fontSize="1.5rem"
-								borderBottomWidth="2px"
-								onClick={onClose}
-							>
+						<Link to="/kids" onClick={onClose}>
+							<Text as="button" fontSize="1.5rem" borderBottomWidth="2px" fontWeight="bold">
 								Kids
-							</Button>
+							</Text>
 						</Link>
 						<Flex justify="center">
 							{userID ? (
-								<Button onClick={handleUserLogout} px="2rem">
-									Logout
-								</Button>
+								<Link to="#" onClick={handleUserLogout}>
+									<Text as="button" fontWeight="bold">
+										Logout
+									</Text>
+								</Link>
 							) : (
-								<Link to="/login">
-									<Button onClick={onClose} px="2rem">
+								<Link to="/login" onClick={onClose}>
+									<Text as="button" fontWeight="bold">
 										Login
-									</Button>
+									</Text>
 								</Link>
 							)}
 						</Flex>
