@@ -3,7 +3,6 @@ import { Box, Flex, Stack, Text } from "@chakra-ui/layout";
 import { Radio, RadioGroup } from "@chakra-ui/radio";
 import { Button as AutButton } from "antd";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-
 import {
 	Accordion,
 	AccordionItem,
@@ -20,38 +19,44 @@ export const Filter = () => {
 	const initialRatingValue = searchParams.get("rating_gte");
 	const initialDiscountValue = searchParams.get("discount_gte");
 	const initialPageValue = searchParams.get("_page");
-	const initialLimitValue = searchParams.get("_limit");
 	const order = searchParams.get("_order");
 	const [orderBy, setOrderBy] = useState(order || "");
-
 	const [filterValues, setFilterValues] = useState(initialFilterValue || []);
 	const [ratingValues, setRatingValues] = useState(initialRatingValue || "");
 	const [discountValues, setDiscountValues] = useState(
 		initialDiscountValue || "",
 	);
 	const [pageValue, setPageValue] = useState(initialPageValue || 1);
-	const [limit] = useState(initialLimitValue || 4);
+	const limit = 6;
+
 	const handleFilterChange = (value) => {
 		setFilterValues(value);
 	};
+
 	const handlePriceChange = (value) => {
 		setOrderBy(value);
 	};
+
 	const handleRatingChange = (value) => {
 		setRatingValues(value);
 	};
+
 	const handleDiscountChange = (value) => {
 		setDiscountValues(value);
 	};
-	const handlePageChnage = (value) => {
-		setPageValue(value)
-	}
+
+		const resetFilters = () => {
+		setFilterValues([]);
+		setOrderBy("");
+		setRatingValues("");
+		setDiscountValues("");
+	};
+
 	useEffect(() => {
 		let params = {};
 		if (filterValues.length) params.filter = filterValues;
 		if (orderBy) {
 			params._sort = "offerPrice";
-
 			params._order = orderBy;
 		}
 		if (discountValues) {
@@ -63,19 +68,13 @@ export const Filter = () => {
 		if (pageValue) {
 			params._page = pageValue;
 		}
-		if (limit) {
+		
 			params._limit = limit;
-		}
+		
 		setSearchParams(params);
-	}, [
-		filterValues,
-		orderBy,
-		discountValues,
-		ratingValues,
-		pageValue,
-		initialPageValue,
-		limit,
-	]);
+	}, [filterValues, orderBy, discountValues, ratingValues, pageValue]);
+
+
 
 	return (
 		<Box
@@ -96,7 +95,7 @@ export const Filter = () => {
 					>
 						Filters
 					</Text>
-					<AutButton type="primary" danger>
+					<AutButton type="primary" danger onClick={resetFilters}>
 						Reset Filter
 					</AutButton>
 				</Box>
@@ -237,7 +236,6 @@ export const Filter = () => {
 																);
 															})}
 													</Flex>
-													{/* <Text color="sm.sparkle">& up</Text> */}
 												</Flex>
 											</Radio>
 										);

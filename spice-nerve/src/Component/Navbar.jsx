@@ -1,5 +1,8 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "@chakra-ui/react";
 import {
-	PopoverHeader,
 	Box,
 	Flex,
 	Image,
@@ -8,45 +11,51 @@ import {
 	PopoverBody,
 	PopoverCloseButton,
 	PopoverContent,
+	PopoverHeader,
 	PopoverTrigger,
 	Text,
 	Button,
-	WrapItem,
+	Avatar,
 } from "@chakra-ui/react";
-
-import React, { useEffect } from "react";
-import Searchbar from "./Searchbar";
 import { BsBag, BsPerson } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-import MegaMenu from "./MegaMenu";
-import { Link } from "react-router-dom";
-import { Avatar } from "@chakra-ui/react";
-import Sidebar from "./Sidebar";
-import { useDispatch, useSelector } from "react-redux";
 import { getCartRequest } from "../Redux/Cart/api";
 import { userLogout } from "../Redux/Authentication/action";
 
+import MegaMenu from "./MegaMenu";
+import Sidebar from "./Sidebar";
+import Searchbar from "./Searchbar";
 export const Navbar = () => {
 	const dispatch = useDispatch();
-	const { userID, name } = useSelector((store) => store.authReducer);
-	const { cart, wishlist } = useSelector((store) => store.cartReducer);
+	const { userID, name } = useSelector(({ authReducer }) => authReducer);
+	const { cart, wishlist } = useSelector(({ cartReducer }) => cartReducer);
+	const { loading } = useSelector(({ authReducer }) => authReducer);
+	const toast = useToast();
 
 	const handleLogout = () => {
 		localStorage.removeItem("userResponse");
 		dispatch(userLogout());
+		toast({
+			title: "Logout successful",
+			status: "success",
+			duration: 3000,
+			isClosable: true,
+		});
 	};
+
 	useEffect(() => {
 		if (userID) {
 			dispatch(getCartRequest(userID));
 		}
 	}, [userID]);
+
 	return (
 		<Box
 			position={"sticky"}
 			top="0"
 			zIndex={"100"}
 			bg="white"
-			boxShadow=" 0px 7px 7px -5px rgba(120,108,120,0.2)"
+			boxShadow="0px 7px 7px -5px rgba(120,108,120,0.2)"
 		>
 			<Flex
 				height={{ base: "3.2rem", md: "4.94rem" }}

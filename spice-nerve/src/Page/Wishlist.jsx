@@ -47,7 +47,7 @@ const Wishlist = () => {
 						<Loading />
 					) : wishlist.length ? (
 						wishlist?.map((item) => {
-							<WishlistCard key={item.id} {...item} />;
+						return	<WishlistCard key={item.id+item.size} {...item} />;
 						})
 					) : (
 						<Flex

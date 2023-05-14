@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import {
 	Box,
 	Button,
@@ -10,27 +12,23 @@ import {
 	Text,
 	useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+
 function Sidebar({ userID, handleLogout }) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
+
 	const handleUserLogout = () => {
-		handleLogout()
-		onClose()
-	}
+		handleLogout();
+		onClose();
+	};
+
 	return (
 		<Box display={{ lg: "none" }}>
 			<Button ref={btnRef} colorScheme="pink" onClick={onOpen}>
 				<GiHamburgerMenu />
 			</Button>
-			<Drawer
-				isOpen={isOpen}
-				placement="left"
-				onClose={onClose}
-				finalFocusRef={btnRef}
-			>
+			<Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton />
@@ -42,36 +40,58 @@ function Sidebar({ userID, handleLogout }) {
 							height={{ base: "5rem", md: "100%" }}
 						/>
 					</Box>
-					<Flex justify="center" pl="1rem" gap="5" flexDir={"column"} mx="2rem" mt="2rem">
+					<Flex justify="center" pl="1rem" gap="5" flexDir="column" mx="2rem" mt="2rem">
 						<Link to="/">
-							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose} >
+							<Button
+								textAlign="center"
+								fontSize="1.5rem"
+								borderBottomWidth="2px"
+								onClick={onClose}
+							>
 								Home
 							</Button>
 						</Link>
 
 						<Link to="/men">
-							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
+							<Button
+								textAlign="center"
+								fontSize="1.5rem"
+								borderBottomWidth="2px"
+								onClick={onClose}
+							>
 								Mens
 							</Button>
 						</Link>
 						<Link to="/women">
-							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
+							<Button
+								textAlign="center"
+								fontSize="1.5rem"
+								borderBottomWidth="2px"
+								onClick={onClose}
+							>
 								Womens
 							</Button>
 						</Link>
 						<Link to="/kids">
-							<Button textAlign={"center"} fontSize={"1.5rem"} borderBottomWidth="2px" onClick={onClose}>
+							<Button
+								textAlign="center"
+								fontSize="1.5rem"
+								borderBottomWidth="2px"
+								onClick={onClose}
+							>
 								Kids
 							</Button>
 						</Link>
-						<Flex>
+						<Flex justify="center">
 							{userID ? (
-								<Button onClick={handleUserLogout} px="2rem"  >
+								<Button onClick={handleUserLogout} px="2rem">
 									Logout
 								</Button>
 							) : (
 								<Link to="/login">
-									<Button onClick={onClose} px="2rem">Login</Button>
+									<Button onClick={onClose} px="2rem">
+										Login
+									</Button>
 								</Link>
 							)}
 						</Flex>
@@ -81,4 +101,5 @@ function Sidebar({ userID, handleLogout }) {
 		</Box>
 	);
 }
+
 export default Sidebar;

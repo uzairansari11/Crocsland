@@ -26,7 +26,7 @@ export const AddToCartCard = ({
 				<Image h={"100px"} src={image} />
 				</ReactLink>
 				<Box>
-					<p style={{ fontSize: "12px" }}>{title}</p>
+					<Text style={{ fontSize: "12px" }}>{title}</Text>
 					<Flex gap={2}>
 						<Text>size : {size}</Text>
 						<Button
@@ -62,7 +62,7 @@ export const AddToCartCard = ({
 
 					<Flex>
 						<MdMoreTime />{" "}
-						<p style={{ fontSize: "10px" }}> 14 Days return Avilalble</p>
+						<Text style={{ fontSize: "10px" }}> 14 Days return Avilalble</Text>
 					</Flex>
 				</Box>
 			</Flex>

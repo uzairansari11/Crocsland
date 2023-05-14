@@ -1,100 +1,104 @@
 import axios from "axios";
 import { addCartData, addWishlistData, deleteCartData, deleteWishlistData, getCartData, getWishlistData } from "./action";
 
-/* -----------------------------Cart  functionality--------------------------  */
+const baseUrl = "https://crocsland.onrender.com/users";
 
-export const getCartRequest = (id) => (dispatch) => {
+const getRequest = async (url) => {
 	try {
-		axios.get(`https://crocsland.onrender.com/users/${id}`).then((res) => {
-			dispatch(getCartData(res.data.cart));
-		});
+		const response = await axios.get(url);
+		return response.data;
 	} catch (error) {
 		console.log(error);
+		throw error;
+	}
+};
+
+const patchRequest = async (url, data) => {
+	try {
+		const response = await axios.patch(url, data);
+		return response.data;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+};
+
+export const getCartRequest = (id) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
+	try {
+		const data = await getRequest(url);
+		dispatch(getCartData(data.cart));
+	} catch (error) {
+		// Handle error
 	}
 };
 
 export const addCartRequest = (id, product) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		const res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			cart: product,
-		});
-
-		dispatch(addCartData(res.data.cart));
+		const data = await patchRequest(url, { cart: product });
+		dispatch(addCartData(data.cart));
 	} catch (error) {
-		console.log(error);
+		// Handle error
 	}
 };
 
 export const deleteCartApi = (id, newCart) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		let res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			cart: newCart,
-		});
-		let data = await res.data.cart;
-		dispatch(deleteCartData(data));
-	} catch (e) {
-		console.log(e);
+		const data = await patchRequest(url, { cart: newCart });
+		dispatch(deleteCartData(data.cart));
+	} catch (error) {
+		// Handle error
 	}
 };
 
 export const updateCartApi = (id, newCart) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		let res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			cart: newCart,
-		});
-		let data = await res.data.cart;
-		dispatch(addCartData(data));
-	} catch (e) {
-		console.log(e);
+		const data = await patchRequest(url, { cart: newCart });
+		dispatch(addCartData(data.cart));
+	} catch (error) {
+		// Handle error
 	}
 };
-/* ------------------------------------------------------------------- */
 
-/* -----------------------------Wishlist  functionality--------------------------  */
-export const getWishlistRequest = (id) => (dispatch) => {
+export const getWishlistRequest = (id) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		axios.get(`https://crocsland.onrender.com/users/${id}`).then((res) => {
-			dispatch(getWishlistData(res.data.wishlist));
-		});
+		const data = await getRequest(url);
+		dispatch(getWishlistData(data.wishlist));
 	} catch (error) {
-		console.log(error);
+		// Handle error
 	}
 };
 
 export const addWishlistRequest = (id, product) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		const res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			wishlist: product,
-		});
-
-		dispatch(addWishlistData(res.data.wishlist));
+		const data = await patchRequest(url, { wishlist: product });
+		dispatch(addWishlistData(data.wishlist));
 	} catch (error) {
-		console.log(error);
+		// Handle error
 	}
 };
 
 export const deleteWishlistApi = (id, newWishlist) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		let res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			wishlist: newWishlist,
-		});
-		let data = await res.data.wishlist;
-		dispatch(deleteWishlistData(data));
-	} catch (e) {
-		console.log(e);
+		const data = await patchRequest(url, { wishlist: newWishlist });
+		dispatch(deleteWishlistData(data.wishlist));
+	} catch (error) {
+		// Handle error
 	}
 };
 
 export const updateWishlistApi = (id, newWishlist) => async (dispatch) => {
+	const url = `${baseUrl}/${id}`;
 	try {
-		let res = await axios.patch(`https://crocsland.onrender.com/users/${id}`, {
-			wishlist: newWishlist,
-		});
-		let data = await res.data.wishlist;
-		dispatch(addCartData(data));
-	} catch (e) {
-		console.log(e);
+		const data = await patchRequest(url, { wishlist: newWishlist });
+		dispatch(addCartData(data.wishlist));
+	} catch (error) {
+		// Handle error
 	}
 };
-
-/* ------------------------------------------------------------------- */

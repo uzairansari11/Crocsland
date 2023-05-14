@@ -17,7 +17,8 @@ import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { tokenGenrator } from "../Component/utils/tokenGenrator";
-
+import { Loading } from "../Component/Loading";
+import { Error } from "../Component/Error";
 export function Login() {
 	const dispatch = useDispatch();
 	const authData = useSelector((store) => store.authReducer);
@@ -26,22 +27,24 @@ export function Login() {
 	const [password, setPassword] = useState("");
 	const toast = useToast();
 	const navigate = useNavigate();
+	const [isLoading, setIsLoading] = useState(true);
 
 	const handleLogin = (users) => {
+		setIsLoading(true);
 		const authentication = users.filter((user) => {
 			return user.userEmail === email && user.password === password;
 		});
 
 		if (authentication.length === 1) {
-			toast({
-				title: "Login Successful",
-				description: "Welcom to Crocs Land",
-				status: "success",
-				duration: 1000,
-				isClosable: true,
-				position: "top",
-			});
 			setTimeout(() => {
+				toast({
+					title: "Login Successful",
+					description: "Welcom to Crocs Land",
+					status: "success",
+					duration: 2000,
+					isClosable: true,
+					position: "top",
+				});
 				navigate("/", { replace: true });
 			}, 1000);
 			let userID = authentication[0]["id"];
@@ -50,32 +53,37 @@ export function Login() {
 			let userDetials = { userID, token, name };
 			localStorage.setItem("userResponse", JSON.stringify(userDetials));
 			dispatch(authSuccess(userDetials));
+			setTimeout(() => {
+				setIsLoading(false);
+			}, 1000);
 		} else {
-			toast({
-				title: "Login Unsuccessful",
-				description: "Invalid Credentials",
-				status: "error",
-				duration: 3000,
-				isClosable: true,
-				position: "top",
-			});
+			setTimeout(() => {
+				toast({
+					title: "Login Unsuccessful",
+					description: "Invalid Credentials",
+					status: "error",
+					duration: 3000,
+					isClosable: true,
+					position: "top",
+				});
+				setIsLoading(false);
+			}, 500);
 		}
 	};
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		dispatch(gettingUsersData());
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 500);
 	}, []);
-	return (
-		<Flex justify={"center"}>
-			<Stack
-				spacing={4}
-				mx={"auto"}
-				maxW={"lg"}
-				py={"10%"}
-				px={10}
-				boxShadow={"sm"}
-			>
+	return isLoading ? (
+		<Loading />
+	) : (
+		<Flex justify="center">
+			<Stack spacing={4} mx="auto" maxW="lg" py="10%" px={10} boxShadow="sm">
 				<Text>Login Here & Purchase Your Favorite Crocs</Text>
-				<Box rounded={"lg"} px={14}>
+				<Box rounded="lg" px={14}>
 					<Stack spacing={4}>
 						<FormControl id="email">
 							<InputGroup>
@@ -102,13 +110,14 @@ export function Login() {
 						<Center>
 							<VStack spacing={4}>
 								<Button
-									bg={"blue.400"}
-									color={"white"}
+									bg="blue.400"
+									color="white"
 									_hover={{
 										bg: "blue.500",
 									}}
-									width={"xs"}
+									width="xs"
 									onClick={() => handleLogin(users)}
+									isDisabled={email === "" || password === ""}
 								>
 									Login
 								</Button>

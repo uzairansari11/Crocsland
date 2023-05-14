@@ -1,20 +1,15 @@
-/* This Component is for showing loading state */
-
 import React from "react";
-import { Spinner, Center } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import styles from "./Loading.module.css";
 
 export const Loading = () => {
 	return (
-		<Center>
-			<Spinner
-				colorScheme="blue.500"
-				size="xl"
-				thickness="4px"
-				emptyColor="grey"
-				m="100"
-				p={"20"}
-				speed="5s"
-			/>
-		</Center>
+		<Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+			<Box display="flex" alignItems="center">
+				<Box className={styles["loading-dot"]} />
+				<Box className={styles["loading-dot"]} />
+				<Box className={styles["loading-dot"]} />
+			</Box>
+		</Box>
 	);
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, Image, Button, Flex } from "@chakra-ui/react";
 import { MdMoreTime } from "react-icons/md";
 import { Link as ReactLink } from "react-router-dom";
+
 export const WishlistCard = ({
 	image,
 	title,
@@ -15,58 +16,64 @@ export const WishlistCard = ({
 }) => {
 	return (
 		<Flex
-			justifyContent={"space-between"}
-			boxShadow={
-				"rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
-			}
-			padding={2}
+			justifyContent="space-between"
+			flexDirection="column"
+			boxShadow="md"
+			p={4}
+			maxWidth={300}
+			borderRadius={8}
+			bg="white"
 		>
-			<Flex gap={2}>
-				<ReactLink to={`/product/${productID}`}>
-					<Image h={"100px"} src={image} />
-				</ReactLink>
-				<Box>
-					<p style={{ fontSize: "12px" }}>{title}</p>
-					{/* <Flex gap={2}>
-                        <Text>size : {size}</Text>
-                        <Button
-                            fontSize={"md"}
-                            size="xs"
-                            isDisabled={quantity === 1}
-                            onClick={() => handleUpdateQuantity(-1, productID, size)}
-                        >
-                            -
-                        </Button>
-                        <Text>{quantity}</Text>
-                        <Button
-                            fontSize={"md"}
-                            size="xs"
-                            isDisabled={quantity === 4}
-                            onClick={() => handleUpdateQuantity(1, productID, size)}
-                        >
-                            +
-                        </Button>
-                    </Flex> */}
-					<Flex py="0.4rem">
-						<Text fontSize={"0.9rem"} pr={"0.5rem"}>
-							₹ {offerPrice}
-						</Text>
-						<Text textDecoration={"line-through"} fontSize={"0.9rem"} color="gray.400">
-							₹ {originalPrice}
-						</Text>
-					</Flex>
-
-					<Flex>
-						<MdMoreTime /> <p style={{ fontSize: "10px" }}> 14 Days return Avilalble</p>
-					</Flex>
-				</Box>
+			<ReactLink to={`/product/${productID}`}>
+				<Image src={image} alt={title} height={120} objectFit="cover" />
+			</ReactLink>
+			<Box mt={4}>
+				<Text fontSize="sm" fontWeight="bold" mb={2}>
+					{title}
+				</Text>
+				<Flex align="center" mb={2}>
+					<Text fontSize="sm" pr={2}>
+						₹ {offerPrice}
+					</Text>
+					<Text textDecoration="line-through" fontSize="sm" color="gray.400">
+						₹ {originalPrice}
+					</Text>
+				</Flex>
+				<Flex align="center" mb={2}>
+					<MdMoreTime />
+					<Text fontSize="xs" ml={1}>
+						14 Days return available
+					</Text>
+				</Flex>
+			</Box>
+			<Flex justify="space-between" mt={4}>
+				<Button
+					colorScheme="blue"
+					size="sm"
+					onClick={() => handleUpdateQuantity(-1, productID, size)}
+				>
+					-
+				</Button>
+				<Flex align="center">
+					<Text fontSize="sm" mx={2}>
+						{quantity}
+					</Text>
+					<Button
+						colorScheme="blue"
+						size="sm"
+						onClick={() => handleUpdateQuantity(1, productID, size)}
+					>
+						+
+					</Button>
+				</Flex>
+				<Button
+					colorScheme="red"
+					size="sm"
+					onClick={() => deleteHandler(productID, size)}
+				>
+					Remove
+				</Button>
 			</Flex>
-			{/* <Button
-                backgroundColor={"#ffffff"}
-                onClick={() => deleteHandler(productID, size)}
-            >
-                x
-            </Button> */}
 		</Flex>
 	);
 };

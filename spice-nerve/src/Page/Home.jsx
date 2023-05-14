@@ -6,15 +6,16 @@ import banner4 from "../files/banner-4.PNG";
 import banner5 from "../files/banner-5.PNG";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Link as ReactLink } from "react-router-dom";
-import { Box, Image, Button, Grid, Center } from "@chakra-ui/react";
+import { Box, Image, Button, Grid, Center, Text } from "@chakra-ui/react";
 import Faq from "../Component/Faq";
 
 export const Home = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
 	return (
-		<Box bgGradient="linear(to-l,#A0AEC0, #E2E8F0)">
+		<Box bgGradient="linear(to-l, #A0AEC0, #E2E8F0)">
 			<ReactLink to="/women">
 				<Box bgGradient="linear(to-l, #7928CA, #FF0080)">
 					<Image src={banner1} alt="" p={12} />
@@ -29,13 +30,13 @@ export const Home = () => {
 					lg: "repeat(4, 1fr)",
 				}}
 				justifyItems="center"
-				m={"1rem"}
+				m="1rem"
 			>
 				<ReactLink to="/women">
 					<Button
 						rightIcon={<ArrowForwardIcon />}
 						colorScheme="teal"
-						variant="outline"
+						variant="solid"
 						size="md"
 						height="48px"
 						width="200px"
@@ -44,6 +45,7 @@ export const Home = () => {
 							bg: "teal.500",
 							color: "white",
 						}}
+						fontFamily="Montserrat, sans-serif"
 					>
 						SHOP WOMEN’S
 					</Button>
@@ -52,7 +54,7 @@ export const Home = () => {
 					<Button
 						rightIcon={<ArrowForwardIcon />}
 						colorScheme="teal"
-						variant="outline"
+						variant="solid"
 						size="md"
 						height="48px"
 						width="200px"
@@ -61,16 +63,16 @@ export const Home = () => {
 							bg: "teal.500",
 							color: "white",
 						}}
+						fontFamily="Montserrat, sans-serif"
 					>
 						SHOP MEN’S
 					</Button>
 				</ReactLink>
-
 				<ReactLink to="/kids">
 					<Button
 						rightIcon={<ArrowForwardIcon />}
 						colorScheme="teal"
-						variant="outline"
+						variant="solid"
 						size="md"
 						height="48px"
 						width="200px"
@@ -79,6 +81,7 @@ export const Home = () => {
 							bg: "teal.500",
 							color: "white",
 						}}
+						fontFamily="Montserrat, sans-serif"
 					>
 						SHOP KIDS’
 					</Button>

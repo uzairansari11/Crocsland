@@ -13,38 +13,57 @@ export const Kid = () => {
 	const [currentPage, setCurrentPage] = useState(
 		parseInt(searchParams.get("_page")) || 1
 	);
+	const [totalPages, setTotalPages] = useState(1);
+	const limit = searchParams.get("_limit");
 	const location = useLocation();
+
 	const handlePagination = (value) => {
-		setCurrentPage(value);
+		if (value > totalPages) {
+			setCurrentPage(totalPages);
+		} else {
+			setCurrentPage(value);
+		}
 	};
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
-		const filterParams = {
-			params: {
-				_page: currentPage,
-				subCategory: searchParams.getAll("filter"),
-				category: "kid",
-				_sort: "offerPrice",
-				_order: searchParams.get("_order"),
-				discount_gte: searchParams.get("discount_gte"),
-				rating_gte: searchParams.get("rating_gte"),
-				_limit: searchParams.get("_limit"),
-			},
+		const fetchData = async () => {
+			window.scrollTo(0, 0);
+			const filterParams = {
+				params: {
+					_limit: limit,
+					_page: currentPage,
+					subCategory: searchParams.getAll("filter"),
+					category: "kids",
+					_sort: "offerPrice",
+					_order: searchParams.get("_order"),
+					discount_gte: searchParams.get("discount_gte"),
+					rating_gte: searchParams.get("rating_gte"),
+				},
+			};
+
+			await dispatch(getProducts(filterParams));
+			if (product.totalCount && limit) {
+				setTotalPages(Math.ceil(product.totalCount / limit));
+			}
 		};
 
-		dispatch(getProducts(filterParams));
+		fetchData();
+	}, [searchParams]);
 
-		// Update the URL with the new page value
-		searchParams.set("_page", currentPage);
-		setSearchParams(searchParams.toString());
-	}, [location.search, currentPage, dispatch, searchParams, setSearchParams]);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		const params = new URLSearchParams(location.search);
+		params.set("_page", currentPage);
+		setSearchParams(params);
+	}, [currentPage, setSearchParams, location.search]);
+
+	console.log(totalPages, "totalPages", currentPage, "currentPage");
 
 	return (
 		<Box>
 			<Products {...product} />
 			<PaginationComponent
-				totalCount={product.totalCount}
+				totalPages={totalPages}
 				handlePagination={handlePagination}
 				currentPage={currentPage}
 			/>

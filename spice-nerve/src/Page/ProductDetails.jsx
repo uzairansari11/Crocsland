@@ -8,38 +8,50 @@ import {
 	Button,
 	Heading,
 	SimpleGrid,
-	StackDivider,
 	GridItem,
 	Select,
-	Toast,
+	Spinner,
 	useToast,
 	Flex,
 } from "@chakra-ui/react";
-
 import { MdLocalShipping } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { DynamicStar } from "react-dynamic-star";
 import { getSingleProduct } from "../Component/utils/getSigleProduct";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartRequest, getCartRequest, getWishlistRequest } from "../Redux/Cart/api";
-import { Tooltip } from '@chakra-ui/react'
+import {
+	addCartRequest,
+	getCartRequest,
+	getWishlistRequest,
+} from "../Redux/Cart/api";
+import { Tooltip } from "@chakra-ui/react";
 import { addWishlistRequest } from "../Redux/Cart/api";
+import { Loading } from "../Component/Loading";
+
 export default function ProductDetails() {
 	const param = useParams();
 	const [data, setData] = useState([]);
 	const [size, setSize] = useState(null);
+	const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 	const toast = useToast();
 	const dispatch = useDispatch();
 	const { isAuth, userID } = useSelector((store) => store.authReducer);
 	const { cart, wishlist } = useSelector((store) => store.cartReducer);
-	const handleCartData = (size, data) => {
-		const alreadyAdded = cart.filter((product) => {
-			return product.productID == data.id && product.size == size;
+
+	const handleData = (
+		size,
+		data,
+		collection,
+		addCollectionRequest,
+		successMessage,
+	) => {
+		const alreadyAdded = collection.filter((product) => {
+			return product.productID === data.id && product.size === size;
 		});
+
 		if (alreadyAdded.length >= 1) {
 			toast({
-				title: "Product Already  Added In Cart",
+				title: `Product Already Added In ${successMessage}`,
 				variant: "subtle",
 				status: "error",
 				position: "top",
@@ -51,54 +63,61 @@ export default function ProductDetails() {
 
 		if (!isAuth) {
 			toast({
-				title: `Please Login`,
-				status: `error`,
+				title: "Please Login",
+				status: "error",
 				isClosable: true,
 				position: "top",
 			});
 			return;
 		}
+
 		if (!size) {
 			toast({
-				title: `Please Add the Size`,
-				status: `error`,
+				title: "Please Add the Size",
+				status: "error",
 				isClosable: true,
 				position: "top",
 			});
 			return;
-		} else {
-			let productDetail = {
-				productID: data.id,
-				size: size,
-				image: data.image,
-				offerPrice: data.offerPrice,
-				quantity: 1,
-				title: data.title,
-				category: data.category,
-				userID: userID,
-				originalPrice: data.originalPrice,
-			};
+		}
 
-			dispatch(addCartRequest(userID, [...cart, productDetail])).then((res) => {
+		const productDetail = {
+			productID: data.id,
+			size: size,
+			image: data.image,
+			offerPrice: data.offerPrice,
+			quantity: 1,
+			title: data.title,
+			category: data.category,
+			userID: userID,
+			originalPrice: data.originalPrice,
+		};
+
+		dispatch(addCollectionRequest(userID, [...collection, productDetail])).then(
+			(res) => {
 				toast({
-					title: `Product Added into Cart`,
-					status: `success`,
+					title: `Product Added into ${successMessage}`,
+					status: "success",
 					isClosable: true,
 					position: "top",
 					duration: 1000,
 				});
-			});
-		}
+			},
+		);
 	};
 
+	const handleCartData = (size, data) => {
+		handleData(size, data, cart, addCartRequest, "Cart");
+	};
 
 	const handleWishlistData = (size, data) => {
-		const alreadyAdded = wishlist.filter((product) => {
-			return product.productID == data.id && product.size == size;
-		});
-		if (alreadyAdded.length >= 1) {
+		const alreadyAddedToCart = cart.some(
+			(product) => product.productID === data.id && product.size === size,
+		);
+
+		if (alreadyAddedToCart) {
 			toast({
-				title: "Product Already  Added In Wishlist",
+				title: "Product Already Added to Cart",
 				variant: "subtle",
 				status: "error",
 				position: "top",
@@ -108,67 +127,29 @@ export default function ProductDetails() {
 			return;
 		}
 
-		if (!isAuth) {
-			toast({
-				title: `Please Login`,
-				status: `error`,
-				isClosable: true,
-				position: "top",
-			});
-			return;
-		}
-		if (!size) {
-			toast({
-				title: `Please Add the Size`,
-				status: `error`,
-				isClosable: true,
-				position: "top",
-			});
-			return;
-		} else {
-			let productDetail = {
-				productID: data.id,
-				size: size,
-				image: data.image,
-				offerPrice: data.offerPrice,
-				quantity: 1,
-				title: data.title,
-				category: data.category,
-				userID: userID,
-				originalPrice: data.originalPrice,
-			};
-
-			dispatch(addWishlistRequest(userID, [...wishlist, productDetail])).then((res) => {
-				toast({
-					title: `Product Added into Wishlist`,
-					status: `success`,
-					isClosable: true,
-					position: "top",
-					duration: 1000,
-				});
-			});
-		}
+		handleData(size, data, wishlist, addWishlistRequest, "Wishlist");
 	};
 
-
-
-
-
-	console.log(data, "single product page data");
 	useEffect(() => {
-		getSingleProduct(param.id).then((res) => setData(res));
+		window.scrollTo(0, 0);
+		setIsLoading(true); // Set isLoading to true when fetching data
+		getSingleProduct(param.id).then((res) => {
+			setData(res);
+			setIsLoading(false); // Set isLoading to false once data is loaded
+		});
 		if (userID) {
 			dispatch(getCartRequest(userID));
 			dispatch(getWishlistRequest(userID));
 		}
-	}, []);
+	}, [param.id]);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<Container maxW={"full"} py={4}>
-			<SimpleGrid
-				columns={{ base: 1, lg: 2 }}
-
-			>
+			<SimpleGrid columns={{ base: 1, lg: 2 }}>
 				<GridItem>
 					<Box
 						display={"flex"}
@@ -176,7 +157,7 @@ export default function ProductDetails() {
 						alignItems={"center"}
 						width={"80%"}
 						margin={"auto"}
-						boxShadow={'md'}
+						boxShadow={"md"}
 					>
 						<Image
 							alt={data.image}
@@ -187,24 +168,25 @@ export default function ProductDetails() {
 						/>
 					</Box>
 				</GridItem>
-				<Stack >
-					<Box  >
-						<Heading fontWeight={600} fontSize={{ base: "xl", sm: "xl", lg: "xl" }}
-							color={'red'}
+				<Stack>
+					<Box>
+						<Heading
+							fontWeight={600}
+							fontSize={{ base: "xl", sm: "xl", lg: "xl" }}
+							color={"red"}
 						>
 							{data.title}
 						</Heading>
-						<Box display={'flex'} justifyContent={'space-around'} mt={4}
-
+						<Box
+							display={"flex"}
+							justifyContent={"space-around"}
+							mt={4}
 							flexDirection={{ base: "column", md: "row" }}
 						>
 							<Text
 								fontSize={{ base: "16px", lg: "18px" }}
 								color="black.500"
 								fontWeight={"400"}
-
-
-
 							>
 								Offer Price : ₹ {data.offerPrice}
 							</Text>
@@ -212,20 +194,21 @@ export default function ProductDetails() {
 								fontSize={{ base: "16px", lg: "18px" }}
 								color="black.500"
 								fontWeight={"400"}
-
-
 								textDecoration={"line-through"}
 							>
 								Original Price : ₹ {data.originalPrice}
 							</Text>
-							<Text fontSize={{ base: "16px", lg: "18px" }}
+							<Text
+								fontSize={{ base: "16px", lg: "18px" }}
 								color="black.500"
 								fontWeight={"400"}
-							>Discount : {data.discount}%</Text>
+							>
+								Discount : {data.discount}%
+							</Text>
 						</Box>
 					</Box>
 
-					<Stack direction={"column"} >
+					<Stack direction={"column"}>
 						<Center>
 							<Box>
 								<Select
@@ -266,7 +249,7 @@ export default function ProductDetails() {
 					</Stack>
 					<Center>
 						<Flex gap={4}>
-							<Tooltip label='ADD TO BAG' placement='left-start'>
+							<Tooltip label="ADD TO BAG" placement="left-start">
 								<Button
 									size="sm"
 									colorScheme="blue"
@@ -274,18 +257,27 @@ export default function ProductDetails() {
 									width={20}
 									onClick={() => handleCartData(size, data)}
 								>
-									<img width="24" height="24" src="https://img.icons8.com/android/24/shopping-bag.png" alt="shopping-bag" />
+									<img
+										width="24"
+										height="24"
+										src="https://img.icons8.com/android/24/shopping-bag.png"
+										alt="shopping-bag"
+									/>
 								</Button>
 							</Tooltip>
-							<Tooltip label='ADD TO WISHLIST' placement='right-start'>
+							<Tooltip label="ADD TO WISHLIST" placement="right-start">
 								<Button
 									height={10}
 									width={20}
 									colorScheme="pink"
 									onClick={() => handleWishlistData(size, data)}
-
 								>
-									<img width="24" height="24" src="https://img.icons8.com/ios-filled/24/like--v1.png" alt="like--v1" />
+									<img
+										width="24"
+										height="24"
+										src="https://img.icons8.com/ios-filled/24/like--v1.png"
+										alt="like--v1"
+									/>
 								</Button>
 							</Tooltip>
 						</Flex>
@@ -297,6 +289,6 @@ export default function ProductDetails() {
 					</Stack>
 				</Stack>
 			</SimpleGrid>
-		</Container >
+		</Container>
 	);
 }
