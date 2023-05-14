@@ -89,7 +89,7 @@ export function Login() {
 			alignItems="center"
 			justifyContent="center"
 		>
-			<Box w="400px" p={8} boxShadow="md" bg="white" rounded="md">
+				<Box w="400px" p={8} boxShadow="md" bg="rgba(255, 255, 255, 0.8)" rounded="md">
 				<Text fontSize="xl" fontWeight="bold" mb={4} textAlign="center">
 					Login Here & Purchase Your Favorite Crocs
 				</Text>

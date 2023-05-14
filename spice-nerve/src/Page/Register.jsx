@@ -20,27 +20,20 @@ import {
 	gettingUsersData,
 	userRegisterationToApi,
 } from "../Redux/Authentication/action";
-
+import banner6 from "../files/banner-6.PNG";
 export default function Register() {
-	/* navigation and tost */
 	const toast = useToast();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	/* user details input */
 	const [showPassword, setShowPassword] = useState(false);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [name, setName] = useState("");
-
-	/* retriving data from redux store  */
 	const authData = useSelector((store) => store.authReducer);
 	const { users } = authData;
-	/* Registering user through API */
+
 	const handleRegistration = () => {
-		/* checking if user already present or not! */
-		const isUserPresent = users?.filter(
-			(elements) => elements.userEmail === email,
-		);
+		const isUserPresent = users?.filter((elements) => elements.userEmail === email);
 		if (isUserPresent.length > 0) {
 			toast({
 				title: "Email Already Exists",
@@ -49,10 +42,9 @@ export default function Register() {
 				isClosable: true,
 				position: "top",
 			});
-
 			return;
 		}
-		/* checking if user providing all details properly then inserting Registering in dataBase */
+
 		if (email && password && name) {
 			const userDetails = {
 				username: name,
@@ -88,88 +80,96 @@ export default function Register() {
 		}
 	};
 
-	/* getting all data of user before register */
 	useEffect(() => {
 		dispatch(gettingUsersData());
 	}, []);
 
 	return (
-		<Flex height={"100vh"} alignItems={"center"} justify={"center"}>
-			<Stack>
-				<Text>Please Register And Get Exciting Offers!</Text>
-				<Box>
-					<Stack>
-						<FormControl id="name" isRequired>
-							<InputGroup>
-								<InputLeftAddon children="Name" />
-								<Input
-									placeholder="Please enter a name"
-									type="text"
-									required
-									value={name}
-									onChange={(e) => setName(e.target.value)}
-								/>
-							</InputGroup>
-						</FormControl>
-
-						<FormControl id="email" isRequired>
-							<InputGroup>
-								<InputLeftAddon children="Email" />
-								<Input
-									placeholder="Please enter your email ..."
-									type="email"
-									value={email}
-									onChange={(e) => setEmail(e.target.value)}
-								/>
-							</InputGroup>
-						</FormControl>
-						<FormControl id="password" isRequired>
-							<InputGroup>
-								<InputLeftAddon children="Password" />
-								<Input
-									placeholder="Password"
-									type={showPassword ? "text" : "password"}
-									required
-									value={password}
-									onChange={(e) => setPassword(e.target.value)}
-								/>
-
-								<InputRightElement h={"full"}>
-									<Button
-										variant={"ghost"}
-										onClick={() =>
-											setShowPassword((showPassword) => !showPassword)
-										}
-									>
-										{showPassword ? <ViewIcon /> : <ViewOffIcon />}
-									</Button>
-								</InputRightElement>
-							</InputGroup>
-						</FormControl>
+		<Flex
+			height="100vh"
+			alignItems="center"
+			justifyContent="center"
+			backgroundImage={`url(${banner6})`}
+			backgroundSize="cover"
+			backgroundPosition="center"
+		>
+			<Box w="400px" p={8} boxShadow="md" bg="rgba(255, 255, 255, 0.8)" rounded="md">
+				<Stack spacing={4}>
+					<Text textAlign="center">Please Register And Get Exciting Offers!</Text>
+					<Box>
 						<Stack>
-							<Button
-								onClick={handleRegistration}
-								bg={"blue.400"}
-								color={"white"}
-								_hover={{
-									bg: "blue.500",
-								}}
-								width={"xs"}
-								m={"auto"}
-							>
-								Sign up
-							</Button>
+							<FormControl id="name" isRequired>
+								<InputGroup>
+									<InputLeftAddon children="Name" />
+									<Input
+										placeholder="Please enter a name"
+										type="text"
+										required
+										value={name}
+										onChange={(e) => setName(e.target.value)}
+									/>
+								</InputGroup>
+							</FormControl>
+
+							<FormControl id="email" isRequired>
+								<InputGroup>
+									<InputLeftAddon children="Email" />
+									<Input
+										placeholder="Please enter your email ..."
+										type="email"
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+									/>
+								</InputGroup>
+							</FormControl>
+							<FormControl id="password" isRequired>
+								<InputGroup>
+									<InputLeftAddon children="Password" />
+									<Input
+										placeholder="Password"
+										type={showPassword ? "text" : "password"}
+										required
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+
+									<InputRightElement h={"full"}>
+										<Button
+											variant={"ghost"}
+											onClick={() =>
+												setShowPassword((showPassword) => !showPassword)
+											}
+										>
+											{showPassword ? <ViewIcon /> : <ViewOffIcon />}
+										</Button>
+									</InputRightElement>
+								</InputGroup>
+							</FormControl>
+							<Stack>
+								<Button
+									onClick={handleRegistration}
+									bg={"blue.400"}
+									color={"white"}
+									_hover={{
+										bg: "blue.500",
+									}}
+									width={"xs"}
+									m={"auto"}
+								>
+									Sign up
+								</Button>
+							</Stack>
+							<Stack pt={6}>
+								<ReactLink to="/login">
+									<Text align={"center"}>
+										Already a user ? <span style={{ color: "red" }}>Login</span>
+									</Text>
+								</ReactLink>
+							</Stack>
 						</Stack>
-						<Stack pt={6}>
-							<ReactLink to="/login">
-								<Text align={"center"}>
-									Already a user ? <span style={{ color: "red" }}>Login</span>
-								</Text>
-							</ReactLink>
-						</Stack>
-					</Stack>
-				</Box>
-			</Stack>
+					</Box>
+				</Stack>
+			</Box>
 		</Flex>
 	);
 }
