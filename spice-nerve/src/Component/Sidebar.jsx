@@ -56,7 +56,7 @@ function Sidebar({ userID, handleLogout }) {
 								Womens
 							</Text>
 						</Link>
-						<Link to="/kids" onClick={onClose}>
+						<Link to="/kid" onClick={onClose}>
 							<Text as="button" fontSize="1.5rem" borderBottomWidth="2px" fontWeight="bold">
 								Kids
 							</Text>
