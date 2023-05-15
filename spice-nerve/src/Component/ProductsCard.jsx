@@ -1,11 +1,10 @@
 import { Button } from "@chakra-ui/button";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SingleProductImageSlider from "./SingleProductImageSlider";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, Select, Tooltip, useToast } from "@chakra-ui/react";
+import { Select, Tooltip, useToast } from "@chakra-ui/react";
 import {
 	addCartRequest,
 	addWishlistRequest,
@@ -24,11 +23,9 @@ export const ProductsCard = React.memo((props) => {
 		subCategory,
 		rating,
 		ratingCount,
-		category,
 		size,
 	} = data;
 	const [show, setShow] = useState(false);
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const toast = useToast();
 	const [selectedSize, setSlectedSize] = useState(null);
@@ -42,22 +39,6 @@ export const ProductsCard = React.memo((props) => {
 		addCollectionRequest,
 		successMessage,
 	) => {
-		const alreadyAdded = collection.filter((product) => {
-			return product.productID === data.id && product.size === size;
-		});
-
-		if (alreadyAdded.length >= 1) {
-			toast({
-				title: `Product Already Added In ${successMessage}`,
-				variant: "subtle",
-				status: "error",
-				position: "top",
-				duration: 1000,
-				isClosable: true,
-			});
-			return;
-		}
-
 		if (!isAuth) {
 			toast({
 				title: "Please Login",
@@ -78,6 +59,55 @@ export const ProductsCard = React.memo((props) => {
 			return;
 		}
 
+		if (collection.length === 0) {
+			const productDetail = {
+				productID: data.id,
+				size: size,
+				image: data.image,
+				offerPrice: data.offerPrice,
+				quantity: 1,
+				title: data.title,
+				category: data.category,
+				userID: userID,
+				originalPrice: data.originalPrice,
+			};
+
+			dispatch(addCollectionRequest(userID, [...collection, productDetail])).then(
+				(res) => {
+					toast({
+						title: `Product Added into ${successMessage}`,
+						status: "success",
+						isClosable: true,
+						position: "top",
+						duration: 1000,
+					});
+				},
+			);
+
+			return;
+		}
+		const alreadyAdded = collection.filter((product) => {
+			return product.productID === data.id && product.size === size;
+		});
+
+		if (alreadyAdded.length >= 1) {
+			toast({
+				title: `Product Already Added In ${successMessage}`,
+				variant: "subtle",
+				status: "error",
+				position: "top",
+				duration: 1000,
+				isClosable: true,
+			});
+			return;
+		}
+		toast({
+			title: `We Are Adding Your Product`,
+			status: "warning",
+			isClosable: true,
+			position: "top",
+			duration: 1000,
+		});
 		const productDetail = {
 			productID: data.id,
 			size: size,
@@ -108,22 +138,6 @@ export const ProductsCard = React.memo((props) => {
 	};
 
 	const handleWishlistData = (size, data) => {
-		const alreadyAddedToCart = cart.some(
-			(product) => product.productID === data.id && product.size === size,
-		);
-
-		if (alreadyAddedToCart) {
-			toast({
-				title: "Product Already Added to Cart",
-				variant: "subtle",
-				status: "error",
-				position: "top",
-				duration: 1000,
-				isClosable: true,
-			});
-			return;
-		}
-
 		handleData(size, data, wishlist, addWishlistRequest, "Wishlist");
 	};
 

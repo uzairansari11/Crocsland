@@ -33,7 +33,11 @@ export const Products = React.memo(({ isLoading, isError, products }) => {
 			</Box>
 			<Box width={{ base: "100%", md: "75%" }}>
 				<Grid
-					templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+					templateColumns={{
+						base: "repeat(2, 1fr)",
+						md: "repeat(2, 1fr)",
+						lg: "repeat(3, 1fr)",
+					}}
 					gap={{ base: 4, md: 6, lg: 8 }}
 					py={4}
 				>

@@ -14,6 +14,7 @@ import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
 import Wishlist from "../Page/Wishlist";
 import NotFound from "../Page/NotFound";
+import PaymentSuccessPage from "../Page/PymentSuccessPage";
 export const AllRoute = () => {
 	return (
 		<Routes>
@@ -25,6 +26,7 @@ export const AllRoute = () => {
 			<Route path="/successful" element={<OrderSuccessful />} />
 			<Route path="/product" element={<Products />} />
 			<Route path="/wishlist" element={<Wishlist />} />
+			<Route path="/paymentsuccess" element={<PaymentSuccessPage />} />
 
 			<Route path="/men" element={<Men />} />
 			<Route path="/women" element={<Women />} />

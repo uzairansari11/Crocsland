@@ -10,7 +10,6 @@ import {
 	SimpleGrid,
 	GridItem,
 	Select,
-	Spinner,
 	useToast,
 	Flex,
 } from "@chakra-ui/react";
@@ -32,7 +31,7 @@ export default function ProductDetails() {
 	const param = useParams();
 	const [data, setData] = useState([]);
 	const [size, setSize] = useState(null);
-	const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+	const [isLoading, setIsLoading] = useState(true); // 
 	const toast = useToast();
 	const dispatch = useDispatch();
 	const { isAuth, userID } = useSelector((store) => store.authReducer);
@@ -51,7 +50,7 @@ export default function ProductDetails() {
 
 		if (alreadyAdded.length >= 1) {
 			toast({
-				title: `Product Already Added In ${successMessage}`,
+				title: `Product Already Added In ${successMessage} `,
 				variant: "subtle",
 				status: "error",
 				position: "top",
@@ -117,7 +116,7 @@ export default function ProductDetails() {
 
 		if (alreadyAddedToCart) {
 			toast({
-				title: "Product Already Added to Cart",
+				title: "Existing Cart Product Can't Add To Wishlist",
 				variant: "subtle",
 				status: "error",
 				position: "top",

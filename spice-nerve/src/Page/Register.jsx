@@ -82,7 +82,7 @@ export default function Register() {
 
 	useEffect(() => {
 		dispatch(gettingUsersData());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<Flex
