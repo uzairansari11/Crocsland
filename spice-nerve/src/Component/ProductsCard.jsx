@@ -59,33 +59,6 @@ export const ProductsCard = React.memo((props) => {
 			return;
 		}
 
-		if (collection.length === 0) {
-			const productDetail = {
-				productID: data.id,
-				size: size,
-				image: data.image,
-				offerPrice: data.offerPrice,
-				quantity: 1,
-				title: data.title,
-				category: data.category,
-				userID: userID,
-				originalPrice: data.originalPrice,
-			};
-
-			dispatch(addCollectionRequest(userID, [...collection, productDetail])).then(
-				(res) => {
-					toast({
-						title: `Product Added into ${successMessage}`,
-						status: "success",
-						isClosable: true,
-						position: "top",
-						duration: 1000,
-					});
-				},
-			);
-
-			return;
-		}
 		const alreadyAdded = collection.filter((product) => {
 			return product.productID === data.id && product.size === size;
 		});

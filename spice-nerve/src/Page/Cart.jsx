@@ -91,7 +91,7 @@ export const Cart = () => {
 			direction={{ base: "column", md: "row" }}
 
 			justifyContent="center"
-			backgroundImage={`url(${banner1})`}
+			// backgroundImage={`url(${banner1})`}
 			backgroundSize="cover"
 			backgroundPosition="center"
 			backgroundRepeat="no-repeat"

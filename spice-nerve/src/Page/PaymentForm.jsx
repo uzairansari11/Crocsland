@@ -12,8 +12,10 @@ import {
 	Text,
 	Alert,
 	AlertIcon,
+	Toast,
 } from "@chakra-ui/react";
 import { FaCreditCard, FaCalendar, FaLock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const PaymentFrom = ({ totalAmount }) => {
 	const [cardNumber, setCardNumber] = useState("");
@@ -21,24 +23,23 @@ const PaymentFrom = ({ totalAmount }) => {
 	const [cvv, setCvv] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [paymentError, setPaymentError] = useState(false);
-	const [name, setName] = useState("")
-	const [address, setAddress] = useState("")
+	const [name, setName] = useState("");
+	const [address, setAddress] = useState("");
+	const navigate = useNavigate();
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// Perform payment processing here
-		// Simulating payment processing with a timeout
-		setIsSubmitting(true);
-		setPaymentError(false);
-
-		setTimeout(() => {
-			setIsSubmitting(false);
-			setPaymentError(true);
-		}, 2000);
+		if (cardNumber && expirationDate && cvv && name && address) {
+			setIsSubmitting(true);
+			setPaymentError(false);
+			setTimeout(() => {
+				navigate("/paymentsuccess");
+			}, 2000);
+		}
 	};
 
 	return (
-		<Container maxW="sm" >
+		<Container maxW="sm">
 			<Box
 				boxShadow="lg"
 				px={6}
@@ -89,7 +90,7 @@ const PaymentFrom = ({ totalAmount }) => {
 									<FaCreditCard color="gray.300" />
 								</InputLeftElement>
 								<Input
-									type="text"
+									type="number"
 									placeholder="Enter card number"
 									value={cardNumber}
 									onChange={(e) => setCardNumber(e.target.value)}
@@ -104,7 +105,7 @@ const PaymentFrom = ({ totalAmount }) => {
 									<FaCalendar color="gray.300" />
 								</InputLeftElement>
 								<Input
-									type="text"
+									type="number"
 									placeholder="MM/YY"
 									value={expirationDate}
 									onChange={(e) => setExpirationDate(e.target.value)}
@@ -119,7 +120,7 @@ const PaymentFrom = ({ totalAmount }) => {
 									<FaLock color="gray.300" />
 								</InputLeftElement>
 								<Input
-									type="text"
+									type="number"
 									placeholder="CVV"
 									value={cvv}
 									onChange={(e) => setCvv(e.target.value)}
@@ -138,7 +139,7 @@ const PaymentFrom = ({ totalAmount }) => {
 							w="full"
 							isDisabled={totalAmount === 0}
 						>
-							 Payment  Amount ₹ {totalAmount}
+							Payment Amount ₹ {totalAmount}
 						</Button>
 					</form>
 				</Stack>
@@ -147,4 +148,4 @@ const PaymentFrom = ({ totalAmount }) => {
 	);
 };
 
-export default PaymentFrom
+export default PaymentFrom;

@@ -44,21 +44,6 @@ export default function ProductDetails() {
 		addCollectionRequest,
 		successMessage,
 	) => {
-		const alreadyAdded = collection.filter((product) => {
-			return product.productID === data.id && product.size === size;
-		});
-
-		if (alreadyAdded.length >= 1) {
-			toast({
-				title: `Product Already Added In ${successMessage} `,
-				variant: "subtle",
-				status: "error",
-				position: "top",
-				duration: 1000,
-				isClosable: true,
-			});
-			return;
-		}
 
 		if (!isAuth) {
 			toast({
@@ -80,6 +65,30 @@ export default function ProductDetails() {
 			return;
 		}
 
+
+		const alreadyAdded = collection.filter((product) => {
+			return product.productID === data.id && product.size === size;
+		});
+
+		if (alreadyAdded.length >= 1) {
+			toast({
+				title: `Product Already Added In ${successMessage} `,
+				variant: "subtle",
+				status: "error",
+				position: "top",
+				duration: 1000,
+				isClosable: true,
+			});
+			return;
+		}
+
+		toast({
+			title: `We Are Adding Your Product`,
+			status: "warning",
+			isClosable: true,
+			position: "top",
+			duration: 1000,
+		});
 		const productDetail = {
 			productID: data.id,
 			size: size,
