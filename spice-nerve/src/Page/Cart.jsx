@@ -17,13 +17,11 @@ import {
 	getCartRequest,
 	updateCartApi,
 } from "../Redux/Cart/api";
-import { FaShoppingCart } from "react-icons/fa";
 import PaymentForm from "./PaymentForm";
-import banner1 from "../files/banner-1.avif";
 
 export const Cart = () => {
 	const dispatch = useDispatch();
-	const { isAuth, userID } = useSelector((store) => store.authReducer);
+	const { name,isAuth, userID } = useSelector((store) => store.authReducer);
 	const { cart, wishlist } = useSelector((store) => store.cartReducer);
 	const toast = useToast();
 	const navigate = useNavigate();
@@ -31,7 +29,7 @@ export const Cart = () => {
 
 	const deleteHandler = (productID, size) => {
 		let newCart = cart.filter(
-			(product) => product.id !== productID && product.size !== size
+			(product) => product.id !== productID && product.size !== size,
 		);
 		dispatch(deleteCartApi(userID, newCart));
 		toast({
@@ -49,7 +47,7 @@ export const Cart = () => {
 		let newCart = cart.map((product) =>
 			product.productID === productID && product.size === size
 				? { ...product, quantity: product.quantity + value }
-				: product
+				: product,
 		);
 		dispatch(updateCartApi(userID, newCart));
 	};
@@ -89,14 +87,13 @@ export const Cart = () => {
 	return (
 		<Stack
 			direction={{ base: "column", md: "row" }}
-
 			justifyContent="center"
 			// backgroundImage={`url(${banner1})`}
 			backgroundSize="cover"
 			backgroundPosition="center"
 			backgroundRepeat="no-repeat"
 		>
-			<Box flex={{ base: "none", md: ".7" }} >
+			<Box flex={{ base: "none", md: ".7" }}>
 				<Grid gap={2}>
 					{cart.length ? (
 						cart.map((ele) => (

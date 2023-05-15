@@ -5,10 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 
-const PaymentSuccessPage = ({ customerName }) => {
+const PaymentSuccessPage = () => {
     const navigate = useNavigate();
     const toast = useToast()
     const [loading, setLoading] = useState(false)
+    const {name} = JSON.parse(localStorage.getItem('userResponse')) 
+    
+
+
     useEffect(() => {
         const redirectTimer = setTimeout(() => {
             toast({
@@ -53,8 +57,8 @@ const PaymentSuccessPage = ({ customerName }) => {
                         <Text fontSize="3xl" fontWeight="bold" mb={4}>
                             Payment Successful!
                         </Text>
-                        <Text fontSize="lg" mb={4}>
-                            Thank you, {customerName}, for your purchase.
+                        <Text fontSize="lg" mb={4} fontWeight={'bold'} color={'red'}>
+                            Thank you, {name}, for your purchase.
                         </Text>
                         <Text fontSize="lg">
                             We appreciate your business and hope you enjoy your new item.
