@@ -1,11 +1,22 @@
 import axios from "axios";
-import { addCartData, addWishlistData, deleteCartData, deleteWishlistData, getCartData, getWishlistData } from "./action";
+import {
+	addCartData,
+	addWishlistData,
+	deleteCartData,
+	deleteWishlistData,
+	getCartData,
+	getWishlistData,
+} from "./action";
 
 const baseUrl = "https://crocsland.onrender.com/users";
 
+const axiosInstance = axios.create({
+	baseURL: baseUrl,
+});
+
 const getRequest = async (url) => {
 	try {
-		const response = await axios.get(url);
+		const response = await axiosInstance.get(url);
 		return response.data;
 	} catch (error) {
 		console.log(error);
@@ -15,7 +26,7 @@ const getRequest = async (url) => {
 
 const patchRequest = async (url, data) => {
 	try {
-		const response = await axios.patch(url, data);
+		const response = await axiosInstance.patch(url, data);
 		return response.data;
 	} catch (error) {
 		console.log(error);
@@ -24,7 +35,7 @@ const patchRequest = async (url, data) => {
 };
 
 export const getCartRequest = (id) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await getRequest(url);
 		dispatch(getCartData(data.cart));
@@ -34,7 +45,7 @@ export const getCartRequest = (id) => async (dispatch) => {
 };
 
 export const addCartRequest = (id, product) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { cart: product });
 		dispatch(addCartData(data.cart));
@@ -44,7 +55,7 @@ export const addCartRequest = (id, product) => async (dispatch) => {
 };
 
 export const deleteCartApi = (id, newCart) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { cart: newCart });
 		dispatch(deleteCartData(data.cart));
@@ -54,7 +65,7 @@ export const deleteCartApi = (id, newCart) => async (dispatch) => {
 };
 
 export const updateCartApi = (id, newCart) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { cart: newCart });
 		dispatch(addCartData(data.cart));
@@ -64,7 +75,7 @@ export const updateCartApi = (id, newCart) => async (dispatch) => {
 };
 
 export const getWishlistRequest = (id) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await getRequest(url);
 		dispatch(getWishlistData(data.wishlist));
@@ -74,7 +85,7 @@ export const getWishlistRequest = (id) => async (dispatch) => {
 };
 
 export const addWishlistRequest = (id, product) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { wishlist: product });
 		dispatch(addWishlistData(data.wishlist));
@@ -84,17 +95,17 @@ export const addWishlistRequest = (id, product) => async (dispatch) => {
 };
 
 export const deleteWishlistApi = (id, newWishlist) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { wishlist: newWishlist });
 		dispatch(deleteWishlistData(data.wishlist));
 	} catch (error) {
-		// Handle error
+		console.log(error);
 	}
 };
 
 export const updateWishlistApi = (id, newWishlist) => async (dispatch) => {
-	const url = `${baseUrl}/${id}`;
+	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { wishlist: newWishlist });
 		dispatch(addCartData(data.wishlist));

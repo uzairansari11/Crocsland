@@ -21,16 +21,15 @@ import PaymentForm from "./PaymentForm";
 
 export const Cart = () => {
 	const dispatch = useDispatch();
-	const { isAuth, userID } = useSelector((store) => store.authReducer);
-	const { cart } = useSelector((store) => store.cartReducer);
+	const { name,isAuth, userID } = useSelector((store) => store.authReducer);
+	const { cart, wishlist } = useSelector((store) => store.cartReducer);
 	const toast = useToast();
 	const navigate = useNavigate();
-
 	const [totalAmount, setTotalAmount] = useState(0);
 
 	const deleteHandler = (productID, size) => {
 		let newCart = cart.filter(
-			(product) => product.id !== productID && product.size !== size
+			(product) => product.id !== productID && product.size !== size,
 		);
 		dispatch(deleteCartApi(userID, newCart));
 		toast({
@@ -48,7 +47,7 @@ export const Cart = () => {
 		let newCart = cart.map((product) =>
 			product.productID === productID && product.size === size
 				? { ...product, quantity: product.quantity + value }
-				: product
+				: product,
 		);
 		dispatch(updateCartApi(userID, newCart));
 	};
@@ -66,14 +65,12 @@ export const Cart = () => {
 	const calculateTotalAmount = () => {
 		let total = 0;
 		cart.forEach((product) => {
-			total += product.price * product.quantity;
+			total += Number(product.offerPrice) * Number(product.quantity);
 		});
 		setTotalAmount(total);
 	};
 
 	const handlePaymentSuccess = () => {
-		// Perform payment success logic here
-		// For example, clear the cart, show success message, navigate to the next page, etc.
 		dispatch(deleteCartApi(userID, []));
 		toast({
 			title: "Payment Successful",
@@ -84,18 +81,19 @@ export const Cart = () => {
 			duration: 3000,
 			isClosable: true,
 		});
-		navigate("/success"); // Replace "/success" with the desired success page URL
+		navigate("/success");
 	};
 
 	return (
 		<Stack
 			direction={{ base: "column", md: "row" }}
-			spacing={4}
-			p={4}
-			alignItems="flex-start"
-			justifyContent="space-around"
+			justifyContent="center"
+			// backgroundImage={`url(${banner1})`}
+			backgroundSize="cover"
+			backgroundPosition="center"
+			backgroundRepeat="no-repeat"
 		>
-			<Box flex={{ base: "none", md: "1" }}>
+			<Box flex={{ base: "none", md: ".7" }}>
 				<Grid gap={2}>
 					{cart.length ? (
 						cart.map((ele) => (
@@ -107,31 +105,31 @@ export const Cart = () => {
 							/>
 						))
 					) : (
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
-              p={4}
-              textAlign="center"
-            >
-              <Text fontSize="1.5rem">There are no products in your bag</Text>
-              <Button
-                mt={4}
-                px={8}
-                colorScheme="pink"
-                onClick={() => {
-                  navigate("/women");
-                }}
-              >
-                Browse Products
-              </Button>
-            </Flex>
-          )}
-        </Grid>
-      </Box>
-      <Box flex={{ base: "none", md: "1" }}>
-        <PaymentForm />
-      </Box>
-    </Stack>
-  );
+						<Flex
+							flexDirection="column"
+							alignItems="center"
+							justifyContent="center"
+							p={4}
+							textAlign="center"
+						>
+							<Text fontSize="1.5rem">There are no products in your bag</Text>
+							<Button
+								mt={4}
+								px={8}
+								colorScheme="pink"
+								onClick={() => {
+									navigate("/women");
+								}}
+							>
+								Browse Products
+							</Button>
+						</Flex>
+					)}
+				</Grid>
+			</Box>
+			<Box flex={{ base: "none", md: ".5" }}>
+				<PaymentForm totalAmount={totalAmount} />
+			</Box>
+		</Stack>
+	);
 };

@@ -1,79 +1,70 @@
 import React from "react";
 import { Box, Text, Image, Button, Flex } from "@chakra-ui/react";
-import { MdMoreTime } from "react-icons/md";
 import { Link as ReactLink } from "react-router-dom";
 
-export const WishlistCard = ({
-	image,
-	title,
-	size,
-	offerPrice,
-	quantity,
-	originalPrice,
-	productID,
-	deleteHandler,
-	handleUpdateQuantity,
-}) => {
+export const WishlistCard = (props) => {
+	const data = props.data;
+	console.log(data)
+	const deleteHandler = props.deleteHandler;
+	const handleCartData = props.handleCartData;
+	const { image, title, size, offerPrice, quantity, originalPrice, productID } =
+		data;
 	return (
 		<Flex
 			justifyContent="space-between"
 			flexDirection="column"
-			boxShadow="md"
-			p={4}
-			maxWidth={300}
+			height={["auto", 120]}
+			width={["100%", "auto"]}
 			borderRadius={8}
-			bg="white"
 		>
 			<ReactLink to={`/product/${productID}`}>
-				<Image src={image} alt={title} height={120} objectFit="cover" />
+				<Flex justifyContent="center">
+					<Image src={image} alt={title} height={["auto", 100]} objectFit="cover" />
+				</Flex>
 			</ReactLink>
 			<Box mt={4}>
 				<Text fontSize="sm" fontWeight="bold" mb={2}>
 					{title}
 				</Text>
-				<Flex align="center" mb={2}>
+				<Flex justifyContent={"space-around"} mb={2}>
 					<Text fontSize="sm" pr={2}>
 						₹ {offerPrice}
 					</Text>
 					<Text textDecoration="line-through" fontSize="sm" color="gray.400">
 						₹ {originalPrice}
 					</Text>
-				</Flex>
-				<Flex align="center" mb={2}>
-					<MdMoreTime />
-					<Text fontSize="xs" ml={1}>
-						14 Days return available
+					<Text fontSize="sm" pr={2}>
+						size : {size}
 					</Text>
 				</Flex>
-			</Box>
-			<Flex justify="space-between" mt={4}>
-				<Button
-					colorScheme="blue"
-					size="sm"
-					onClick={() => handleUpdateQuantity(-1, productID, size)}
-				>
-					-
-				</Button>
-				<Flex align="center">
-					<Text fontSize="sm" mx={2}>
-						{quantity}
-					</Text>
+				<Flex justifyContent="center" gap="6">
 					<Button
 						colorScheme="blue"
-						size="sm"
-						onClick={() => handleUpdateQuantity(1, productID, size)}
+						size="xs"
+						height={8}
+						width={10}
+						onClick={() => handleCartData(size, data)}
 					>
-						+
+						<img
+							src="https://img.icons8.com/android/24/shopping-bag.png"
+							alt="shopping-bag"
+						/>
+					</Button>
+					<Button
+						colorScheme="pink"
+						size="xs"
+						height={8}
+						width={10}
+						ml={2}
+						onClick={() => deleteHandler(productID, size)}
+					>
+						<img
+							src="https://img.icons8.com/color/48/delete-forever.png"
+							alt="delete-forever"
+						/>
 					</Button>
 				</Flex>
-				<Button
-					colorScheme="red"
-					size="sm"
-					onClick={() => deleteHandler(productID, size)}
-				>
-					Remove
-				</Button>
-			</Flex>
+			</Box>
 		</Flex>
 	);
 };

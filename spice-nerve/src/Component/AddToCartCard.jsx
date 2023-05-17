@@ -21,14 +21,14 @@ export const AddToCartCard = ({
 			}
 			padding={2}
 		>
-			<Flex gap={2}>
+			<Flex gap={4}>
 				<ReactLink to={`/product/${productID}`}>
-				<Image h={"100px"} src={image} />
+				<Image h={"140px"} src={image} />
 				</ReactLink>
 				<Box>
-					<Text style={{ fontSize: "12px" }}>{title}</Text>
-					<Flex gap={2}>
-						<Text>size : {size}</Text>
+					<Text style={{ fontSize: "12px" }} fontWeight={'black'}>{title}</Text>
+					<Flex gap={6}>
+						<Text> size : {size}</Text>
 						<Button
 							fontSize={"md"}
 							size="xs"
