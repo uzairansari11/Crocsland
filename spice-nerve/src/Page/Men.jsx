@@ -51,13 +51,13 @@ export const Men = () => {
 	}, [searchParams]);
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const params = new URLSearchParams(location.search);
 		params.set("_page", currentPage);
 		setSearchParams(params);
+
+		window.scrollTo(0, 0);
 	}, [currentPage, setSearchParams, location.search]);
 
-	console.log(totalPages, "totalPages", currentPage, "currentPage");
 
 	return (
 		<Box>

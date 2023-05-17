@@ -68,7 +68,7 @@ export const Home = () => {
 						SHOP MEN’S
 					</Button>
 				</ReactLink>
-				<ReactLink to="/kids">
+				<ReactLink to="/kid">
 					<Button
 						rightIcon={<ArrowForwardIcon />}
 						colorScheme="teal"
@@ -115,7 +115,7 @@ export const Home = () => {
 				</Center>
 			</Box>
 
-			<ReactLink to="/kids">
+			<ReactLink to="/women">
 				<Box>
 					<Center>
 						<Image src={banner4} alt="" p={2} />

@@ -46,7 +46,7 @@ export const Filter = () => {
 		setDiscountValues(value);
 	};
 
-		const resetFilters = () => {
+	const resetFilters = () => {
 		setFilterValues([]);
 		setOrderBy("");
 		setRatingValues("");
@@ -120,7 +120,7 @@ export const Filter = () => {
 								<Stack spacing={"1"} color="gray.500">
 									<Checkbox value="clogs">Clogs</Checkbox>
 									<Checkbox value="boots">Boots</Checkbox>
-									<Checkbox value="sandals">Sandle</Checkbox>
+									<Checkbox value="sandals">Sandals</Checkbox>
 									<Checkbox value="slides">Slides</Checkbox>
 									<Checkbox value="flip-flop">Flip</Checkbox>
 								</Stack>
