@@ -1,65 +1,96 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 import { Products } from "./Products";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/NewProduct/action";
 import { PaginationComponent } from "../Component/Pagination";
+import { Loading } from "../Component/Loading";
 
 export const Women = () => {
-	const [searchParams, setSearchParams] = useSearchParams();
-	const dispatch = useDispatch();
-	const product = useSelector((store) => store.newProductReducer);
-	const [currentPage, setCurrentPage] = useState(
-		parseInt(searchParams.get("_page")) || 1,
-	);
-	const [totalPages, setTotalPages] = useState(1);
-	const [limit] = useState(6);
-	const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const product = useSelector((store) => store.newProductReducer);
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-		const filterParams = {
-			params: {
-				_page: currentPage,
-				subCategory: searchParams.getAll("filter"),
-				category: "women",
-				_sort: "offerPrice",
-				_order: searchParams.get("_order"),
-				discount_gte: searchParams.get("discount_gte"),
-				rating_gte: searchParams.get("rating_gte"),
-				_limit: searchParams.get("_limit"),
-			},
-		};
+  const [currentPage, setCurrentPage] = useState(
+    parseInt(searchParams.get("_page")) || 1
+  );
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = searchParams.get("_limit");
+  const location = useLocation();
+  const [isProductLoaded, setIsProductLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
-		dispatch(getProducts(filterParams));
-		searchParams.set("_page", currentPage);
-		setSearchParams(searchParams.toString());
-	}, [location.search, currentPage, dispatch, searchParams, setSearchParams]);
-	const handlePagination = (value) => {
-		if (value > totalPages) {
-			setCurrentPage(totalPages);
-		} else {
-			setCurrentPage(value);
-		}
-	};
-	useEffect(() => {
-		if (product.totalCount && limit) {
-			setTotalPages(Math.ceil(product.totalCount / limit));
-		}
-		if (currentPage > totalPages) {
-			setCurrentPage(totalPages);
-		}
-	}, [product.totalCount, limit, currentPage, totalPages]);
-	console.log(totalPages, "totlapage", currentPage, "currentPage");
-	return (
-		<Box>
-			<Products {...product} />
-			<PaginationComponent
-				totalPages={totalPages}
-				handlePagination={handlePagination}
-				currentPage={currentPage}
-			/>
-		</Box>
-	);
+  const handlePagination = useCallback(
+    (value) => {
+      if (value > totalPages) {
+        setCurrentPage(totalPages);
+      } else if (value < 1) {
+        setCurrentPage(1);
+      } else {
+        setCurrentPage(value);
+      }
+    },
+    [totalPages]
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      window.scrollTo(0, 0);
+      const filterParams = {
+        params: {
+          _page: currentPage,
+          subCategory: searchParams.getAll("filter"),
+          category: "women",
+          _sort: "offerPrice",
+          _order: searchParams.get("_order"),
+          discount_gte: searchParams.get("discount_gte"),
+          rating_gte: searchParams.get("rating_gte"),
+        },
+      };
+
+      if (limit) {
+        filterParams.params._limit = limit;
+      }
+
+      setIsLoading(true); // Set loading state to true before fetching data
+      await dispatch(getProducts(filterParams));
+      setIsLoading(false); // Set loading state to false after data is fetched
+      setIsProductLoaded(true);
+    };
+
+    fetchData();
+  }, [searchParams, currentPage, limit, dispatch,totalPages]);
+
+  useEffect(() => {
+    if (product.totalCount && limit) {
+      setTotalPages(Math.ceil(product.totalCount / limit));
+    }
+  }, [product.totalCount, limit]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const params = new URLSearchParams(location.search);
+    params.set("_page", currentPage);
+    setSearchParams(params);
+  }, [currentPage, setSearchParams, location.search]);
+
+  return (
+    <Box>
+      {isLoading ? ( // Render loading spinner if loading
+      <Loading />
+      ) : (
+        <>
+          {isProductLoaded && <Products {...product} />}
+          {isProductLoaded && (
+            <PaginationComponent
+              totalPages={totalPages}
+              handlePagination={handlePagination}
+              currentPage={currentPage}
+            />
+          )}
+        </>
+      )}
+    </Box>
+  );
 };

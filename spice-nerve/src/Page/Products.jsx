@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
 import { ProductsCard } from "../Component/ProductsCard";
 import { Loading } from "../Component/Loading";
 import { Error } from "../Component/Error";
@@ -14,8 +14,19 @@ export const Products = React.memo(({ isLoading, isError, products }) => {
 		return <Error />;
 	}
 
-	if (!products) {
-		return null;
+	if (!products || products.length === 0) {
+		return (
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				height="200px"
+			>
+				<Text fontSize="lg" fontWeight="bold">
+					Product not found.
+				</Text>
+			</Box>
+		);
 	}
 
 	return (

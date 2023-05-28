@@ -154,7 +154,7 @@ export default function ProductDetails() {
 	if (isLoading) {
 		return <Loading />;
 	}
-
+console.log(data, "from single product")
 	return (
 		<Container maxW={"full"} py={4}>
 			<SimpleGrid columns={{ base: 1, lg: 2 }}>
@@ -165,7 +165,6 @@ export default function ProductDetails() {
 						alignItems={"center"}
 						width={"80%"}
 						margin={"auto"}
-						boxShadow={"md"}
 					>
 						<Image
 							alt={data.image}

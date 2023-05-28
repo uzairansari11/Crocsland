@@ -1,72 +1,96 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 import { Products } from "./Products";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/NewProduct/action";
 import { PaginationComponent } from "../Component/Pagination";
+import { Loading } from "../Component/Loading";
 
 export const Men = () => {
-	const [searchParams, setSearchParams] = useSearchParams();
-	const dispatch = useDispatch();
-	const product = useSelector((store) => store.newProductReducer);
-	const [currentPage, setCurrentPage] = useState(
-		parseInt(searchParams.get("_page")) || 1
-	);
-	const [totalPages, setTotalPages] = useState(1);
-	const limit = searchParams.get("_limit");
-	const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const product = useSelector((store) => store.newProductReducer);
 
-	const handlePagination = (value) => {
-		if (value > totalPages) {
-			setCurrentPage(totalPages);
-		} else {
-			setCurrentPage(value);
-		}
-	};
+  const [currentPage, setCurrentPage] = useState(
+    parseInt(searchParams.get("_page")) || 1
+  );
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = searchParams.get("_limit");
+  const location = useLocation();
+  const [isProductLoaded, setIsProductLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
-	useEffect(() => {
-		const fetchData = async () => {
-			window.scrollTo(0, 0);
-			const filterParams = {
-				params: {
-					_limit: limit,
-					_page: currentPage,
-					subCategory: searchParams.getAll("filter"),
-					category: "men",
-					_sort: "offerPrice",
-					_order: searchParams.get("_order"),
-					discount_gte: searchParams.get("discount_gte"),
-					rating_gte: searchParams.get("rating_gte"),
-				},
-			};
+  const handlePagination = useCallback(
+    (value) => {
+      if (value > totalPages) {
+        setCurrentPage(totalPages);
+      } else if (value < 1) {
+        setCurrentPage(1);
+      } else {
+        setCurrentPage(value);
+      }
+    },
+    [totalPages]
+  );
 
-			await dispatch(getProducts(filterParams));
-			if (product.totalCount && limit) {
-				setTotalPages(Math.ceil(product.totalCount / limit));
-			}
-		};
+  useEffect(() => {
+    const fetchData = async () => {
+      window.scrollTo(0, 0);
+      const filterParams = {
+        params: {
+          _page: currentPage,
+          subCategory: searchParams.getAll("filter"),
+          category: "men",
+          _sort: "offerPrice",
+          _order: searchParams.get("_order"),
+          discount_gte: searchParams.get("discount_gte"),
+          rating_gte: searchParams.get("rating_gte"),
+        },
+      };
 
-		fetchData();
-	}, [searchParams]);
+      if (limit) {
+        filterParams.params._limit = limit;
+      }
 
-	useEffect(() => {
-		const params = new URLSearchParams(location.search);
-		params.set("_page", currentPage);
-		setSearchParams(params);
+      setIsLoading(true); // Set loading state to true before fetching data
+      await dispatch(getProducts(filterParams));
+      setIsLoading(false); // Set loading state to false after data is fetched
+      setIsProductLoaded(true);
+    };
 
-		window.scrollTo(0, 0);
-	}, [currentPage, setSearchParams, location.search]);
+    fetchData();
+  }, [searchParams, currentPage, limit, dispatch,totalPages]);
 
+  useEffect(() => {
+    if (product.totalCount && limit) {
+      setTotalPages(Math.ceil(product.totalCount / limit));
+    }
+  }, [product.totalCount, limit]);
 
-	return (
-		<Box>
-			<Products {...product} />
-			<PaginationComponent
-				totalPages={totalPages}
-				handlePagination={handlePagination}
-				currentPage={currentPage}
-			/>
-		</Box>
-	);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const params = new URLSearchParams(location.search);
+    params.set("_page", currentPage);
+    setSearchParams(params);
+  }, [currentPage, setSearchParams, location.search]);
+
+  return (
+    <Box>
+      {isLoading ? ( // Render loading spinner if loading
+      <Loading />
+      ) : (
+        <>
+          {isProductLoaded && <Products {...product} />}
+          {isProductLoaded && (
+            <PaginationComponent
+              totalPages={totalPages}
+              handlePagination={handlePagination}
+              currentPage={currentPage}
+            />
+          )}
+        </>
+      )}
+    </Box>
+  );
 };

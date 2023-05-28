@@ -119,15 +119,15 @@ export const Navbar = () => {
 										</Link>
 									)}
 
-									<Link to="/profile">
+									{/* <Link to="/profile">
 										<Text pl="2rem">orders</Text>
-									</Link>
+									</Link> */}
 									<Link to="/wishlist">
 										<Text pl="2rem">Wishlists</Text>
 									</Link>
-									<Link to="#">
+									{/* <Link to="#">
 										<Text pl="2rem">gift cards</Text>
-									</Link>
+									</Link> */}
 									<Link to="#">
 										<Text pl="2rem">contact us</Text>
 									</Link>

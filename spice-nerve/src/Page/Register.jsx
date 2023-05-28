@@ -21,6 +21,8 @@ import {
 	userRegisterationToApi,
 } from "../Redux/Authentication/action";
 import banner6 from "../files/banner-6.PNG";
+import { BiUserPlus } from "react-icons/bi";
+
 export default function Register() {
 	const toast = useToast();
 	const navigate = useNavigate();
@@ -31,9 +33,13 @@ export default function Register() {
 	const [name, setName] = useState("");
 	const authData = useSelector((store) => store.authReducer);
 	const { users } = authData;
+	const [isRegistering, setIsRegistering] = useState(false);
 
 	const handleRegistration = () => {
-		const isUserPresent = users?.filter((elements) => elements.userEmail === email);
+		setIsRegistering(true);
+		const isUserPresent = users?.filter(
+			(elements) => elements.userEmail === email,
+		);
 		if (isUserPresent.length > 0) {
 			toast({
 				title: "Email Already Exists",
@@ -42,6 +48,8 @@ export default function Register() {
 				isClosable: true,
 				position: "top",
 			});
+			setIsRegistering(false);
+
 			return;
 		}
 
@@ -64,6 +72,7 @@ export default function Register() {
 						isClosable: true,
 						position: "top",
 					});
+					setIsRegistering(false);
 					setTimeout(() => {
 						navigate("/login");
 					}, 3000);
@@ -76,7 +85,19 @@ export default function Register() {
 						isClosable: true,
 						position: "top",
 					});
+					setIsRegistering(false);
 				});
+		} else {
+			toast({
+				title: "Please Provide All The Details",
+				status: "warning",
+				duration: 500,
+				isClosable: true,
+				position: "top",
+			});
+			setTimeout(() => {
+				setIsRegistering(false);
+			}, 500);
 		}
 	};
 
@@ -93,9 +114,17 @@ export default function Register() {
 			backgroundSize="cover"
 			backgroundPosition="center"
 		>
-			<Box w="400px" p={8} boxShadow="md" bg="rgba(255, 255, 255, 0.8)" rounded="md">
+			<Box
+				w="400px"
+				p={8}
+				boxShadow="md"
+				bg="rgba(255, 255, 255, 0.8)"
+				rounded="md"
+			>
 				<Stack spacing={4}>
-					<Text textAlign="center">Please Register And Get Exciting Offers!</Text>
+					<Text textAlign="center">
+						Please Register And Get Exciting Offers!
+					</Text>
 					<Box>
 						<Stack>
 							<FormControl id="name" isRequired>
@@ -155,6 +184,9 @@ export default function Register() {
 									}}
 									width={"xs"}
 									m={"auto"}
+									isLoading={isRegistering}
+									loadingText="Signing Up"
+									leftIcon={<BiUserPlus />}
 								>
 									Sign up
 								</Button>

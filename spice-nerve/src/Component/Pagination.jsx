@@ -7,7 +7,7 @@ export const PaginationComponent = ({
 	currentPage,
 }) => {
 	const totalButton = new Array(totalPages)?.fill(0);
-
+console.log("total button from pagination"  , totalButton)
 	return (
 		<Box display="flex" gap={2} justifyContent="center" alignItems="center" py={2}>
 			<IconButton

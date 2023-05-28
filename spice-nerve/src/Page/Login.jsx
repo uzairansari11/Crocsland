@@ -18,6 +18,8 @@ import {
 import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
 import { tokenGenrator } from "../Component/utils/tokenGenrator";
 import { Loading } from "../Component/Loading";
+import { FaSignInAlt } from "react-icons/fa";
+
 import banner1 from "../files/banner-1.avif";
 export function Login() {
 	const dispatch = useDispatch();
@@ -27,7 +29,7 @@ export function Login() {
 	const [password, setPassword] = useState("");
 	const toast = useToast();
 	const navigate = useNavigate();
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleLogin = () => {
 		setIsLoading(true);
@@ -39,7 +41,9 @@ export function Login() {
 			setTimeout(() => {
 				toast({
 					title: "Login Successful",
-					description: `Welcome back ${authentication[0]["username"].toUpperCase() }`,
+					description: `Welcome back ${authentication[0][
+						"username"
+					].toUpperCase()}`,
 					status: "success",
 					duration: 2000,
 					isClosable: true,
@@ -73,14 +77,9 @@ export function Login() {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		dispatch(gettingUsersData());
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 500);
 	}, [dispatch]);
 
-	return isLoading ? (
-		<Loading />
-	) : (
+	return (
 		<Flex
 			backgroundImage={`url(${banner1})`}
 			backgroundSize="cover"
@@ -89,7 +88,13 @@ export function Login() {
 			alignItems="center"
 			justifyContent="center"
 		>
-				<Box w="400px" p={8} boxShadow="md" bg="rgba(255, 255, 255, 0.8)" rounded="md">
+			<Box
+				w="400px"
+				p={8}
+				boxShadow="md"
+				bg="rgba(255, 255, 255, 0.8)"
+				rounded="md"
+			>
 				<Text fontSize="xl" fontWeight="bold" mb={4} textAlign="center">
 					Login Here & Purchase Your Favorite Crocs
 				</Text>
@@ -126,10 +131,14 @@ export function Login() {
 								}}
 								width="xs"
 								onClick={() => handleLogin(users)}
-								isDisabled={email === "" || password === ""}
+								// isDisabled={email === "" || password === ""}
+								isLoading={isLoading}
+								loadingText="Logging In"
+								leftIcon={<FaSignInAlt />}
 							>
 								Login
 							</Button>
+
 							<ReactLink to="/register">
 								<Text>
 									New User ? <span style={{ color: "red" }}>Signup</span>
