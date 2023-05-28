@@ -116,8 +116,6 @@ const Wishlist = () => {
     }
   }, [userID, dispatch]);
 
-
-console.log(wishlist,cart);
   return (
     <Box minH="70vh" pos="relative">
       <Text mt={4} as="h4" color="red" fontWeight="bold" fontSize="lg">
