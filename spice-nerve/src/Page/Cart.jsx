@@ -55,19 +55,20 @@ export const Cart = () => {
 		if (userID) {
 			dispatch(getCartRequest(userID));
 		}
-	}, [userID,dispatch]);
-
+	}, [userID, dispatch]);
+	
 	useEffect(() => {
+		const calculateTotalAmount = () => {
+			let total = 0;
+			cart.forEach((product) => {
+				total += Number(product.offerPrice) * Number(product.quantity);
+			});
+			setTotalAmount(total);
+		};
+	
 		calculateTotalAmount();
 	}, [cart]);
 
-	const calculateTotalAmount = () => {
-		let total = 0;
-		cart.forEach((product) => {
-			total += Number(product.offerPrice) * Number(product.quantity);
-		});
-		setTotalAmount(total);
-	};
 
 	const handlePaymentSuccess = () => {
 		dispatch(deleteCartApi(userID, []));

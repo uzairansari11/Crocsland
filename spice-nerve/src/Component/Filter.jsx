@@ -1,7 +1,6 @@
 import { Checkbox, CheckboxGroup } from "@chakra-ui/checkbox";
 import { Box, Flex, Stack, Text } from "@chakra-ui/layout";
 import { Radio, RadioGroup } from "@chakra-ui/radio";
-import { Button as AutButton } from "antd";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import {
 	Accordion,
@@ -9,6 +8,7 @@ import {
 	AccordionButton,
 	AccordionPanel,
 	AccordionIcon,
+	Button,
 } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -19,7 +19,6 @@ export const Filter = () => {
 	const initialRatingValue = searchParams.get("rating_gte");
 	const initialDiscountValue = searchParams.get("discount_gte");
 	const initialPageValue = searchParams.get("_page");
-	const initialLimitValue = searchParams.get("_limit");
 	const order = searchParams.get("_order");
 	const [orderBy, setOrderBy] = useState(order || "");
 	const [filterValues, setFilterValues] = useState(initialFilterValue || []);
@@ -27,9 +26,8 @@ export const Filter = () => {
 	const [discountValues, setDiscountValues] = useState(
 		initialDiscountValue || "",
 	);
-	const [pageValue, setPageValue] = useState(initialPageValue || 1);
-	const [limit] = useState(initialLimitValue || 6);
-
+	const [pageValue] = useState(initialPageValue || 1);
+	const limit = 6;
 	const handleFilterChange = (value) => {
 		setFilterValues(value);
 	};
@@ -53,6 +51,7 @@ export const Filter = () => {
 		setDiscountValues("");
 	};
 
+
 	useEffect(() => {
 		let params = {};
 		if (filterValues.length) params.filter = filterValues;
@@ -70,12 +69,10 @@ export const Filter = () => {
 			params._page = pageValue;
 		}
 		if (limit) {
-			params._limit = limit;
+			params._limit = 6;
 		}
 		setSearchParams(params);
-	}, [filterValues, orderBy, discountValues, ratingValues, pageValue, limit]);
-
-
+	}, [filterValues, orderBy, discountValues, ratingValues, pageValue,setSearchParams]);
 
 	return (
 		<Box
@@ -96,9 +93,9 @@ export const Filter = () => {
 					>
 						Filters
 					</Text>
-					<AutButton type="primary" danger onClick={resetFilters}>
-						Reset Filter
-					</AutButton>
+					<Button colorScheme="red" onClick={resetFilters}>
+  Reset Filter
+</Button>
 				</Box>
 			</Box>
 			<Box>
@@ -136,20 +133,16 @@ export const Filter = () => {
 						</AccordionButton>
 
 						<AccordionPanel pb={4}>
-							<CheckboxGroup colorScheme="pink">
+							<RadioGroup onChange={handlePriceChange} value={orderBy}>
 								<Stack spacing={"1"} color="gray.500">
-									<RadioGroup onChange={handlePriceChange} value={orderBy}>
-										<Stack direction="column" color={"gray.500"}>
-											<Radio value="asc" colorScheme={"green"}>
-												Low to High
-											</Radio>
-											<Radio value="desc" colorScheme={"green"}>
-												High to Low
-											</Radio>
-										</Stack>
-									</RadioGroup>
+									<Radio value="asc" colorScheme={"green"}>
+										Low to High
+									</Radio>
+									<Radio value="desc" colorScheme={"green"}>
+										High to Low
+									</Radio>
 								</Stack>
-							</CheckboxGroup>
+							</RadioGroup>
 						</AccordionPanel>
 					</AccordionItem>
 					<AccordionItem>
@@ -161,8 +154,11 @@ export const Filter = () => {
 						</AccordionButton>
 
 						<AccordionPanel pb={4}>
-							<RadioGroup value={discountValues} onChange={handleDiscountChange}>
-								<Stack direction="column" color={"gray.500"}>
+							<RadioGroup
+								value={discountValues}
+								onChange={handleDiscountChange}
+							>
+								<Stack spacing={"1"} color="gray.500">
 									<Radio value="10" colorScheme={"green"}>
 										10% and above
 									</Radio>
@@ -209,7 +205,10 @@ export const Filter = () => {
 								<Stack spacing={1} direction={"column"}>
 									{[4, 3, 2, 1].map((index) => {
 										return (
-											<Radio value={`${index}`} key={Date() + Math.random() + Date.now()}>
+											<Radio
+												value={`${index}`}
+												key={Date() + Math.random() + Date.now()}
+											>
 												<Flex color="black" alignItems={"center"}>
 													<Flex>
 														{Array(5)
@@ -219,7 +218,9 @@ export const Filter = () => {
 																if (roundedRating - i >= 1) {
 																	return (
 																		<BsStarFill
-																			key={Date() + Math.random() + i + Date.now()}
+																			key={
+																				Date() + Math.random() + i + Date.now()
+																			}
 																			style={{ marginLeft: "1" }}
 																		/>
 																	);
@@ -233,7 +234,10 @@ export const Filter = () => {
 																	);
 																}
 																return (
-																	<BsStar key={Date() + Math.random() + i + "A"} style={{ marginLeft: "1" }} />
+																	<BsStar
+																		key={Date() + Math.random() + i + "A"}
+																		style={{ marginLeft: "1" }}
+																	/>
 																);
 															})}
 													</Flex>

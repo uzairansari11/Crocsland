@@ -17,7 +17,6 @@ import {
 } from "@chakra-ui/react";
 import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
 import { tokenGenrator } from "../Component/utils/tokenGenrator";
-import { Loading } from "../Component/Loading";
 import { FaSignInAlt } from "react-icons/fa";
 
 import banner1 from "../files/banner-1.avif";
@@ -34,31 +33,29 @@ export function Login() {
 	const handleLogin = () => {
 		setIsLoading(true);
 		const authentication = users.filter(
-			(user) => user.userEmail === email && user.password === password,
+			(user) => user.userEmail === email && user.password === password
 		);
-
+	
 		if (authentication.length === 1) {
-			setTimeout(() => {
+			const handleSuccessfulLogin = () => {
 				toast({
 					title: "Login Successful",
-					description: `Welcome back ${authentication[0][
-						"username"
-					].toUpperCase()}`,
+					description: `Welcome back ${authentication[0]["username"].toUpperCase()}`,
 					status: "success",
 					duration: 2000,
 					isClosable: true,
 					position: "top",
 				});
 				navigate("/", { replace: true });
-			}, 1000);
-			const { id, username } = authentication[0];
-			const token = tokenGenrator();
-			const userDetials = { userID: id, token, name: username };
-			localStorage.setItem("userResponse", JSON.stringify(userDetials));
-			dispatch(authSuccess(userDetials));
-			setTimeout(() => {
+				const { id, username } = authentication[0];
+				const token = tokenGenrator();
+				const userDetials = { userID: id, token, name: username };
+				localStorage.setItem("userResponse", JSON.stringify(userDetials));
+				dispatch(authSuccess(userDetials));
 				setIsLoading(false);
-			}, 1000);
+			};
+	
+			setTimeout(handleSuccessfulLogin, 1000);
 		} else {
 			setTimeout(() => {
 				toast({
@@ -73,6 +70,7 @@ export function Login() {
 			}, 500);
 		}
 	};
+	
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

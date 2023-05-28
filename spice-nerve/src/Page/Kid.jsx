@@ -1,4 +1,4 @@
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Products } from "./Products";
 import { useEffect, useState, useCallback } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
@@ -11,15 +11,14 @@ export const Kid = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const product = useSelector((store) => store.newProductReducer);
-
   const [currentPage, setCurrentPage] = useState(
     parseInt(searchParams.get("_page")) || 1
   );
   const [totalPages, setTotalPages] = useState(1);
-  const limit = searchParams.get("_limit");
+
   const location = useLocation();
   const [isProductLoaded, setIsProductLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(false); // Initialize loading state to false
 
   const handlePagination = useCallback(
     (value) => {
@@ -39,34 +38,31 @@ export const Kid = () => {
       window.scrollTo(0, 0);
       const filterParams = {
         params: {
+          _limit: 6,
           _page: currentPage,
           subCategory: searchParams.getAll("filter"),
           category: "kids",
           _sort: "offerPrice",
           _order: searchParams.get("_order"),
           discount_gte: searchParams.get("discount_gte"),
-          rating_gte: searchParams.get("rating_gte"),
+          rating_gte: searchParams.get("rating_gte")
         },
       };
 
-      if (limit) {
-        filterParams.params._limit = limit;
-      }
-
       setIsLoading(true); // Set loading state to true before fetching data
       await dispatch(getProducts(filterParams));
-      setIsLoading(false); // Set loading state to false after data is fetched
       setIsProductLoaded(true);
+      setIsLoading(false); // Set loading state to false after data is fetched
     };
 
     fetchData();
-  }, [searchParams, currentPage, limit, dispatch,totalPages]);
+  }, [searchParams, currentPage, dispatch]);
 
   useEffect(() => {
-    if (product.totalCount && limit) {
-      setTotalPages(Math.ceil(product.totalCount / limit));
+    if (product.totalCount) {
+      setTotalPages(Math.ceil(product.totalCount / 6));
     }
-  }, [product.totalCount, limit]);
+  }, [product.totalCount]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -77,8 +73,8 @@ export const Kid = () => {
 
   return (
     <Box>
-      {isLoading ? ( // Render loading spinner if loading
-      <Loading />
+      {isLoading ? (
+        <Loading /> // Render loading spinner if loading
       ) : (
         <>
           {isProductLoaded && <Products {...product} />}
