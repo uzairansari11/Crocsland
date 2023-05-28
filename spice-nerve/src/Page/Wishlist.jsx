@@ -114,61 +114,54 @@ const Wishlist = () => {
   const handleCartData = (size, data) => {
     handleData(size, data, cart, addCartRequest, "Cart");
   };
-
+console.log(wishlist);
   return (
-    <>
-      <Box minH={"70vh"} pos={"relative"}>
-        <Text mt={4} as={"h4"} color={"red"} fontWeight="bold" fontSize={"lg"}>
-          Your Wishlist
-        </Text>
-        <Grid
-          borderBottomWidth={"1px"}
-          templateColumns={{
-            base: "repeat(2,1fr)",
-            md: "repeat(2,1fr)",
-            lg: "repeat(3,1fr)",
-            xl: "repeat(4,1fr)",
-          }}
-          p={{ base: "5px", md: "1.5rem" }}
-          minHeight={"80vh"}
-          rowGap={{ base: "0.8rem", md: "2rem" }}
-          justifyItems={"center"}
-        >
-          {wishlist.length ? (
-            wishlist.map((item) => (
-              <WishlistCard
-                key={`${item.productID}_${item.size}`}
-                data={item}
-                deleteHandler={deleteHandler}
-                handleCartData={handleCartData}
-              />
-            ))
-          ) : (
-            <Flex
-              width={"full"}
-              flexDir={"column"}
-              pos={"absolute"}
-              paddingTop={"3rem"}
-              color={"gray.500"}
-              justify={"center"}
-              align={"center"}
+    <Box minH="70vh" pos="relative">
+      <Text mt={4} as="h4" color="red" fontWeight="bold" fontSize="lg">
+        Your Wishlist
+      </Text>
+      <Grid
+        borderBottomWidth="1px"
+        templateColumns={{ base: "repeat(2,1fr)", md: "repeat(2,1fr)", lg: "repeat(3,1fr)", xl: "repeat(4,1fr)" }}
+        p={{ base: "5px", md: "1.5rem" }}
+        minHeight="80vh"
+        rowGap={{ base: "0.8rem", md: "2rem" }}
+        justifyItems="center"
+      >
+        {wishlist.length > 0 ? (
+          wishlist.map((item) => (
+            <WishlistCard
+              key={`${item.productID}_${item.size}`}
+              data={item}
+              deleteHandler={deleteHandler}
+              handleCartData={handleCartData}
+            />
+          ))
+        ) : (
+          <Flex
+            width="full"
+            flexDir="column"
+            pos="absolute"
+            paddingTop="3rem"
+            color="gray.500"
+            justify="center"
+            align="center"
+          >
+            <Text fontSize="1.5rem">There are no products in your wishlist</Text>
+            <Button
+              mt="2rem"
+              px="2rem"
+              colorScheme="pink"
+              onClick={() => {
+                navigate("/women");
+              }}
             >
-              <Text fontSize={"1.5rem"}>There are no products in your wishlist</Text>
-              <Button
-                mt={"2rem"}
-                px="2rem"
-                colorScheme="pink"
-                onClick={() => {
-                  navigate("/women");
-                }}
-              >
-                Browse Products
-              </Button>
-            </Flex>
-          )}
-        </Grid>
-      </Box>
-    </>
+              Browse Products
+            </Button>
+          </Flex>
+        )}
+      </Grid>
+    </Box>
   );
 };
 

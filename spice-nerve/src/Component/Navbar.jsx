@@ -154,7 +154,7 @@ export const Navbar = () => {
 								color={"blackAlpha.600"}
 							>
 								Wishlist{" "}
-								{userID && (
+								{userID && wishlist &&(
 									<Flex
 										justify={"center"}
 										align="center"

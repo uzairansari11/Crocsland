@@ -77,7 +77,7 @@ export const Women = () => {
 
   return (
     <Box>
-      {isLoading ? ( // Render loading spinner if loading
+      {isLoading ? ( 
       <Loading />
       ) : (
         <>

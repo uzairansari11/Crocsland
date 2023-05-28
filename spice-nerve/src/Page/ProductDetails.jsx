@@ -24,8 +24,8 @@ import {
 	getWishlistRequest,
 } from "../Redux/Cart/api";
 import { Tooltip } from "@chakra-ui/react";
-import { addWishlistRequest } from "../Redux/Cart/api";
 import { Loading } from "../Component/Loading";
+import { addWishlistRequest } from "../Redux/Cart/api";
 
 export default function ProductDetails() {
 	const param = useParams();
@@ -119,13 +119,13 @@ export default function ProductDetails() {
 	};
 
 	const handleWishlistData = (size, data) => {
-		const alreadyAddedToCart = cart.some(
-			(product) => product.productID === data.id && product.size === size,
+		const alreadyAddedToCart = cart.filter(
+			(product) => product.productID === data.id && product.size === size
 		);
-
+	
 		if (alreadyAddedToCart) {
 			toast({
-				title: "Existing Cart Product Can't Add To Wishlist",
+				title: "Existing Cart Product Can't Be Added To Wishlist",
 				variant: "subtle",
 				status: "error",
 				position: "top",
@@ -134,9 +134,10 @@ export default function ProductDetails() {
 			});
 			return;
 		}
-
+	
 		handleData(size, data, wishlist, addWishlistRequest, "Wishlist");
 	};
+	
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

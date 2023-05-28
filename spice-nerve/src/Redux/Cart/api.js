@@ -108,7 +108,7 @@ export const updateWishlistApi = (id, newWishlist) => async (dispatch) => {
 	const url = `/${id}`;
 	try {
 		const data = await patchRequest(url, { wishlist: newWishlist });
-		dispatch(addCartData(data.wishlist));
+		dispatch(addWishlistData(data.wishlist));
 	} catch (error) {
 		// Handle error
 	}

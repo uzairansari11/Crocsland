@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddToCartCard } from "../Component/AddToCartCard";
@@ -21,8 +20,8 @@ import PaymentForm from "./PaymentForm";
 
 export const Cart = () => {
 	const dispatch = useDispatch();
-	const { name,isAuth, userID } = useSelector((store) => store.authReducer);
-	const { cart, wishlist } = useSelector((store) => store.cartReducer);
+	const {  userID } = useSelector((store) => store.authReducer);
+	const { cart,  } = useSelector((store) => store.cartReducer);
 	const toast = useToast();
 	const navigate = useNavigate();
 	const [totalAmount, setTotalAmount] = useState(0);
@@ -56,7 +55,7 @@ export const Cart = () => {
 		if (userID) {
 			dispatch(getCartRequest(userID));
 		}
-	}, [userID]);
+	}, [userID,dispatch]);
 
 	useEffect(() => {
 		calculateTotalAmount();
@@ -88,7 +87,6 @@ export const Cart = () => {
 		<Stack
 			direction={{ base: "column", md: "row" }}
 			justifyContent="center"
-			// backgroundImage={`url(${banner1})`}
 			backgroundSize="cover"
 			backgroundPosition="center"
 			backgroundRepeat="no-repeat"
