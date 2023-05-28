@@ -4,7 +4,6 @@ import { Link as ReactLink } from "react-router-dom";
 
 export const WishlistCard = (props) => {
 	const data = props.data;
-	console.log(data)
 	const deleteHandler = props.deleteHandler;
 	const handleCartData = props.handleCartData;
 	const { image, title, size, offerPrice, quantity, originalPrice, productID } =
