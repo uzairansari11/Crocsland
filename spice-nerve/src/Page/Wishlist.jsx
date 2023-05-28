@@ -110,6 +110,7 @@ const Wishlist = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (userID) {
       dispatch(getCartRequest(userID));
       dispatch(getWishlistRequest(userID));

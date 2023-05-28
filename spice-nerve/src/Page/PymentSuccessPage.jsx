@@ -14,6 +14,7 @@ const PaymentSuccessPage = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const redirectTimer = setTimeout(() => {
             toast({
                 title: "Redirecting to the home page...",
