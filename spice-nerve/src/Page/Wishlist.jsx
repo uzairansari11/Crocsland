@@ -18,13 +18,7 @@ const Wishlist = () => {
   const { isAuth, userID } = useSelector((store) => store.authReducer);
   const { wishlist, cart } = useSelector((store) => store.cartReducer);
 
-  useEffect(() => {
-    if (userID) {
-      dispatch(getCartRequest(userID));
-      dispatch(getWishlistRequest(userID));
-    }
-  }, [userID, dispatch]);
-
+ 
   const deleteHandler = (productID, size) => {
     const newWishlist = wishlist.filter(
       (product) => product.productID !== productID || product.size !== size
@@ -114,7 +108,16 @@ const Wishlist = () => {
   const handleCartData = (size, data) => {
     handleData(size, data, cart, addCartRequest, "Cart");
   };
-console.log(wishlist);
+
+  useEffect(() => {
+    if (userID) {
+      dispatch(getCartRequest(userID));
+      dispatch(getWishlistRequest(userID));
+    }
+  }, [userID, dispatch]);
+
+
+console.log(wishlist,cart);
   return (
     <Box minH="70vh" pos="relative">
       <Text mt={4} as="h4" color="red" fontWeight="bold" fontSize="lg">

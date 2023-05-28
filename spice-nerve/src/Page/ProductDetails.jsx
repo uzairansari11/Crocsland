@@ -122,8 +122,7 @@ export default function ProductDetails() {
 		const alreadyAddedToCart = cart.filter(
 			(product) => product.productID === data.id && product.size === size
 		);
-	
-		if (alreadyAddedToCart) {
+		if (alreadyAddedToCart.length>0) {
 			toast({
 				title: "Existing Cart Product Can't Be Added To Wishlist",
 				variant: "subtle",

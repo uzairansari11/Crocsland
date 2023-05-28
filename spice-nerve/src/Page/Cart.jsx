@@ -70,19 +70,7 @@ export const Cart = () => {
 	}, [cart]);
 
 
-	const handlePaymentSuccess = () => {
-		dispatch(deleteCartApi(userID, []));
-		toast({
-			title: "Payment Successful",
-			description: "Thank you for your purchase!",
-			variant: "subtle",
-			status: "success",
-			position: "top",
-			duration: 3000,
-			isClosable: true,
-		});
-		navigate("/success");
-	};
+	
 
 	return (
 		<Stack
