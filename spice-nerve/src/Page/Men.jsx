@@ -38,14 +38,14 @@ export const Men = () => {
       window.scrollTo(0, 0);
       const filterParams = {
         params: {
-          _limit: 6,
           _page: currentPage,
           subCategory: searchParams.getAll("filter"),
           category: "men",
           _sort: "offerPrice",
           _order: searchParams.get("_order"),
           discount_gte: searchParams.get("discount_gte"),
-          rating_gte: searchParams.get("rating_gte")
+          rating_gte: searchParams.get("rating_gte"),
+          _limit:6
         },
       };
 

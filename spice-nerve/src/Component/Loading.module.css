@@ -1,26 +1,25 @@
 .loading-dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 4px;
-    border-radius: 50%;
-    background-color: #ff0080;
-    /* Update with your desired color */
-    animation: loadingAnimation 1.5s infinite;
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: #ff0080; /* Update with your desired color */
+  animation: loadingAnimation 1.5s infinite;
 }
 
 @keyframes loadingAnimation {
-    0% {
-        opacity: 0.2;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
 
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 
-    100% {
-        opacity: 0.2;
-        transform: scale(1);
-    }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
 }
