@@ -18,7 +18,6 @@ const Wishlist = () => {
   const { isAuth, userID } = useSelector((store) => store.authReducer);
   const { wishlist, cart } = useSelector((store) => store.cartReducer);
 
- 
   const deleteHandler = (productID, size) => {
     const newWishlist = wishlist.filter(
       (product) => product.productID !== productID || product.size !== size
@@ -35,7 +34,13 @@ const Wishlist = () => {
     });
   };
 
-  const handleData = (size, data, collection, addCollectionRequest, successMessage) => {
+  const handleData = (
+    size,
+    data,
+    collection,
+    addCollectionRequest,
+    successMessage
+  ) => {
     if (!isAuth) {
       toast({
         title: "Please Login",
@@ -115,7 +120,7 @@ const Wishlist = () => {
       dispatch(getCartRequest(userID));
       dispatch(getWishlistRequest(userID));
     }
-  }, [userID, dispatch]);
+  }, [userID, dispatch, isAuth]);
 
   return (
     <Box minH="70vh" pos="relative">
@@ -124,13 +129,18 @@ const Wishlist = () => {
       </Text>
       <Grid
         borderBottomWidth="1px"
-        templateColumns={{ base: "repeat(2,1fr)", md: "repeat(2,1fr)", lg: "repeat(3,1fr)", xl: "repeat(4,1fr)" }}
+        templateColumns={{
+          base: "repeat(2,1fr)",
+          md: "repeat(2,1fr)",
+          lg: "repeat(3,1fr)",
+          xl: "repeat(4,1fr)",
+        }}
         p={{ base: "5px", md: "1.5rem" }}
         minHeight="80vh"
         rowGap={{ base: "0.8rem", md: "2rem" }}
         justifyItems="center"
       >
-        {wishlist.length > 0 ? (
+        {wishlist.length > 0 && isAuth === true ? (
           wishlist.map((item) => (
             <WishlistCard
               key={`${item.productID}_${item.size}`}
@@ -149,7 +159,9 @@ const Wishlist = () => {
             justify="center"
             align="center"
           >
-            <Text fontSize="1.5rem">There are no products in your wishlist</Text>
+            <Text fontSize="1.5rem">
+              There are no products in your wishlist
+            </Text>
             <Button
               mt="2rem"
               px="2rem"
